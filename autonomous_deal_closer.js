@@ -49,7 +49,7 @@ function getAutoCloserStatus() {
     status: "ARMED & AUTONOMOUS",
     zeroHumanBottleneck: true,
     checkoutUrl: CLIENT_CHECKOUT_URL,
-    payoutDestination: "0x2582056084f361d8E8A3b8864b9599071878FfD2 (Trust Wallet USDC)",
+    payoutDestination: "0x2582056084f361d8E8A3b8864b9566071878FfD2 (Trust Wallet USDC)",
     activeConcierge: TELEGRAM_BOT
   };
 }

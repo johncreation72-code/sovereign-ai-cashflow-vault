@@ -5,7 +5,7 @@
  * Deploys 2 New Monthly Cashflow Engines:
  * 1. "The Daily Executive Focus & Dopamine Protocol" ($4.99 / Month)
  * 2. "The Weekly AI Prompt & Automation Drop" ($9.99 / Month)
- * Payout: 0x2582056084f361d8E8A3b8864b9599071878FfD2 (Trust Wallet USDC)
+ * Payout: 0x2582056084f361d8E8A3b8864b9566071878FfD2 (Trust Wallet USDC)
  * ==============================================================================
  */
 

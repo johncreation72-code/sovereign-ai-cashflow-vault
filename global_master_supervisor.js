@@ -97,7 +97,7 @@ const server = http.createServer((req, res) => {
       totalConfiguredServices: MANAGED_SERVICES.length,
       services: processStats,
       edgePortals: "https://sovereign-empire-os-ub2.vercel.app/index.html",
-      settlementAddress: "0x2582056084f361d8E8A3b8864b9599071878FfD2"
+      settlementAddress: "0x2582056084f361d8E8A3b8864b9566071878FfD2"
     };
 
     res.writeHead(200, { "Content-Type": "application/json" });

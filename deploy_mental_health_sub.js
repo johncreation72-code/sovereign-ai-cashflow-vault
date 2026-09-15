@@ -5,7 +5,7 @@
  * Product: "The Mind & Body Clarity Monthly Protocol" ($2.99 / Month Recurring)
  * Focus: Cognitive wellness, anxiety grounding, body dysmorphia reframing,
  *        crisis resource directories, daily mental health audio & booklets.
- * Payout: 0x2582056084f361d8E8A3b8864b9599071878FfD2 (Trust Wallet USDC)
+ * Payout: 0x2582056084f361d8E8A3b8864b9566071878FfD2 (Trust Wallet USDC)
  * ==============================================================================
  */
 

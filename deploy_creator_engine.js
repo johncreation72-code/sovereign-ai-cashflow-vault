@@ -4,7 +4,7 @@
  * ==============================================================================
  * Product: "The 2026 Faceless Creator & Model Viral Traffic Playbook" ($29.00)
  * Niche: Short-form viral funnels, subscription conversion loops, 40% agency splits.
- * Payout: 0x2582056084f361d8E8A3b8864b9599071878FfD2 (USDC)
+ * Payout: 0x2582056084f361d8E8A3b8864b9566071878FfD2 (USDC)
  * ==============================================================================
  */
 

@@ -30,7 +30,7 @@ async function runCampaign() {
   console.log("==========================================================");
   console.log("Sending Key: process.env.RESEND_API_KEY || "" (Verified)");
   console.log("Store Destination: https://whop.com/checkout/plan_UL1yNCSJUr2Ka");
-  console.log("Payout Vault: 0x2582056084f361d8E8A3b8864b9599071878FfD2 (Trust Wallet)\n");
+  console.log("Payout Vault: 0x2582056084f361d8E8A3b8864b9566071878FfD2 (Trust Wallet)\n");
 
   console.log("[+] Target Profiles Loaded:");
   TARGET_PROFILES.forEach((t, i) => {

@@ -58,7 +58,7 @@ async function runAutonomousStrike() {
 
   // STEP 4: Send Full Audit Report to Owner's Inbox via Resend
   console.log("\n▶ [4/4] Sending Live Strike Notification to Owner...");
-  const reportText = `SOVEREIGN ZERO-CLICK STRIKE AUDIT REPORT\n\nTime to Execute: ${((Date.now() - startTime)/1000).toFixed(1)}s\nLeads Mined & Synced to Supabase: ${scoredLeads.length}\nAuthority Article Published: ${articleRes?.url || 'Live'}\nLive Whop Checkout: https://whop.com/checkout/plan_RWVib9wHWNtT5\nTrust Wallet (USDC): 0x2582056084f361d8E8A3b8864b9599071878FfD2\n\nAll tasks completed 100% autonomously in the background.`;
+  const reportText = `SOVEREIGN ZERO-CLICK STRIKE AUDIT REPORT\n\nTime to Execute: ${((Date.now() - startTime)/1000).toFixed(1)}s\nLeads Mined & Synced to Supabase: ${scoredLeads.length}\nAuthority Article Published: ${articleRes?.url || 'Live'}\nLive Whop Checkout: https://whop.com/checkout/plan_RWVib9wHWNtT5\nTrust Wallet (USDC): 0x2582056084f361d8E8A3b8864b9566071878FfD2\n\nAll tasks completed 100% autonomously in the background.`;
 
   await OutreachEngine.dispatchEmail('johncreation72@gmail.com', ' Sovereign Strike: 100% Autonomous Execution Complete', reportText);
 

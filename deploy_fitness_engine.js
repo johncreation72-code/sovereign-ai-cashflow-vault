@@ -4,7 +4,7 @@
  * ==============================================================================
  * Product: "The 30-Day Metabolic Reset & Rapid Fat-Loss Architecture" ($27.00)
  * Niche: Caloric deficit calculators, circadian fasting, workout splits, meal frameworks.
- * Payout: 0x2582056084f361d8E8A3b8864b9599071878FfD2 (USDC)
+ * Payout: 0x2582056084f361d8E8A3b8864b9566071878FfD2 (USDC)
  * ==============================================================================
  */
 

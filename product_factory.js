@@ -142,7 +142,7 @@ async function runFactory(count = 3) {
   console.log(" SOVEREIGN AUTONOMOUS PRODUCT FACTORY // CATALOG ENGINE");
   console.log("==========================================================");
   console.log(`Requested Batch Size: ${count} Products`);
-  console.log(`Payout Vault: 0x2582056084f361d8E8A3b8864b9599071878FfD2 (Trust Wallet)\n`);
+  console.log(`Payout Vault: 0x2582056084f361d8E8A3b8864b9566071878FfD2 (Trust Wallet)\n`);
 
   const results = [];
   for (let i = 0; i < Math.min(count, CATALOG_BLUEPRINTS.length); i++) {

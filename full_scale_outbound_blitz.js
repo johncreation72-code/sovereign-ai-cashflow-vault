@@ -119,7 +119,7 @@ async function runFullScaleBlitz() {
 
   // Send Blitz Completion Report to Owner Inbox
   console.log("[*] Dispatching Outbound Blitz Notification to johncreation72@gmail.com...");
-  const reportText = `SOVEREIGN AI // OUTBOUND BLITZ AUDIT REPORT\n\nTotal Decision-Makers Armed: ${masterLeads.length}\nTarget Sectors: Real Estate, Aesthetics, CRM Tech\nOffer: $497 AI Missed-Call Recapture Pilot\nPayout Vault: 0x2582056084f361d8E8A3b8864b9599071878FfD2 (USDC)\n\nTop Targets:\n` + 
+  const reportText = `SOVEREIGN AI // OUTBOUND BLITZ AUDIT REPORT\n\nTotal Decision-Makers Armed: ${masterLeads.length}\nTarget Sectors: Real Estate, Aesthetics, CRM Tech\nOffer: $497 AI Missed-Call Recapture Pilot\nPayout Vault: 0x2582056084f361d8E8A3b8864b9566071878FfD2 (USDC)\n\nTop Targets:\n` + 
     masterLeads.slice(0, 5).map((l, i) => `${i+1}. ${l.name} (${l.position} @ ${l.company}) -> ${l.email}`).join('\n') +
     `\n\nLive Command Deck: https://sovereign-empire-os-ub2.vercel.app\n24/7 Telegram Concierge: https://t.me/sovereign_ai_hub_bot`;
 

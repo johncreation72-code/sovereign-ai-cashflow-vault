@@ -5,7 +5,7 @@
  * Deploys 2 Massive High-Yield Sectors:
  * 1. "The 2026 AI Real Estate Agent Lead Machine" ($47.00)
  * 2. "The Decentralized Crypto Yield & Passive Staking Vault" ($35.00)
- * Payout: 0x2582056084f361d8E8A3b8864b9599071878FfD2 (Trust Wallet USDC)
+ * Payout: 0x2582056084f361d8E8A3b8864b9566071878FfD2 (Trust Wallet USDC)
  * ==============================================================================
  */
 

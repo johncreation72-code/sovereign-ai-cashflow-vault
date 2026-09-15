@@ -105,7 +105,7 @@ async function runLiveStrike() {
   console.log("================================================================================");
   console.log("Direct Demo Link: https://sovereign-empire-os-ub2.vercel.app");
   console.log("Telegram Bot: https://t.me/sovereign_ai_hub_bot");
-  console.log("Trust Wallet: 0x2582056084f361d8E8A3b8864b9599071878FfD2 (USDC)");
+  console.log("Trust Wallet: 0x2582056084f361d8E8A3b8864b9566071878FfD2 (USDC)");
   console.log("================================================================================\n");
 }
 
