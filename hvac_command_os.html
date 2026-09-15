@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HVACCommand OS - Autonomous Heating, Plumbing & Gas Operations</title>
+  <meta name="description" content="Autonomous operations platform for HVAC, plumbing, and heating contractors. Emergency dispatch fee calculation, Gas Safety CP12 renewals, and 60-second boiler quotes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="global_jurisdiction_engine.js"></script>
+  <script src="bespoke_portal_engine.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">HVAC<span>COMMAND OS</span></span>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">All Portals</a>
+      <a href="#simulator" class="nav-pill active">Boiler & Emergency Calculator</a>
+      <a href="#pricing" class="nav-pill">Enterprise Tiers</a>
+    </div>
+    <div class="header-badge">STATUS: VERIFIED PRODUCTION</div>
+  </header>
+
+  <div id="bespoke-portal-banner"></div>
+
+  <div class="container" style="max-width:1100px; margin:40px auto; padding:0 20px;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="display:inline-block; background:#EFF6FF; color:#2563EB; font-weight:700; font-size:12px; padding:6px 14px; border-radius:20px; text-transform:uppercase; margin-bottom:12px;">Plumbing, Heating & Gas Engineers</div>
+      <h1 style="font-size:36px; font-weight:800; color:#0F172A; line-height:1.2;">60-Second Emergency Dispatch & Annual CP12 Recapture</h1>
+      <p style="font-size:16px; color:#64748B; max-width:700px; margin:12px auto 0;">Eliminate phone tag on burst pipes, automate Gas Safety CP12 renewals for landlords, and generate instant fixed-price boiler replacement quotes in 60 seconds.</p>
+    </div>
+
+    <!-- Interactive Simulator -->
+    <section id="simulator" style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:16px; padding:36px; margin-bottom:40px; box-shadow:0 4px 20px rgba(0,0,0,0.04);">
+      <h2 style="font-size:22px; font-weight:800; color:#0F172A; margin-bottom:20px;">Interactive HVAC & Plumbing Quotation Engine</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div>
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Job Type</label>
+          <select id="hvacJobType" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px; margin-bottom:16px;" onchange="calculateHvacQuote()">
+            <option value="combi_boiler">Combi Boiler Replacement (Standard)</option>
+            <option value="system_boiler">System to Combi Conversion (High-Efficiency)</option>
+            <option value="emergency_leak">Emergency Out-of-Hours Water Leak Repair</option>
+            <option value="landlord_cp12">Landlord CP12 Gas Safety Certificate + Boiler Service</option>
+            <option value="heat_pump">Air Source Heat Pump (ASHP) Installation</option>
+          </select>
+
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Property Bedrooms / Bathrooms</label>
+          <select id="hvacPropertySize" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px; margin-bottom:16px;" onchange="calculateHvacQuote()">
+            <option value="1_2">1 - 2 Bed (1 Bathroom)</option>
+            <option value="3_4" selected>3 - 4 Bed (2 Bathrooms)</option>
+            <option value="5_plus">5+ Bed (3+ Bathrooms / High Flow)</option>
+          </select>
+
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Warranty Level</label>
+          <select id="hvacWarranty" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px;" onchange="calculateHvacQuote()">
+            <option value="5">5-Year Manufacturer Warranty</option>
+            <option value="10" selected>10-Year Extended Gold Warranty (+Chemical Flush)</option>
+            <option value="12">12-Year Platinum Warranty (+Magnetic Filter + Smart Thermostat)</option>
+          </select>
+        </div>
+
+        <div style="background:#0F172A; color:#FFFFFF; border-radius:12px; padding:24px;">
+          <div style="font-size:13px; color:#94A3B8; text-transform:uppercase; font-weight:700;">Instant Customer Bid Breakdown</div>
+          <div style="font-size:32px; font-weight:800; color:#38BDF8; margin:10px 0;" id="hvacTotalQuote">GBP 2,850.00</div>
+          <div style="font-size:13px; color:#CBD5E1; line-height:1.6;" id="hvacQuoteBreakdown">
+            - Boiler Hardware & Flue Kit: £1,650.00<br>
+            - Certified Gas Safe Labor (2 Days): £800.00<br>
+            - System Powerflush & Magnetic Filter: £400.00<br>
+            - Estimated Customer Savings vs British Gas: £950.00
+          </div>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#2563EB; color:white; padding:12px; border-radius:8px; font-weight:700; margin-top:20px; text-decoration:none;">Deploy HVACCommand OS (£97/mo)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Matrix -->
+    <section id="pricing" style="margin-bottom:60px;">
+      <h2 style="text-align:center; font-size:26px; font-weight:800; color:#0F172A; margin-bottom:30px;">Choose Your Enterprise Deployment</h2>
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
+        <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:24px;">
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Bronze Solo</h3>
+          <div style="font-size:28px; font-weight:800; color:#0F172A; margin:10px 0;">£49<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For independent Gas Safe / HVAC sole operators.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>60-Second Mobile Quote Generator</li>
+            <li>Landlord CP12 SMS Renewal Chaser</li>
+            <li>Standard PDF Proposal Builder</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#0F172A; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Bronze</a>
+        </div>
+
+        <div style="background:#FFFFFF; border:2px solid #2563EB; border-radius:12px; padding:24px; position:relative;">
+          <div style="position:absolute; top:-12px; right:20px; background:#2563EB; color:white; font-size:11px; font-weight:800; padding:3px 10px; border-radius:10px;">MOST POPULAR</div>
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Silver Fleet</h3>
+          <div style="font-size:28px; font-weight:800; color:#2563EB; margin:10px 0;">£97<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For 2 - 5 van heating & plumbing operations.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>All Bronze Features Included</li>
+            <li>24/7 Out-of-Hours Emergency Dispatch AI</li>
+            <li>Engineer Van Stock & Parts Reordering</li>
+            <li>Direct WhatsApp Booking Bridge</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#2563EB; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Silver Fleet</a>
+        </div>
+
+        <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:24px;">
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Gold Enterprise</h3>
+          <div style="font-size:28px; font-weight:800; color:#0F172A; margin:10px 0;">£297<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For commercial HVAC & multi-van fleets.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>All Silver Features Included</li>
+            <li>Commercial SLA Maintenance Contracts</li>
+            <li>Multi-Van Live GPS Job Dispatch</li>
+            <li>Dedicated WhatsApp Integration Manager</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#0F172A; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Gold Enterprise</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function calculateHvacQuote() {
+      const type = document.getElementById("hvacJobType").value;
+      const size = document.getElementById("hvacPropertySize").value;
+      const warranty = parseInt(document.getElementById("hvacWarranty").value);
+
+      let basePrice = 2400;
+      let breakdown = "";
+
+      if (type === "combi_boiler") {
+        basePrice = size === "1_2" ? 2200 : (size === "3_4" ? 2850 : 3600);
+        breakdown = "- Certified A-Rated Combi Boiler Unit\n- Standard Horizontal Flue Kit & Pipework\n- Chemical Powerflush & Scale Reducer\n- Gas Safe Building Regulations Notification";
+      } else if (type === "system_boiler") {
+        basePrice = size === "1_2" ? 3100 : (size === "3_4" ? 3850 : 4700);
+        breakdown = "- Removal of Header Tanks & Cylinder\n- High-Flow Combi Conversion Hardware\n- Upgraded 22mm Gas Supply Line\n- Full System MagnaClean Filter Installation";
+      } else if (type === "emergency_leak") {
+        basePrice = 320;
+        breakdown = "- Emergency Priority Callout Dispatch (Within 90 Mins)\n- Up to 2 Hours Master Plumbing Diagnostic & Repair\n- Pressure Testing & Isolation Certificate";
+      } else if (type === "landlord_cp12") {
+        basePrice = 145;
+        breakdown = "- Landlord Gas Safety Record (CP12 Certificate)\n- Full Boiler Service & Flue Gas Analysis\n- Digital PDF Delivered to Landlord & Tenant in 5 Minutes";
+      } else if (type === "heat_pump") {
+        basePrice = 8500;
+        breakdown = "- A++ Air Source Heat Pump (ASHP) Outdoor Unit\n- Pre-Plumbed Hot Water Cylinder\n- Heat Loss Calculations & MCS Certification\n- BUS Government Grant Application Assistance";
+      }
+
+      if (warranty === 10) basePrice += 150;
+      if (warranty === 12) basePrice += 320;
+
+      document.getElementById("hvacTotalQuote").innerText = "GBP " + basePrice.toLocaleString("en-GB", { minimumFractionDigits: 2 });
+      document.getElementById("hvacQuoteBreakdown").innerHTML = breakdown.replace(/\n/g, "<br>");
+    }
+  </script>
+</body>
+</html>

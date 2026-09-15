@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SolarCommand OS - Autonomous Solar PV & Battery Storage Operations</title>
+  <meta name="description" content="Autonomous operations and 60-second proposal engine for solar PV, battery storage, and EV charger installers. Instant ROI calculators and MCS compliance generation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="global_jurisdiction_engine.js"></script>
+  <script src="bespoke_portal_engine.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">SOLAR<span>COMMAND OS</span></span>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">All Portals</a>
+      <a href="#simulator" class="nav-pill active">Yield & ROI Proposal Sizer</a>
+      <a href="#pricing" class="nav-pill">Enterprise Tiers</a>
+    </div>
+    <div class="header-badge">STATUS: VERIFIED PRODUCTION</div>
+  </header>
+
+  <div id="bespoke-portal-banner"></div>
+
+  <div class="container" style="max-width:1100px; margin:40px auto; padding:0 20px;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="display:inline-block; background:#EFF6FF; color:#2563EB; font-weight:700; font-size:12px; padding:6px 14px; border-radius:20px; text-transform:uppercase; margin-bottom:12px;">Renewable Energy & Solar Installers</div>
+      <h1 style="font-size:36px; font-weight:800; color:#0F172A; line-height:1.2;">60-Second Solar PV & Battery ROI Proposal Generator</h1>
+      <p style="font-size:16px; color:#64748B; max-width:700px; margin:12px auto 0;">Close £7k–£15k residential & commercial solar proposals in 60 seconds with calculated annual kWh generation, battery payback curves, and Smart Export Guarantee (SEG) cashflow forecasts.</p>
+    </div>
+
+    <!-- Interactive Simulator -->
+    <section id="simulator" style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:16px; padding:36px; margin-bottom:40px; box-shadow:0 4px 20px rgba(0,0,0,0.04);">
+      <h2 style="font-size:22px; font-weight:800; color:#0F172A; margin-bottom:20px;">Interactive Solar Array & Storage Sizer</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div>
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Solar System Size (Panels / kWp)</label>
+          <select id="solarSystemSize" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px; margin-bottom:16px;" onchange="calculateSolarQuote()">
+            <option value="4kw">10 Panels (4.3 kWp Residential)</option>
+            <option value="6kw" selected>14 Panels (6.0 kWp High Output)</option>
+            <option value="8kw">18 Panels (7.7 kWp Large Property)</option>
+            <option value="20kw">48 Panels (20.5 kWp Commercial Rooftop)</option>
+          </select>
+
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Battery Storage Capacity</label>
+          <select id="solarBatterySize" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px; margin-bottom:16px;" onchange="calculateSolarQuote()">
+            <option value="none">No Battery Storage (Grid Export Only)</option>
+            <option value="5kwh" selected>5.2 kWh GivEnergy / Tesla Powerwall</option>
+            <option value="10kwh">10.4 kWh Dual Modular Battery Bank</option>
+            <option value="20kwh">20.0 kWh Commercial High-Voltage Storage</option>
+          </select>
+
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Roof Pitch & Orientation</label>
+          <select id="solarOrientation" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px;" onchange="calculateSolarQuote()">
+            <option value="south" selected>Direct South (100% Efficiency Factor)</option>
+            <option value="east_west">East / West Split (88% Efficiency Factor)</option>
+            <option value="flat">Commercial Flat Roof (Ballasted A-Frames)</option>
+          </select>
+        </div>
+
+        <div style="background:#0F172A; color:#FFFFFF; border-radius:12px; padding:24px;">
+          <div style="font-size:13px; color:#94A3B8; text-transform:uppercase; font-weight:700;">Customer Turnkey Proposal & Payback</div>
+          <div style="font-size:32px; font-weight:800; color:#38BDF8; margin:10px 0;" id="solarTotalQuote">GBP 9,450.00</div>
+          <div style="font-size:13px; color:#CBD5E1; line-height:1.6;" id="solarQuoteBreakdown">
+            - Tier 1 All-Black N-Type Panels: £4,200.00<br>
+            - Hybrid Inverter & 5.2 kWh Battery: £3,450.00<br>
+            - Scaffolding, Electrical & MCS Signoff: £1,800.00<br>
+            - Estimated Annual Energy Savings: £1,380.00/yr (6.8 yr ROI)
+          </div>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#2563EB; color:white; padding:12px; border-radius:8px; font-weight:700; margin-top:20px; text-decoration:none;">Deploy SolarCommand OS (£97/mo)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Matrix -->
+    <section id="pricing" style="margin-bottom:60px;">
+      <h2 style="text-align:center; font-size:26px; font-weight:800; color:#0F172A; margin-bottom:30px;">Installer Enterprise Tiers</h2>
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
+        <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:24px;">
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Bronze Solo</h3>
+          <div style="font-size:28px; font-weight:800; color:#0F172A; margin:10px 0;">£49<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For independent renewable electrical contractors.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>60-Second Solar & Battery Proposal PDF</li>
+            <li>Annual Generation & ROI Calculator</li>
+            <li>DNO G98 / G99 Application Templates</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#0F172A; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Bronze</a>
+        </div>
+
+        <div style="background:#FFFFFF; border:2px solid #2563EB; border-radius:12px; padding:24px; position:relative;">
+          <div style="position:absolute; top:-12px; right:20px; background:#2563EB; color:white; font-size:11px; font-weight:800; padding:3px 10px; border-radius:10px;">MOST POPULAR</div>
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Silver Growth</h3>
+          <div style="font-size:28px; font-weight:800; color:#2563EB; margin:10px 0;">£97<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For solar installation companies with 2 - 4 teams.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>All Bronze Features Included</li>
+            <li>Automated Customer Deposit & Finance Closer</li>
+            <li>Scaffold & Roofing Subcontractor Schedulers</li>
+            <li>Direct WhatsApp Booking & Survey Bridge</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#2563EB; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Silver Growth</a>
+        </div>
+
+        <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:24px;">
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Gold Commercial</h3>
+          <div style="font-size:28px; font-weight:800; color:#0F172A; margin:10px 0;">£297<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For commercial solar & EPC development firms.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>All Silver Features Included</li>
+            <li>50kW–1MW Commercial PPA Financial Models</li>
+            <li>Multi-Site Project Management Dashboards</li>
+            <li>Custom Integration with Wholesale Distributor APIs</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#0F172A; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Gold Commercial</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function calculateSolarQuote() {
+      const size = document.getElementById("solarSystemSize").value;
+      const battery = document.getElementById("solarBatterySize").value;
+
+      let basePanels = 4500;
+      let kwhGenerated = 4100;
+      let savings = 980;
+
+      if (size === "4kw") { basePanels = 4200; kwhGenerated = 3800; savings = 890; }
+      else if (size === "6kw") { basePanels = 5600; kwhGenerated = 5400; savings = 1260; }
+      else if (size === "8kw") { basePanels = 7200; kwhGenerated = 7100; savings = 1680; }
+      else if (size === "20kw") { basePanels = 16500; kwhGenerated = 18500; savings = 4400; }
+
+      let batteryCost = 0;
+      if (battery === "5kwh") { batteryCost = 3850; savings += 420; }
+      else if (battery === "10kwh") { batteryCost = 6200; savings += 750; }
+      else if (battery === "20kwh") { batteryCost = 11500; savings += 1400; }
+
+      let total = basePanels + batteryCost;
+      let roiYears = (total / savings).toFixed(1);
+
+      document.getElementById("solarTotalQuote").innerText = "GBP " + total.toLocaleString("en-GB", { minimumFractionDigits: 2 });
+      document.getElementById("solarQuoteBreakdown").innerHTML = 
+        "- Solar PV Array (" + size.toUpperCase() + "): £" + basePanels.toLocaleString("en-GB", { minimumFractionDigits: 2 }) + "<br>" +
+        "- Battery Storage (" + battery.toUpperCase() + "): £" + batteryCost.toLocaleString("en-GB", { minimumFractionDigits: 2 }) + "<br>" +
+        "- Estimated Generation: " + kwhGenerated.toLocaleString("en-GB") + " kWh / year<br>" +
+        "- Annual Electricity Bill Reduction: £" + savings.toLocaleString("en-GB") + "/yr (" + roiYears + " Yr Payback)";
+    }
+  </script>
+</body>
+</html>

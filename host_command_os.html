@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HostCommand OS - Autonomous Short-Term Rental & Airbnb Management</title>
+  <meta name="description" content="Autonomous operations platform for short-term rental operators and property managers. 24/7 guest AI concierge, automated damage deposit pre-authorizations, and turnaround cleaning dispatch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="global_jurisdiction_engine.js"></script>
+  <script src="bespoke_portal_engine.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">HOST<span>COMMAND OS</span></span>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">All Portals</a>
+      <a href="#simulator" class="nav-pill active">Yield & Turnaround Sizer</a>
+      <a href="#pricing" class="nav-pill">Enterprise Tiers</a>
+    </div>
+    <div class="header-badge">STATUS: VERIFIED PRODUCTION</div>
+  </header>
+
+  <div id="bespoke-portal-banner"></div>
+
+  <div class="container" style="max-width:1100px; margin:40px auto; padding:0 20px;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="display:inline-block; background:#EFF6FF; color:#2563EB; font-weight:700; font-size:12px; padding:6px 14px; border-radius:20px; text-transform:uppercase; margin-bottom:12px;">Airbnb Hosts & Serviced Accommodation Operators</div>
+      <h1 style="font-size:36px; font-weight:800; color:#0F172A; line-height:1.2;">24/7 Guest AI Concierge & Automated Turnaround Dispatch</h1>
+      <p style="font-size:16px; color:#64748B; max-width:700px; margin:12px auto 0;">Eliminate 3:00 AM guest lock-out calls, automate security deposit pre-authorizations, and dispatch same-day cleaning turnovers with zero manual oversight.</p>
+    </div>
+
+    <!-- Interactive Simulator -->
+    <section id="simulator" style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:16px; padding:36px; margin-bottom:40px; box-shadow:0 4px 20px rgba(0,0,0,0.04);">
+      <h2 style="font-size:22px; font-weight:800; color:#0F172A; margin-bottom:20px;">Portfolio Yield & Guest Autopilot Simulator</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div>
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Managed Property Units (Portfolios)</label>
+          <input type="number" id="hostUnitCount" value="8" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px; margin-bottom:16px;" oninput="calculateHostYield()">
+
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Average Nightly Rate (ADR)</label>
+          <input type="number" id="hostAdr" value="165" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px; margin-bottom:16px;" oninput="calculateHostYield()">
+
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Direct Booking vs OTA Target</label>
+          <select id="hostDirectTarget" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px;" onchange="calculateHostYield()">
+            <option value="0.15">15% Direct (Save Airbnb 15% Fees)</option>
+            <option value="0.30" selected>30% Direct (Active Return Guest Funnel)</option>
+            <option value="0.50">50% Direct (Corporate & Contractor Stays)</option>
+          </select>
+        </div>
+
+        <div style="background:#0F172A; color:#FFFFFF; border-radius:12px; padding:24px;">
+          <div style="font-size:13px; color:#94A3B8; text-transform:uppercase; font-weight:700;">Recovered Margin & Management Hours</div>
+          <div style="font-size:32px; font-weight:800; color:#38BDF8; margin:10px 0;" id="hostTotalYield">GBP 1,842.00 / mo</div>
+          <div style="font-size:13px; color:#CBD5E1; line-height:1.6;" id="hostYieldBreakdown">
+            - Direct Booking Fee Savings: +£891.00/mo<br>
+            - Upsell Late Checkout & Parking Revenue: +£951.00/mo<br>
+            - Turnaround Cleaner Check-Ins: 100% Automated<br>
+            - Host Late-Night Messaging Hours Saved: 22.5 hrs / wk
+          </div>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#2563EB; color:white; padding:12px; border-radius:8px; font-weight:700; margin-top:20px; text-decoration:none;">Deploy HostCommand OS (£97/mo)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Matrix -->
+    <section id="pricing" style="margin-bottom:60px;">
+      <h2 style="text-align:center; font-size:26px; font-weight:800; color:#0F172A; margin-bottom:30px;">Host & Operator Deployments</h2>
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
+        <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:24px;">
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Bronze Host</h3>
+          <div style="font-size:28px; font-weight:800; color:#0F172A; margin:10px 0;">£49<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For individual hosts managing 1 - 3 properties.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>Automated Check-In Keycode Messages</li>
+            <li>Damage Deposit Pre-Authorization Form</li>
+            <li>Digital House Manual Web Link</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#0F172A; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Bronze</a>
+        </div>
+
+        <div style="background:#FFFFFF; border:2px solid #2563EB; border-radius:12px; padding:24px; position:relative;">
+          <div style="position:absolute; top:-12px; right:20px; background:#2563EB; color:white; font-size:11px; font-weight:800; padding:3px 10px; border-radius:10px;">MOST POPULAR</div>
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Silver Portfolio</h3>
+          <div style="font-size:28px; font-weight:800; color:#2563EB; margin:10px 0;">£97<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For property managers with 4 - 20 properties.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>All Bronze Features Included</li>
+            <li>24/7 Multi-Lingual AI Guest Concierge</li>
+            <li>Same-Day Cleaner Turnaround Dispatch</li>
+            <li>Direct WhatsApp Booking & Upsell Bridge</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#2563EB; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Silver Portfolio</a>
+        </div>
+
+        <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:24px;">
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Gold Enterprise Co-Host</h3>
+          <div style="font-size:28px; font-weight:800; color:#0F172A; margin:10px 0;">£297<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For serviced apartment companies & large co-hosts.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>All Silver Features Included</li>
+            <li>Property Owner Monthly Accounting Statements</li>
+            <li>Maintenance Contractor Automated Work Orders</li>
+            <li>Dynamic Channel Manager Sync (Airbnb, Booking.com, VRBO)</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#0F172A; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Gold Co-Host</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function calculateHostYield() {
+      const units = parseInt(document.getElementById("hostUnitCount").value) || 5;
+      const adr = parseFloat(document.getElementById("hostAdr").value) || 150;
+      const directPct = parseFloat(document.getElementById("hostDirectTarget").value);
+
+      const monthlyGrossPerUnit = adr * 22; // 73% occupancy
+      const totalGross = monthlyGrossPerUnit * units;
+      const directSavings = totalGross * directPct * 0.15; // 15% OTA fee savings
+      const upsellRevenue = units * 120; // Late checkout & parking
+      const totalMonthlyGain = directSavings + upsellRevenue;
+
+      document.getElementById("hostTotalYield").innerText = "GBP " + totalMonthlyGain.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " / mo";
+      document.getElementById("hostYieldBreakdown").innerHTML = 
+        "- Direct Booking Fee Savings (" + (directPct * 100).toFixed(0) + "% Direct): +£" + directSavings.toFixed(2) + "/mo<br>" +
+        "- Automated Upsells (Late Checkout / Parking): +£" + upsellRevenue.toFixed(2) + "/mo<br>" +
+        "- Cleaner Turnaround SMS Dispatch: 100% Automated<br>" +
+        "- Host Messaging Time Eliminated: " + (units * 3).toFixed(1) + " hrs / week";
+    }
+  </script>
+</body>
+</html>

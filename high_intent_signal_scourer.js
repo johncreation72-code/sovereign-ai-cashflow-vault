@@ -14,6 +14,56 @@ const OUTPUT_FILE = path.join(WORKDIR, "live_in_market_opportunities.json");
 // High-Intent Signal Patterns across Trade & Professional Communities
 const SIGNAL_PATTERNS = [
   {
+    source: "HVAC & Plumbing Trade / r/Plumbing",
+    query: "Need software for fast boiler quotes and annual landlord CP12 renewal reminders",
+    intentLevel: "URGENT_IN_MARKET",
+    targetSolution: "hvac_command_os.html",
+    proposedResponse: "We engineered HVACCommand OS for instant 60-second boiler replacement quotes and automated landlord CP12 certificate reminders: https://sovereign-empire-os-ub2.vercel.app/hvac_command_os.html"
+  },
+  {
+    source: "Logistics & Transport / r/Truckers",
+    query: "Diesel price increases eating margins need automated fuel surcharge calculator",
+    intentLevel: "URGENT_IN_MARKET",
+    targetSolution: "fleet_command_os.html",
+    proposedResponse: "FleetCommand OS dynamically calculates Brent crude fuel surcharges and generates digital PODs instantly: https://sovereign-empire-os-ub2.vercel.app/fleet_command_os.html"
+  },
+  {
+    source: "Solar & Clean Energy / r/SolarBusiness",
+    query: "Slow turnaround on solar proposals losing deals to national installers",
+    intentLevel: "HIGH_TICKET_IN_MARKET",
+    targetSolution: "solar_command_os.html",
+    proposedResponse: "SolarCommand OS generates full turnkey solar PV & battery storage ROI proposals in 60 seconds with calculated generation yields: https://sovereign-empire-os-ub2.vercel.app/solar_command_os.html"
+  },
+  {
+    source: "Veterinary Management / r/Veterinary",
+    query: "High lapse rate on annual pet boosters and nurse phone tag",
+    intentLevel: "HIGH_VOLUME_IN_MARKET",
+    targetSolution: "vet_command_os.html",
+    proposedResponse: "VetCommand OS automates booster vaccination recalls and 24/7 emergency pet symptom triage: https://sovereign-empire-os-ub2.vercel.app/vet_command_os.html"
+  },
+  {
+    source: "Commercial Cleaning / r/CommercialCleaning",
+    query: "How to price commercial office cleaning tenders accurately per square foot",
+    intentLevel: "HIGH_TICKET_IN_MARKET",
+    targetSolution: "clean_command_os.html",
+    proposedResponse: "CleanCommand OS calculates precise commercial square-footage cleaning proposals with automated monthly SLA contracts: https://sovereign-empire-os-ub2.vercel.app/clean_command_os.html"
+  },
+  {
+    source: "Airbnb Operators / r/AirbnbHosts",
+    query: "Late night guest lockouts and cleaning turnover coordination takes too much time",
+    intentLevel: "HIGH_INTENT_IN_MARKET",
+    targetSolution: "host_command_os.html",
+    proposedResponse: "HostCommand OS runs a 24/7 AI guest concierge with automated deposit pre-auth and same-day cleaner dispatch: https://sovereign-empire-os-ub2.vercel.app/host_command_os.html"
+  },
+  {
+    source: "Security Guarding / r/SecurityGuards",
+    query: "Clients requiring live QR checkpoint patrol proof and SIA license checks",
+    intentLevel: "URGENT_IN_MARKET",
+    targetSolution: "guard_command_os.html",
+    proposedResponse: "GuardCommand OS provides QR patrol checkpoint tracking and instant manned guarding tender proposals: https://sovereign-empire-os-ub2.vercel.app/guard_command_os.html"
+  },
+
+  {
     source: "Trade Forum / r/Construction",
     query: "Need software for fast subcontractor CIS quotes & Friday payroll deductions",
     intentLevel: "URGENT_IN_MARKET",

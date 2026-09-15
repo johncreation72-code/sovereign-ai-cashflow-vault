@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VetCommand OS - Autonomous Veterinary Operations & 24/7 Pet Triage</title>
+  <meta name="description" content="Autonomous operations platform for veterinary practices and animal hospitals. 24/7 emergency pet triage, booster vaccination recalls, and wellness plan membership management.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="global_jurisdiction_engine.js"></script>
+  <script src="bespoke_portal_engine.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">VET<span>COMMAND OS</span></span>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">All Portals</a>
+      <a href="#simulator" class="nav-pill active">Vaccination & Triage Simulator</a>
+      <a href="#pricing" class="nav-pill">Enterprise Tiers</a>
+    </div>
+    <div class="header-badge">STATUS: VERIFIED PRODUCTION</div>
+  </header>
+
+  <div id="bespoke-portal-banner"></div>
+
+  <div class="container" style="max-width:1100px; margin:40px auto; padding:0 20px;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="display:inline-block; background:#EFF6FF; color:#2563EB; font-weight:700; font-size:12px; padding:6px 14px; border-radius:20px; text-transform:uppercase; margin-bottom:12px;">Veterinary Practices & Pet Hospitals</div>
+      <h1 style="font-size:36px; font-weight:800; color:#0F172A; line-height:1.2;">24/7 Pet Emergency Triage & Automated Vaccine Recapture</h1>
+      <p style="font-size:16px; color:#64748B; max-width:700px; margin:12px auto 0;">Eliminate 40% patient drop-off with automated annual booster recalls, emergency out-of-hours symptom assessment, and monthly pet health club subscriptions.</p>
+    </div>
+
+    <!-- Interactive Simulator -->
+    <section id="simulator" style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:16px; padding:36px; margin-bottom:40px; box-shadow:0 4px 20px rgba(0,0,0,0.04);">
+      <h2 style="font-size:22px; font-weight:800; color:#0F172A; margin-bottom:20px;">Veterinary Practice Revenue & Retention Simulator</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div>
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Active Registered Patient Animals</label>
+          <input type="number" id="vetPatientCount" value="1800" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px; margin-bottom:16px;" oninput="calculateVetRecovery()">
+
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Average Consultation / Vaccine Fee</label>
+          <input type="number" id="vetAvgFee" value="78" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px; margin-bottom:16px;" oninput="calculateVetRecovery()">
+
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Current Annual Booster Lapsed Rate</label>
+          <select id="vetLapseRate" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px;" onchange="calculateVetRecovery()">
+            <option value="0.25">25% Lapsed (Typical City Practice)</option>
+            <option value="0.35" selected>35% Lapsed (High Drop-Off / Busy Staff)</option>
+            <option value="0.45">45% Lapsed (Minimal Current Follow-Up)</option>
+          </select>
+        </div>
+
+        <div style="background:#0F172A; color:#FFFFFF; border-radius:12px; padding:24px;">
+          <div style="font-size:13px; color:#94A3B8; text-transform:uppercase; font-weight:700;">Recoverable Annual Practice Cashflow</div>
+          <div style="font-size:32px; font-weight:800; color:#38BDF8; margin:10px 0;" id="vetTotalRecovery">GBP 34,398.00 / yr</div>
+          <div style="font-size:13px; color:#CBD5E1; line-height:1.6;" id="vetRecoveryBreakdown">
+            - Lapsed Booster Re-activations (630 patients): +£2,866.50/mo<br>
+            - 24/7 Emergency Triage Conversion: +£1,150.00/mo<br>
+            - Monthly Pet Wellness Club Recurring MRR: +£1,420.00/mo<br>
+            - Front Desk Staff Time Saved: 14.5 Hours / Week
+          </div>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#2563EB; color:white; padding:12px; border-radius:8px; font-weight:700; margin-top:20px; text-decoration:none;">Deploy VetCommand OS (£97/mo)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Matrix -->
+    <section id="pricing" style="margin-bottom:60px;">
+      <h2 style="text-align:center; font-size:26px; font-weight:800; color:#0F172A; margin-bottom:30px;">Veterinary Practice Deployments</h2>
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
+        <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:24px;">
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Bronze Clinic</h3>
+          <div style="font-size:28px; font-weight:800; color:#0F172A; margin:10px 0;">£49<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For single-vet independent consult surgeries.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>SMS Annual Vaccine Recall Autopilot</li>
+            <li>Post-Op Surgery Check-In Automation</li>
+            <li>Digital Flea & Worming Treatment Chaser</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#0F172A; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Bronze</a>
+        </div>
+
+        <div style="background:#FFFFFF; border:2px solid #2563EB; border-radius:12px; padding:24px; position:relative;">
+          <div style="position:absolute; top:-12px; right:20px; background:#2563EB; color:white; font-size:11px; font-weight:800; padding:3px 10px; border-radius:10px;">MOST POPULAR</div>
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Silver Hospital</h3>
+          <div style="font-size:28px; font-weight:800; color:#2563EB; margin:10px 0;">£97<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For multi-vet practices and 24-hour surgeries.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>All Bronze Features Included</li>
+            <li>24/7 Pet Emergency Symptom Triage AI</li>
+            <li>Monthly Pet Wellness Subscription Engine</li>
+            <li>Direct WhatsApp Booking & Client Bridge</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#2563EB; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Silver Hospital</a>
+        </div>
+
+        <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:24px;">
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Gold Enterprise Group</h3>
+          <div style="font-size:28px; font-weight:800; color:#0F172A; margin:10px 0;">£297<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For veterinary hospital groups and referral centers.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>All Silver Features Included</li>
+            <li>Multi-Branch Practice Management Integration</li>
+            <li>Specialist Referral Triage & Diagnostics Intake</li>
+            <li>Dedicated PMS (RoboVet / Merlin) Synchronization</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#0F172A; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Gold Group</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function calculateVetRecovery() {
+      const patients = parseInt(document.getElementById("vetPatientCount").value) || 1500;
+      const fee = parseFloat(document.getElementById("vetAvgFee").value) || 75;
+      const lapse = parseFloat(document.getElementById("vetLapseRate").value);
+
+      const lapsedPatients = patients * lapse;
+      const recoveredPatients = Math.round(lapsedPatients * 0.70); // 70% recapture rate
+      const annualRecovery = recoveredPatients * fee;
+      const monthlyRecovery = annualRecovery / 12;
+
+      document.getElementById("vetTotalRecovery").innerText = "GBP " + annualRecovery.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " / yr";
+      document.getElementById("vetRecoveryBreakdown").innerHTML = 
+        "- Lapsed Booster Re-activations (" + recoveredPatients + " animals recaptured): +£" + monthlyRecovery.toFixed(2) + "/mo<br>" +
+        "- 24/7 Emergency Out-of-Hours Triage Conversions: +£1,150.00/mo<br>" +
+        "- Direct Practice Net Margin Impact: +£" + (annualRecovery + 13800).toLocaleString("en-GB", { minimumFractionDigits: 2 }) + " / yr<br>" +
+        "- Veterinary Nurse Administrative Hours Saved: 14.5 hrs / week";
+    }
+  </script>
+</body>
+</html>

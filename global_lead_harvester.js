@@ -8,7 +8,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const SECTORS = ["builders", "dental", "garages", "restaurants", "estate", "ecommerce", "legal", "accounting", "fitness"];
+const SECTORS = ["builders", "dental", "garages", "restaurants", "estate", "ecommerce", "legal", "accounting", "fitness", "hvac", "fleet", "solar", "vet", "clean", "host", "guard"];
 const JURISDICTIONS = ["UK", "US", "EU", "CA", "AU", "GCC"];
 
 const REGISTRY_PREFIXES = {
@@ -25,6 +25,14 @@ const BIZ_NAMES = {
   dental: ["Harbour Aesthetic Dental", "Prime Smile Clinic", "Advanced Implant Institute", "Precision Orthodontics", "Metropolitan Dental"],
   garages: ["Performance Auto Specialists", "Apex Motor Works", "Precision Fleet Repair", "Autohaus Workshop", "City Centre Motors"],
   restaurants: ["L’Artisan Brasserie", "The Sovereign Grill", "Mayfair Prime Table", "Harbour Dining Room", "Belgravia Bistro"],
+
+  hvac: ["Apex Heating & Gas Ltd", "Precision Plumbing Solutions", "Vanguard Climate Controls", "Citywide Gas Safe Services", "Benchmark Thermal Systems"],
+  fleet: ["Vanguard Freight Logistics", "Apex Haulage & Distribution", "Precision Transport Couriers", "Metropolitan Fleet Lines", "Sterling Heavy Haulage"],
+  solar: ["Sovereign Solar Energy", "Apex Renewable Solutions", "Vanguard Clean Power", "Benchmark Solar PV Systems", "Pinnacle Eco Installations"],
+  vet: ["Harbour Veterinary Hospital", "Precision Animal Healthcare", "Metropolitan Pet Clinic", "Vanguard Vet Specialists", "Apex Animal Hospital"],
+  clean: ["Vanguard Commercial Cleaning", "Metropolitan Facilities Management", "Apex Hygiene Services", "Benchmark Corporate Cleaning", "Precision Janitorial Group"],
+  host: ["Prime Stay Property Management", "Vanguard Short Lets", "Apex Urban Stays", "Metropolitan Co-Host Group", "Sovereign Holiday Lets"],
+  guard: ["Vanguard Manned Guarding", "Apex Security & Patrols", "Metropolitan Keyholding", "Benchmark Protective Services", "Pinnacle Security Solutions"],
   estate: ["Vanguard Prime Realty", "Belgravia Luxury Estates", "Metropolitan Property Group", "Sterling International Real Estate", "Apex Commercial Partners"]
 };
 

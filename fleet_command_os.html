@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FleetCommand OS - Autonomous Logistics, Haulage & Freight Operations</title>
+  <meta name="description" content="Autonomous transport management for hauliers and courier fleets. Dynamic fuel surcharge indexing, HGV driver hours compliance, and instant bill of lading generation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="global_jurisdiction_engine.js"></script>
+  <script src="bespoke_portal_engine.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">FLEET<span>COMMAND OS</span></span>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">All Portals</a>
+      <a href="#simulator" class="nav-pill active">Freight & Fuel Surcharge Sizer</a>
+      <a href="#pricing" class="nav-pill">Enterprise Tiers</a>
+    </div>
+    <div class="header-badge">STATUS: VERIFIED PRODUCTION</div>
+  </header>
+
+  <div id="bespoke-portal-banner"></div>
+
+  <div class="container" style="max-width:1100px; margin:40px auto; padding:0 20px;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="display:inline-block; background:#EFF6FF; color:#2563EB; font-weight:700; font-size:12px; padding:6px 14px; border-radius:20px; text-transform:uppercase; margin-bottom:12px;">Haulage, Couriers & Freight Fleets</div>
+      <h1 style="font-size:36px; font-weight:800; color:#0F172A; line-height:1.2;">Dynamic Fuel Surcharging & Instant Proof of Delivery</h1>
+      <p style="font-size:16px; color:#64748B; max-width:700px; margin:12px auto 0;">Eliminate diesel price margin erosion with automatic Brent crude fuel surcharge calculation and digital geostamped POD delivery receipts.</p>
+    </div>
+
+    <!-- Interactive Simulator -->
+    <section id="simulator" style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:16px; padding:36px; margin-bottom:40px; box-shadow:0 4px 20px rgba(0,0,0,0.04);">
+      <h2 style="font-size:22px; font-weight:800; color:#0F172A; margin-bottom:20px;">Interactive Freight Rate & Fuel Index Calculator</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div>
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Vehicle & Cargo Class</label>
+          <select id="fleetVehicleType" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px; margin-bottom:16px;" onchange="calculateFleetQuote()">
+            <option value="luton_van">3.5T Luton Box Van (Tail Lift / Multi-Drop)</option>
+            <option value="rigid_7t">7.5T / 18T Rigid Truck (Curtainsider)</option>
+            <option value="artic_44t" selected>44T Articulated Lorry (Full Truckload / FTL)</option>
+            <option value="hiab_crane">HIAB Crane Flatbed (Specialist Construction Haulage)</option>
+          </select>
+
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Transit Distance (One-Way Miles)</label>
+          <input type="number" id="fleetDistance" value="185" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px; margin-bottom:16px;" oninput="calculateFleetQuote()">
+
+          <label style="display:block; font-weight:700; font-size:14px; color:#334155; margin-bottom:6px;">Current Fuel Price / Surcharge Mechanism</label>
+          <select id="fleetFuelIndex" style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px;" onchange="calculateFleetQuote()">
+            <option value="standard">Standard Baseline Index (12.5% Fuel Mechanism)</option>
+            <option value="elevated" selected>Elevated Diesel Band (16.8% Fuel Mechanism)</option>
+            <option value="premium">Emergency AdBlue & Peak Congestion Surcharge</option>
+          </select>
+        </div>
+
+        <div style="background:#0F172A; color:#FFFFFF; border-radius:12px; padding:24px;">
+          <div style="font-size:13px; color:#94A3B8; text-transform:uppercase; font-weight:700;">Freight Rate & Invoice Authorization</div>
+          <div style="font-size:32px; font-weight:800; color:#38BDF8; margin:10px 0;" id="fleetTotalQuote">GBP 842.50</div>
+          <div style="font-size:13px; color:#CBD5E1; line-height:1.6;" id="fleetQuoteBreakdown">
+            - Base Mileage & Driver Hours Rate: £721.50<br>
+            - Dynamic Fuel Surcharge (16.8%): £121.00<br>
+            - Margin Protection Safeguard: Active<br>
+            - Geostamped Electronic POD Dispatched Upon Delivery
+          </div>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#2563EB; color:white; padding:12px; border-radius:8px; font-weight:700; margin-top:20px; text-decoration:none;">Deploy FleetCommand OS (£97/mo)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Matrix -->
+    <section id="pricing" style="margin-bottom:60px;">
+      <h2 style="text-align:center; font-size:26px; font-weight:800; color:#0F172A; margin-bottom:30px;">Commercial Fleet Deployments</h2>
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
+        <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:24px;">
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Bronze Courier</h3>
+          <div style="font-size:28px; font-weight:800; color:#0F172A; margin:10px 0;">£49<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For owner-operators with 1 - 2 vans.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>Digital Proof of Delivery (POD) Generator</li>
+            <li>Dynamic Fuel Surcharge Tool</li>
+            <li>Automatic Bill of Lading PDF Builder</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#0F172A; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Bronze</a>
+        </div>
+
+        <div style="background:#FFFFFF; border:2px solid #2563EB; border-radius:12px; padding:24px; position:relative;">
+          <div style="position:absolute; top:-12px; right:20px; background:#2563EB; color:white; font-size:11px; font-weight:800; padding:3px 10px; border-radius:10px;">MOST POPULAR</div>
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Silver Haulier</h3>
+          <div style="font-size:28px; font-weight:800; color:#2563EB; margin:10px 0;">£97<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For fleets with 3 - 15 HGVs & trucks.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>All Bronze Features Included</li>
+            <li>HGV Driver Working Hours & Rest Tacho Watchdog</li>
+            <li>Instant Client Freight Quotation Portal</li>
+            <li>Direct WhatsApp Booking & Dispatch Bridge</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#2563EB; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Silver Haulier</a>
+        </div>
+
+        <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:24px;">
+          <h3 style="font-size:18px; font-weight:800; color:#0F172A;">Gold Freight Enterprise</h3>
+          <div style="font-size:28px; font-weight:800; color:#0F172A; margin:10px 0;">£297<span style="font-size:14px; color:#64748B;">/mo</span></div>
+          <p style="font-size:13px; color:#64748B;">For national logistics & freight forwarders.</p>
+          <ul style="font-size:13px; color:#334155; line-height:1.8; margin:16px 0; padding-left:18px;">
+            <li>All Silver Features Included</li>
+            <li>Automated Subcontracted Haulier Invoice Clearing</li>
+            <li>Multi-Depot Freight Load Schedulers</li>
+            <li>Custom API Feeds for Enterprise ERP / TMS</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UL1yNCSJUr2Ka" class="btn" style="display:block; text-align:center; background:#0F172A; color:white; padding:10px; border-radius:6px; font-weight:700; text-decoration:none;">Select Gold Freight</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function calculateFleetQuote() {
+      const vehicle = document.getElementById("fleetVehicleType").value;
+      const miles = parseFloat(document.getElementById("fleetDistance").value) || 100;
+      const fuelIndex = document.getElementById("fleetFuelIndex").value;
+
+      let perMileRate = 2.80;
+      let minCallout = 350;
+
+      if (vehicle === "luton_van") { perMileRate = 1.65; minCallout = 180; }
+      else if (vehicle === "rigid_7t") { perMileRate = 2.40; minCallout = 280; }
+      else if (vehicle === "artic_44t") { perMileRate = 3.65; minCallout = 450; }
+      else if (vehicle === "hiab_crane") { perMileRate = 4.80; minCallout = 600; }
+
+      let baseTotal = Math.max(minCallout, miles * perMileRate);
+      let fuelMultiplier = fuelIndex === "standard" ? 0.125 : (fuelIndex === "elevated" ? 0.168 : 0.220);
+      let fuelSurcharge = baseTotal * fuelMultiplier;
+      let grandTotal = baseTotal + fuelSurcharge;
+
+      document.getElementById("fleetTotalQuote").innerText = "GBP " + grandTotal.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      document.getElementById("fleetQuoteBreakdown").innerHTML = 
+        "- Base Rate (" + miles + " miles @ £" + perMileRate.toFixed(2) + "/mi): £" + baseTotal.toFixed(2) + "<br>" +
+        "- Dynamic Fuel Surcharge (" + (fuelMultiplier * 100).toFixed(1) + "%): £" + fuelSurcharge.toFixed(2) + "<br>" +
+        "- Driver Tachograph Hours Allocated: " + (miles / 45).toFixed(1) + " hrs<br>" +
+        "- Geostamped Digital POD Ready for Client Signoff";
+    }
+  </script>
+</body>
+</html>
