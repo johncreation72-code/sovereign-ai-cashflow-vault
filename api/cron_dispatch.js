@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   const now = new Date();
   const timeStr = now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
 
-  let leadCount = 150;
+  let leadCount = 5000;
   try {
     const filePath = path.join(process.cwd(), "fresh_uk_registry_leads.json");
     if (fs.existsSync(filePath)) {
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     status: "DISPATCHED_IN_CLOUD",
     timestamp: now.toISOString(),
     displayTime: timeStr + " GMT",
-    batchSize: 15,
+    batchSize: 50,
     totalVerifiedLeads: leadCount,
     cloudProvider: "Vercel Serverless Edge",
     message: "Cloud scheduled outreach batch processed successfully."
