@@ -28,6 +28,8 @@ function getCredentials() {
     sendgridKey: process.env.SENDGRID_API_KEY || (creds.sendgrid && creds.sendgrid.apiKey) || "",
     mailgunKey: process.env.MAILGUN_API_KEY || (creds.mailgun && creds.mailgun.apiKey) || "",
     mailgunDomain: process.env.MAILGUN_DOMAIN || (creds.mailgun && creds.mailgun.domain) || "",
+    mailersendKey: process.env.MAILERSEND_API_KEY || (creds.mailersend && creds.mailersend.apiKey) || "",
+    mailersendDomain: process.env.MAILERSEND_DOMAIN || (creds.mailersend && creds.mailersend.domain) || "test-r9084zvmmexgw63d.mlsender.net",
     senderEmail: (creds.brevo && creds.brevo.email) || "johncreation72@gmail.com"
   };
 }
@@ -247,6 +249,53 @@ function sendMailgunEmail({ to, subject, htmlContent, textContent }) {
   });
 }
 
+function sendMailerSendEmail({ to, subject, htmlContent, textContent }) {
+  return new Promise((resolve) => {
+    const creds = getCredentials();
+    if (!creds.mailersendKey) return resolve({ error: true, message: "Missing MailerSend Credentials" });
+
+    const payload = JSON.stringify({
+      from: {
+        email: `MS_onboarding@${creds.mailersendDomain}`,
+        name: SENDER_NAME
+      },
+      to: [
+        {
+          email: to,
+          name: "Director"
+        }
+      ],
+      subject: subject,
+      text: textContent,
+      html: htmlContent
+    });
+
+    const req = https.request({
+      hostname: "api.mailersend.com",
+      path: "/v1/email",
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${creds.mailersendKey}`,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(payload)
+      },
+      timeout: 5000
+    }, (res) => {
+      let body = "";
+      res.on("data", chunk => body += chunk);
+      res.on("end", () => {
+        try { resolve({ status: res.statusCode, data: body ? JSON.parse(body) : { ok: true } }); }
+        catch (e) { resolve({ status: res.statusCode, raw: body }); }
+      });
+    });
+
+    req.on("error", err => resolve({ error: true, message: err.message }));
+    req.on("timeout", () => { req.destroy(); resolve({ error: true, message: "timeout" }); });
+    req.write(payload);
+    req.end();
+  });
+}
+
 function buildEmailPayload(lead) {
   const tpl = SECTOR_TEMPLATES[lead.sector] || SECTOR_TEMPLATES["Builders & Construction"];
   const docRef = "DOC-" + lead.companyNumber.replace(/[^0-9]/g, "").slice(0, 8);
@@ -310,6 +359,7 @@ async function dispatchSingleLead(lead, preferredProvider = null) {
     if (creds.brevoKey) available.push("Brevo (300/Day)");
     if (creds.resendKey) available.push("Resend (100/Day)");
     if (creds.sendgridKey) available.push("SendGrid (100/Day)");
+    if (creds.mailersendKey) available.push("MailerSend (100/Day)");
     if (creds.mailgunKey) available.push("Mailgun (Starter)");
     provider = available.length > 0 ? available[dispatchCounter % available.length] : "Brevo (300/Day)";
     dispatchCounter++;
@@ -358,7 +408,8 @@ async function runBatchDispatch(count = 25) {
   const creds = getCredentials();
   console.log("================================================================================");
   console.log(` SOVEREIGN MULTI-PROVIDER DISPATCHER // RUNNING BATCH OF ${count} DISPATCHES`);
-  console.log(` Active Free Tiers: Brevo (300/day: ${creds.brevoKey ? "ONLINE" : "OFFLINE"}), Resend (100/day: ${creds.resendKey ? "ONLINE" : "OFFLINE"}), SendGrid (100/day: ${creds.sendgridKey ? "ONLINE" : "OFFLINE"}), Mailgun (${creds.mailgunKey ? "ONLINE" : "OFFLINE"})`);
+  console.log(` Active Free Tiers: Brevo (300/day: ${creds.brevoKey ? "ONLINE" : "OFFLINE"}), Resend (100/day: ${creds.resendKey ? "ONLINE" : "OFFLINE"}), SendGrid (100/day: ${creds.sendgridKey ? "ONLINE" : "OFFLINE"}), MailerSend (100/day: ${creds.mailersendKey ? "ONLINE" : "OFFLINE"}), Mailgun (${creds.mailgunKey ? "ONLINE" : "OFFLINE"})`);
+  console.log(" Total Active Capacity: 600+ Free Emails / Day (23,000 / Month)");
   console.log(" Mode: 100% Ground Truth // Supabase Cloud PostgreSQL // Zero Local Dependency");
   console.log("================================================================================\n");
 
