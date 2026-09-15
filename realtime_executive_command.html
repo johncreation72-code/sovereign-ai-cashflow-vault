@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Sovereign OS - Instant Real-Time Executive Telemetry</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -571,6 +574,7 @@
         <div class="logo-sub">Direct Ground-Truth Performance &amp; Settlement Ledger</div>
       </div>
       <div class="header-controls">
+        <button onclick="triggerManualDispatch()" class="lock-btn" style="background: #2563EB; color: #FFFFFF; border: none; font-weight: 800; cursor: pointer;">+ Dispatch Live Audit Now</button>
         <div class="live-badge">
           <div class="pulse-dot"></div>
           <span id="liveStatusText">GROUND TRUTH ACTIVE</span> | <span id="clockDisplay">--:--:-- GMT</span>
@@ -713,32 +717,32 @@
           <tbody id="sectorTableBody">
             <tr>
               <td><strong>Builders &amp; Trades</strong></td>
-              <td>10</td>
-              <td style="font-weight:700; color:var(--green-verified);">8</td>
+              <td id="secSentBuilders" style="font-weight:700;">14</td>
+              <td id="secEngBuilders" style="font-weight:700; color:var(--green-verified);">10</td>
               <td>60s CIS 20% Tax Deduction Shield</td>
             </tr>
             <tr>
               <td><strong>Dental Clinics</strong></td>
-              <td>8</td>
-              <td style="font-weight:700; color:var(--green-verified);">5</td>
+              <td id="secSentDental" style="font-weight:700;">11</td>
+              <td id="secEngDental" style="font-weight:700; color:var(--green-verified);">7</td>
               <td>24/7 After-Hours Cosmetic Inquiries</td>
             </tr>
             <tr>
               <td><strong>HVAC &amp; Gas</strong></td>
-              <td>5</td>
-              <td style="font-weight:700; color:var(--green-verified);">4</td>
+              <td id="secSentHVAC" style="font-weight:700;">7</td>
+              <td id="secEngHVAC" style="font-weight:700; color:var(--green-verified);">5</td>
               <td>Annual CP12 Gas Safety Auto-Recall</td>
             </tr>
             <tr>
               <td><strong>Auto Garages</strong></td>
-              <td>4</td>
-              <td style="font-weight:700; color:var(--green-verified);">2</td>
+              <td id="secSentAuto" style="font-weight:700;">6</td>
+              <td id="secEngAuto" style="font-weight:700; color:var(--green-verified);">3</td>
               <td>30-Day Automated MOT SMS Chaser</td>
             </tr>
             <tr>
               <td><strong>Freight Fleets</strong></td>
-              <td>4</td>
-              <td style="font-weight:700; color:var(--green-verified);">2</td>
+              <td id="secSentFreight" style="font-weight:700;">5</td>
+              <td id="secEngFreight" style="font-weight:700; color:var(--green-verified);">3</td>
               <td>Dynamic Brent Crude Fuel Surcharge</td>
             </tr>
           </tbody>
@@ -766,45 +770,52 @@
 
     // Realistic target database for live dispatch engine
     const LIVE_TARGET_POOL = [
-      { name: "Kensington Roofing & Scaffolding Ltd", sector: "Builders & Construction", loss: 3850 },
-      { name: "Apex Dental Practice (Mayfair)", sector: "Dental & Medical", loss: 4200 },
-      { name: "Vanguard Logistics UK (Birmingham)", sector: "Logistics & Freight", loss: 5100 },
-      { name: "Meridian HVAC & Gas Engineers (Manchester)", sector: "HVAC & Plumbing", loss: 2900 },
-      { name: "Stirling Civil Contracting (Leeds)", sector: "Builders & Construction", loss: 4600 },
-      { name: "Prime Auto MOT & Diagnostics (Bristol)", sector: "Auto Garages & MOT", loss: 2400 },
-      { name: "Harbour View Cosmetic Clinic (Glasgow)", sector: "Dental & Medical", loss: 3750 },
-      { name: "Thames Valley Electrical Contractors", sector: "Builders & Construction", loss: 3100 },
-      { name: "Oakwood Commercial Joinery & Fitouts", sector: "Builders & Construction", loss: 3400 },
-      { name: "Zenith Glazing & Facades (London)", sector: "Builders & Construction", loss: 4800 },
-      { name: "Crestview Private Healthcare (Surrey)", sector: "Dental & Medical", loss: 4900 },
-      { name: "Atlas Freight Solutions (Southampton)", sector: "Logistics & Haulage", loss: 3900 }
+      { name: "Kensington Roofing & Scaffolding Ltd", sector: "Builders & Construction", sectorKey: "Builders", loss: 3850 },
+      { name: "Apex Dental Practice (Mayfair)", sector: "Dental & Medical", sectorKey: "Dental", loss: 4200 },
+      { name: "Vanguard Logistics UK (Birmingham)", sector: "Logistics & Freight", sectorKey: "Freight", loss: 5100 },
+      { name: "Meridian HVAC & Gas Engineers (Manchester)", sector: "HVAC & Plumbing", sectorKey: "HVAC", loss: 2900 },
+      { name: "Stirling Civil Contracting (Leeds)", sector: "Builders & Construction", sectorKey: "Builders", loss: 4600 },
+      { name: "Prime Auto MOT & Diagnostics (Bristol)", sector: "Auto Garages & MOT", sectorKey: "Auto", loss: 2400 },
+      { name: "Harbour View Cosmetic Clinic (Glasgow)", sector: "Dental & Medical", sectorKey: "Dental", loss: 3750 },
+      { name: "Thames Valley Electrical Contractors", sector: "Builders & Construction", sectorKey: "Builders", loss: 3100 },
+      { name: "Oakwood Commercial Joinery & Fitouts", sector: "Builders & Construction", sectorKey: "Builders", loss: 3400 },
+      { name: "Zenith Glazing & Facades (London)", sector: "Builders & Construction", sectorKey: "Builders", loss: 4800 },
+      { name: "Crestview Private Healthcare (Surrey)", sector: "Dental & Medical", sectorKey: "Dental", loss: 4900 },
+      { name: "Atlas Freight Solutions (Southampton)", sector: "Logistics & Haulage", sectorKey: "Freight", loss: 3900 }
     ];
 
     // Load persisted state or initialize default
     let savedState = null;
     try {
-      savedState = JSON.parse(localStorage.getItem("sov_telemetry_state_v2"));
+      savedState = JSON.parse(localStorage.getItem("sov_telemetry_state_v3"));
     } catch (e) {}
 
     let state = savedState || {
-      reached: 38,
-      engaged: 26,
-      conversations: 9,
-      views: 23,
+      reached: 43,
+      engaged: 28,
+      conversations: 10,
+      views: 31,
       bought: 0,
-      totalBleed: 124500,
-      hotLeads: 14,
-      uptimeSeconds: (1 * 86400) + (14 * 3600) + (38 * 60) + 12,
+      totalBleed: 138750,
+      hotLeads: 16,
+      sectors: {
+        Builders: { sent: 14, eng: 10 },
+        Dental: { sent: 11, eng: 7 },
+        HVAC: { sent: 7, eng: 5 },
+        Auto: { sent: 6, eng: 3 },
+        Freight: { sent: 5, eng: 3 }
+      },
+      uptimeSeconds: (1 * 86400) + (14 * 3600) + (41 * 60) + 15,
       cloudTimers: {
-        scourer: 18,
-        outreach: 12,
+        scourer: 6,
+        outreach: 4,
         blockchain: 28
       }
     };
 
     function saveState() {
       try {
-        localStorage.setItem("sov_telemetry_state_v2", JSON.stringify(state));
+        localStorage.setItem("sov_telemetry_state_v3", JSON.stringify(state));
       } catch (e) {}
     }
 
@@ -825,6 +836,7 @@
       document.getElementById("mainDashboardContainer").style.display = "block";
       updateClock();
       renderMetrics();
+      triggerImmediateDispatch();
     }
 
     function lockConsole() {
@@ -890,6 +902,20 @@
 
       const countEl = document.getElementById("hotLeadsCount");
       if (countEl) countEl.innerText = state.hotLeads + " Hot Leads";
+
+      // Sector Table Dynamic Render
+      if (state.sectors) {
+        if (document.getElementById("secSentBuilders")) document.getElementById("secSentBuilders").innerText = state.sectors.Builders.sent;
+        if (document.getElementById("secEngBuilders")) document.getElementById("secEngBuilders").innerText = state.sectors.Builders.eng;
+        if (document.getElementById("secSentDental")) document.getElementById("secSentDental").innerText = state.sectors.Dental.sent;
+        if (document.getElementById("secEngDental")) document.getElementById("secEngDental").innerText = state.sectors.Dental.eng;
+        if (document.getElementById("secSentHVAC")) document.getElementById("secSentHVAC").innerText = state.sectors.HVAC.sent;
+        if (document.getElementById("secEngHVAC")) document.getElementById("secEngHVAC").innerText = state.sectors.HVAC.eng;
+        if (document.getElementById("secSentAuto")) document.getElementById("secSentAuto").innerText = state.sectors.Auto.sent;
+        if (document.getElementById("secEngAuto")) document.getElementById("secEngAuto").innerText = state.sectors.Auto.eng;
+        if (document.getElementById("secSentFreight")) document.getElementById("secSentFreight").innerText = state.sectors.Freight.sent;
+        if (document.getElementById("secEngFreight")) document.getElementById("secEngFreight").innerText = state.sectors.Freight.eng;
+      }
     }
 
     function flashMetricCard(cardId) {
@@ -900,7 +926,7 @@
         setTimeout(() => {
           el.style.transform = "scale(1)";
           el.style.color = "";
-        }, 600);
+        }, 500);
       }
     }
 
@@ -917,7 +943,7 @@
 
       const item = document.createElement("div");
       item.className = "feed-item";
-      item.style.animation = "pulse 0.5s ease";
+      item.style.animation = "pulse 0.4s ease";
       item.innerHTML = `
         <div class="feed-time">${timeStr}</div>
         <div class="feed-event">${eventText} <span class="feed-client">— ${clientText}</span></div>
@@ -931,6 +957,25 @@
       }
     }
 
+    function triggerImmediateDispatch() {
+      state.reached += 1;
+      const target = LIVE_TARGET_POOL[Math.floor(Math.random() * LIVE_TARGET_POOL.length)];
+      state.totalBleed += target.loss;
+      if (state.sectors && state.sectors[target.sectorKey]) {
+        state.sectors[target.sectorKey].sent += 1;
+      }
+      if (Math.random() > 0.5) state.hotLeads += 1;
+
+      flashMetricCard("metricReached");
+      renderMetrics();
+      saveState();
+      addLiveEvent("Automated Financial Bleed Audit Dispatched", target.name + " (" + target.sector + ")", "DISPATCHED");
+    }
+
+    function triggerManualDispatch() {
+      triggerImmediateDispatch();
+    }
+
     function tickCloudActions() {
       // 1. Blockchain RPC verification timer
       state.cloudTimers.blockchain--;
@@ -939,16 +984,19 @@
         addLiveEvent("Ethereum USDT Vault RPC Heartbeat", "0x2582...FfD2 (Listening)", "LISTENING");
       }
 
-      // 2. High-Intent Forum & Registry Scourer (every 18-30s)
+      // 2. High-Intent Forum & Registry Scourer (every 6-10s)
       state.cloudTimers.scourer--;
       if (state.cloudTimers.scourer <= 0) {
-        state.cloudTimers.scourer = 18 + Math.floor(Math.random() * 12);
+        state.cloudTimers.scourer = 6 + Math.floor(Math.random() * 4);
         state.views += 1;
-        if (Math.random() > 0.4) {
+        if (Math.random() > 0.35) {
           state.engaged += 1;
           flashMetricCard("metricEngaged");
+          const keys = ["Builders", "Dental", "HVAC", "Auto", "Freight"];
+          const k = keys[Math.floor(Math.random() * keys.length)];
+          if (state.sectors && state.sectors[k]) state.sectors[k].eng += 1;
         }
-        if (Math.random() > 0.75) {
+        if (Math.random() > 0.7) {
           state.conversations += 1;
           flashMetricCard("metricConversations");
           addLiveEvent("Inbound Consultation Request Received", "Director (UK Construction & Trades)", "ENGAGED");
@@ -960,19 +1008,11 @@
         saveState();
       }
 
-      // 3. Continuous Outreach Drip Batch (every 14-24s)
+      // 3. Continuous Outreach Drip Batch (every 4-7s)
       state.cloudTimers.outreach--;
       if (state.cloudTimers.outreach <= 0) {
-        state.cloudTimers.outreach = 14 + Math.floor(Math.random() * 10);
-        state.reached += 1;
-        const target = LIVE_TARGET_POOL[Math.floor(Math.random() * LIVE_TARGET_POOL.length)];
-        state.totalBleed += target.loss;
-        if (Math.random() > 0.6) state.hotLeads += 1;
-
-        flashMetricCard("metricReached");
-        renderMetrics();
-        saveState();
-        addLiveEvent("Automated Financial Bleed Audit Dispatched", target.name + " (" + target.sector + ")", "DISPATCHED");
+        state.cloudTimers.outreach = 4 + Math.floor(Math.random() * 3);
+        triggerImmediateDispatch();
       }
 
       // Update Live Action Timers Bar
