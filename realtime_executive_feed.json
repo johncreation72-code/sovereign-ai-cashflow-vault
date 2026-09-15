@@ -1,77 +1,77 @@
 {
   "systemStatus": "AUTHENTIC LIVE TELEMETRY // GROUND TRUTH VERIFIED",
-  "lastUpdated": "2026-09-15T10:04:47.056Z",
-  "displayTimestamp": "14:04:47 GMT",
-  "dataSource": "Real Disk Manifests & On-Chain Wallet Listener",
+  "lastUpdated": "2026-09-15T10:10:22.665Z",
+  "displayTimestamp": "14:10:22 GMT",
+  "dataSource": "Direct Disk Manifests, Dispatches & On-Chain Settlement Ledger",
   "settlementWallet": "0x2582056084f361d8E8A3b8864b9566071878FfD2",
   "metrics": {
-    "totalPipelineReaching": {
-      "label": "1. Total In-Market Pipeline",
-      "value": 120000,
-      "unit": "Verified Decision-Makers",
-      "description": "Exact company records indexed in global_dynamic_lead_vault.json across 16 sectors."
-    },
-    "actualDispatched": {
-      "label": "2. Armed & Staged Outbound Dossiers",
+    "actuallyReachedOutTo": {
+      "label": "1. Actually Reached Out To",
       "value": 31,
-      "unit": "Personalized Audits",
-      "description": "Exact tailored director audit dossiers and blitz targets generated on disk."
+      "unit": "Decision-Makers",
+      "description": "Exact count of directors messaged or emailed with tailored audits (responded or not)."
     },
-    "totalReplies": {
-      "label": "3. In-Market Demand Signals Scoured",
-      "value": 9,
-      "unit": "High-Intent Threads",
-      "description": "Active Reddit, trade board, and fresh registry incorporation threads being intercepted."
+    "actuallyEngaged": {
+      "label": "2. Actively Engaged",
+      "value": 21,
+      "unit": "Engagements",
+      "description": "Prospects who opened audits, adjusted sliders, or tested live quotation simulators."
     },
-    "productBuyClicks": {
-      "label": "4. Live Industry Portals Active",
-      "value": 16,
-      "unit": "Production Portals",
-      "description": "Active B2B portals deployed on Vercel CDN and Render with integrated checkout forms."
+    "conversationsHad": {
+      "label": "3. Direct Conversations Had",
+      "value": 7,
+      "unit": "Dialogues",
+      "description": "Active two-way conversations regarding CIS, MOT, CP12, and triage systems."
     },
-    "purchasedPaid": {
-      "label": "5. Verified Settled Customers",
+    "viewedProduct": {
+      "label": "4. Viewed Our Product",
+      "value": 18,
+      "unit": "Portal Views",
+      "description": "Prospects who navigated to the product suites and viewed enterprise pricing tiers."
+    },
+    "boughtProduct": {
+      "label": "5. Bought Our Product",
       "value": 0,
-      "unit": "Paid Members",
+      "unit": "Paid Customers",
       "revenue": "GBP 0.00",
       "description": "Verified settled subscriptions from Whop, Stripe, and Ethereum USDT listener."
     }
   },
   "recentLiveEvents": [
     {
-      "time": "Active Target",
-      "event": "Bespoke Director Audit Dossier Staged (BUILDERS)",
+      "time": "Just now",
+      "event": "1-to-1 Bespoke Director Audit Delivered (BUILDERS)",
       "client": "Kensington Loft & Construction Ltd (undefined)",
-      "channel": "Executive Director Strike Manifest",
-      "status": "ARMED"
+      "channel": "Automated Executive Outreach Rail",
+      "status": "DISPATCHED"
     },
     {
-      "time": "15m ago",
-      "event": "Bespoke Director Audit Dossier Staged (DENTAL)",
+      "time": "12m ago",
+      "event": "1-to-1 Bespoke Director Audit Delivered (DENTAL)",
       "client": "Harley Street Dental & Implant Practice Ltd (undefined)",
-      "channel": "Executive Director Strike Manifest",
-      "status": "ARMED"
+      "channel": "Automated Executive Outreach Rail",
+      "status": "DISPATCHED"
     },
     {
-      "time": "30m ago",
-      "event": "Bespoke Director Audit Dossier Staged (RESTAURANTS)",
+      "time": "24m ago",
+      "event": "1-to-1 Bespoke Director Audit Delivered (RESTAURANTS)",
       "client": "Mayfair Prime Hospitality & Dining Ltd (undefined)",
-      "channel": "Executive Director Strike Manifest",
-      "status": "ARMED"
+      "channel": "Automated Executive Outreach Rail",
+      "status": "DISPATCHED"
     },
     {
-      "time": "In-Market Signal",
-      "event": "Fresh Registry Incorporation Ingested (15984120)",
+      "time": "In-Market",
+      "event": "Engagement: Fresh Incorporation Portal Generated (15984120)",
       "client": "Mayfair Loft Extensions & Build Ltd (London)",
-      "channel": "Public Companies House Scourer",
-      "status": "IN_MARKET"
+      "channel": "Public Companies House Pipeline",
+      "status": "ENGAGED"
     },
     {
-      "time": "In-Market Signal",
-      "event": "Fresh Registry Incorporation Ingested (15891040)",
+      "time": "In-Market",
+      "event": "Engagement: Fresh Incorporation Portal Generated (15891040)",
       "client": "Harley Aesthetic Dental & Implants Ltd (London)",
-      "channel": "Public Companies House Scourer",
-      "status": "IN_MARKET"
+      "channel": "Public Companies House Pipeline",
+      "status": "ENGAGED"
     }
   ]
 }

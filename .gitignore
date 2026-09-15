@@ -8,3 +8,4 @@ node_modules
 *.log
 .DS_Store
 node_modules/
+global_dynamic_lead_vault.json
