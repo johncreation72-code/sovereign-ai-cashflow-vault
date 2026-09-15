@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClinicSovereign OS - Dental &amp; Medical Practice Operations Automation</title>
+  <meta name="description" content="Autonomous patient inquiry triage, cosmetic treatment plan closing, and after-hours emergency booking for private clinics and dental practices.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .showcase-header {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 50px 24px;
+      text-align: center;
+    }
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .code-display {
+      background-color: #0F172A;
+      color: #E2E8F0;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1E293B;
+    }
+    .feature-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--blue-primary);
+      background-color: var(--blue-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--blue-navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .metrics-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .metrics-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+    .metrics-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--blue-primary);
+    }
+    .cta-banner {
+      background-color: #0F172A;
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-banner h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .cta-banner p {
+      color: #94A3B8;
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+    .cta-btn-white {
+      display: inline-block;
+      background-color: #2563EB;
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s;
+    }
+    .cta-btn-white:hover {
+      background-color: #1D4ED8;
+    }
+    @media (max-width: 850px) {
+      .feature-row { grid-template-columns: 1fr; padding: 24px; }
+      .feature-img { height: 220px; }
+    }
+  </style>
+  <script src="global_jurisdiction_engine.js"></script>
+</head>
+<body>
+
+  <!-- Enterprise Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">CLINIC<span>SOVEREIGN</span></span>
+    </div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">Home</a>
+      <a href="#roi-breakdown" class="nav-pill">Financial ROI</a>
+      <a href="#triage" class="nav-pill">24/7 Triage</a>
+      <a href="#treatments" class="nav-pill">Treatment Closer</a>
+      <a href="#recalls" class="nav-pill">Hygiene Recalls</a>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="header-badge">
+      CLINICAL COMPLIANCE: HIPAA &amp; GDPR READY
+    </div>
+  </header>
+
+  <!-- Showcase Header -->
+  <section class="showcase-header">
+    <div class="pill-badge">CLINICAL PRACTICE INFRASTRUCTURE</div>
+    <h1 class="hero-title" style="margin-bottom: 12px;">Autonomous Operations for Dental &amp; Medical Clinics</h1>
+    <p class="hero-subtitle">
+      What we are: An autonomous clinical reception intelligence that captures 100% of after-hours patient inquiries, closes high-ticket cosmetic treatment plans, and maximizes hygiene chair utilization.
+    </p>
+    <div class="trust-bar" style="margin-bottom: 0;">
+      <div class="trust-item">100% Inbound Call Coverage</div>
+      <div class="trust-item">Direct Practice Management Sync</div>
+      <div class="trust-item">Cosmetic Treatment Financing Follow-Ups</div>
+      <div class="trust-item">Zero Unfilled Hygiene Slots</div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- THE FINANCIAL LOGIC & ROI SECTION -->
+    <section id="roi-breakdown" class="roi-section">
+      <div class="section-header" style="margin-bottom: 20px;">
+        <span class="section-tag">PRACTICE CHAIR-TIME AUDIT</span>
+        <h2>Why Clinics Lose £14,000+ Every Month</h2>
+        <p>A transparent breakdown of manual reception bottlenecks vs. running on ClinicSovereign OS.</p>
+      </div>
+
+      <div class="roi-grid">
+        <!-- Card A: Manual Reception -->
+        <div class="roi-card">
+          <div class="roi-header">
+            <div class="roi-title">Manual Front-Desk Reception</div>
+            <span class="leakage-tag">CHAIR LEAKAGE</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Average Monthly Clinic Billings</span>
+            <strong>£60,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>Missed After-Hours Cosmetic Calls</span>
+            <span class="loss">-£7,500 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Unclosed Treatment Plans (Invisalign/Implants)</span>
+            <span class="loss">-£4,200 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Unfilled Same-Day Hygiene Cancellations</span>
+            <span class="loss">-£2,800 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Actual Net Revenue Retained</span>
+            <strong style="color: #991B1B;">£45,500 / mo</strong>
+          </div>
+        </div>
+
+        <!-- Card B: With ClinicSovereign OS -->
+        <div class="roi-card positive">
+          <div class="roi-header">
+            <div class="roi-title">With ClinicSovereign Autonomous OS</div>
+            <span class="gain-tag">MAXIMIZED CAPACITY</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Baseline Practice Billings</span>
+            <strong>£60,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>24/7 Clinical Voice Triage (100% Inquiries)</span>
+            <span class="profit">+£7,500 Recovered</span>
+          </div>
+          <div class="roi-math-row">
+            <span>0% Financing Treatment Plan Recovery</span>
+            <span class="profit">+£4,200 Closed</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Automated Priority Recall Backfiller</span>
+            <span class="profit">+£2,800 Recaptured</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Operating Cost (ClinicSovereign License)</span>
+            <span>-£97 / mo (£3.20/day)</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Total Monthly Billings Captured</span>
+            <strong style="color: #047857;">£74,403 / mo (+149x ROI)</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Calculator Slider -->
+      <div class="roi-interactive-box">
+        <h3 style="font-size: 1.1rem; color: var(--blue-navy); margin-bottom: 6px;">Practice Revenue Recovery Calculator</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Slide to match your clinic's current approximate monthly billings:</p>
+        
+        <input type="range" id="clinic-turnover-slider" min="25000" max="250000" step="5000" value="60000" class="roi-slider" oninput="updateClinicROI(this.value)">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; padding: 16px; border-radius: 8px; border: 1px solid #E2E8F0; margin-top: 10px;">
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Monthly Clinic Billings</div>
+            <div id="display-clinic-turnover" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-navy);">£60,000</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Est. Monthly Chair Revenue Saved</div>
+            <div id="display-clinic-recovered" style="font-size: 1.4rem; font-weight: 800; color: #059669;">+£14,500 / mo</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Net New Annual Practice Profit</div>
+            <div id="display-clinic-annual" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-dark);">+£174,000 / yr</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 1: After-Hours AI Receptionist & Triage -->
+    <section id="triage" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 01</span>
+        <h2 class="feature-title">24/7 Patient Voice &amp; SMS Triage</h2>
+        <p class="feature-desc">
+          Over 35% of high-value cosmetic and dental implant inquiries occur after 17:00 PM or on weekends. ClinicSovereign answers every call with natural clinical voice intelligence, answers procedure queries, and books consultations directly into your calendar.
+        </p>
+        <ul class="metrics-list">
+          <li>Instant emergency triage and on-call clinician dispatch protocols.</li>
+          <li>Integrates seamlessly with Dentrix, Curve, and standard calendar systems.</li>
+          <li>Zero missed patient inquiries or lost cosmetic treatment revenue.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt="Modern Dental and Medical Clinic" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 2: High-Value Treatment Plan Closer -->
+    <section id="treatments" class="feature-row">
+      <div>
+        <div class="code-display">
+COSMETIC TREATMENT PLAN CONVERSION LOG
+Treatment: Full Arch Dental Implants (£8,500.00)
+
+Patient: Sarah Jenkins (Consultation completed Tuesday)
+Status: Proposal Viewed, Pending Deposit
+System Action (48h Follow-up): Sent treatment visualizer and 0% interest financing payment breakdown.
+Patient Response: "Deposit completed via portal link."
+Result: £8,500.00 Procedure Booked and Secured
+        </div>
+      </div>
+      <div>
+        <span class="feature-tag">Module 02</span>
+        <h2 class="feature-title">High-Ticket Treatment Plan Recovery</h2>
+        <p class="feature-desc">
+          Patients regularly leave consultations intending to proceed with Invisalign, veneers, or implants, but stall at payment friction. The system executes supportive follow-ups addressing financing and recovery timelines to secure procedure deposits.
+        </p>
+        <ul class="metrics-list">
+          <li>Increases major treatment plan acceptance rates by up to 34%.</li>
+          <li>Provides instant 0% financing calculators and deposit links.</li>
+          <li>Maintains gentle, professional patient communication without staff effort.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 3: Automated Recall & Chair-Time Maximizer -->
+    <section id="recalls" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 03</span>
+        <h2 class="feature-title">Hygiene Recall &amp; Chair-Time Maximizer</h2>
+        <p class="feature-desc">
+          Reactivates patients due for 6-month checkups or overdue cleanings with personalized 1-click booking links, ensuring your hygiene chairs operate at 95%+ capacity year-round.
+        </p>
+        <ul class="metrics-list">
+          <li>Fills sudden same-day cancellations automatically from priority waitlists.</li>
+          <li>Zero manual calling by front-desk administrative staff.</li>
+          <li>Guarantees predictable recurring patient lifetime value.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80" alt="Doctor Consultation Clinic Room" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 4: Free Graphic Design & Clinical Branding Kit -->
+    <section class="feature-row">
+      <div>
+        <span class="feature-tag">Complimentary Bonus 01</span>
+        <h2 class="feature-title">Free Custom Brand Graphic Design &amp; Clinic Styling</h2>
+        <p class="feature-desc">
+          Every active clinic partner receives luxury patient-facing graphic assets designed for their waiting rooms and digital touchpoints with zero design fees.
+        </p>
+        <ul class="metrics-list">
+          <li>Luxury patient appointment cards and treatment proposal folders.</li>
+          <li>Cosmetic procedure brochures (Invisalign, Veneers, Implants).</li>
+          <li>Front-door clinic window frosted decals and exterior signage files.</li>
+          <li>Branded clinician scrubs and staff badge graphics.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80" alt="Medical Technology and Practice Brand" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 5: Local Patient Acquisition & SEO Growth -->
+    <section class="feature-row">
+      <div>
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt="Dental Clinic Consultation Room" class="feature-img">
+      </div>
+      <div>
+        <span class="feature-tag">Complimentary Bonus 02</span>
+        <h2 class="feature-title">Local Patient Lead Gen &amp; Map Pack Dominance</h2>
+        <p class="feature-desc">
+          Proven frameworks to position your clinic as the top-rated healthcare provider in your geographical area.
+        </p>
+        <ul class="metrics-list">
+          <li>Google Map Pack #1 local ranking protocol for high-intent cosmetic searches.</li>
+          <li>Automated post-appointment 5-star Google review collection via SMS.</li>
+          <li>Local corporate employee dental &amp; wellness benefit package scripts.</li>
+          <li>High-ticket patient referral incentive workflows.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="cta-banner">
+      <h2>Deploy ClinicSovereign OS for Your Practice</h2>
+      <p>
+        Eliminate missed after-hours calls, increase cosmetic case acceptance, and receive the Free Graphic Design Kit + Local Lead Gen Playbook for £97/month.
+      </p>
+      <a href="https://whop.com/checkout/plan_7Yyq1q3piMsk6" target="_blank" class="cta-btn-white">Activate Clinic License (£97/Month)</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 ClinicSovereign OS &amp; Sovereign Systems. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updateClinicROI(val) {
+      const turnover = parseFloat(val);
+      const recovered = Math.round(turnover * 0.24);
+      const annual = recovered * 12;
+      document.getElementById('display-clinic-turnover').innerText = '£' + turnover.toLocaleString();
+      document.getElementById('display-clinic-recovered').innerText = '+£' + recovered.toLocaleString() + ' / mo';
+      document.getElementById('display-clinic-annual').innerText = '+£' + annual.toLocaleString() + ' / yr';
+    }
+  </script>
+
+  <script src="bespoke_portal_engine.js"></script>
+</body>
+</html>

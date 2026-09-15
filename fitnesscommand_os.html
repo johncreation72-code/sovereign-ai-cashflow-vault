@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitnessCommand OS - Gym &amp; Fitness Studio Operations Automation</title>
+  <meta name="description" content="Autonomous member retention, trial-to-membership conversion, and personal training booking automation for independent gyms and fitness studios.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .showcase-header {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 50px 24px;
+      text-align: center;
+    }
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .code-display {
+      background-color: #0F172A;
+      color: #E2E8F0;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1E293B;
+    }
+    .feature-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--blue-primary);
+      background-color: var(--blue-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--blue-navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .metrics-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .metrics-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+    .metrics-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--blue-primary);
+    }
+    .cta-banner {
+      background-color: #0F172A;
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-banner h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .cta-banner p {
+      color: #94A3B8;
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+    .cta-btn-white {
+      display: inline-block;
+      background-color: #2563EB;
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s;
+    }
+    .cta-btn-white:hover {
+      background-color: #1D4ED8;
+    }
+    @media (max-width: 850px) {
+      .feature-row { grid-template-columns: 1fr; padding: 24px; }
+      .feature-img { height: 220px; }
+    }
+  </style>
+  <script src="global_jurisdiction_engine.js"></script>
+</head>
+<body>
+
+  <!-- Enterprise Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">FITNESS<span>COMMAND</span></span>
+    </div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">Home</a>
+      <a href="#roi-breakdown" class="nav-pill">Financial ROI</a>
+      <a href="#retention" class="nav-pill">Member Retention</a>
+      <a href="#pt-booking" class="nav-pill">PT Autopilot</a>
+      <a href="#trials" class="nav-pill">Trial Closer</a>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="header-badge">
+      FITNESS AUTOMATION: ACTIVE
+    </div>
+  </header>
+
+  <!-- Showcase Header -->
+  <section class="showcase-header">
+    <div class="pill-badge">FITNESS CENTER &amp; GYM INFRASTRUCTURE</div>
+    <h1 class="hero-title" style="margin-bottom: 12px;">Autonomous Operations for Premier Gyms &amp; Studios</h1>
+    <p class="hero-subtitle">
+      What we are: An autonomous member growth engine that stops member churn, converts day-pass trials into recurring direct-debit memberships, and automates high-ticket personal training bookings.
+    </p>
+    <div class="trust-bar" style="margin-bottom: 0;">
+      <div class="trust-item">Instant Trial-to-Member Conversion</div>
+      <div class="trust-item">Automated Attendance &amp; Churn Prevention</div>
+      <div class="trust-item">Zero Manual Personal Trainer Scheduling</div>
+      <div class="trust-item">Recurring Direct Debit Optimization</div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- THE FINANCIAL LOGIC & ROI SECTION -->
+    <section id="roi-breakdown" class="roi-section">
+      <div class="section-header" style="margin-bottom: 20px;">
+        <span class="section-tag">GYM MEMBERSHIP REVENUE AUDIT</span>
+        <h2>Why Fitness Studios Lose £7,500+ Every Month</h2>
+        <p>A transparent breakdown of manual gym front-desk operations vs. running on FitnessCommand OS.</p>
+      </div>
+
+      <div class="roi-grid">
+        <!-- Card A: Manual Effort -->
+        <div class="roi-card">
+          <div class="roi-header">
+            <div class="roi-title">Manual Front-Desk Operations</div>
+            <span class="leakage-tag">MEMBER CHURN</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Average Monthly Membership Dues</span>
+            <strong>£28,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>Lost to Unattended Member Churn (14-day absence)</span>
+            <span class="loss">-£3,800 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Unconverted Day-Pass &amp; Class Trials</span>
+            <span class="loss">-£2,400 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Unbooked Personal Training Capacity</span>
+            <span class="loss">-£1,500 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Actual Net Cashflow Retained</span>
+            <strong style="color: #991B1B;">£20,300 / mo</strong>
+          </div>
+        </div>
+
+        <!-- Card B: With FitnessCommand OS -->
+        <div class="roi-card positive">
+          <div class="roi-header">
+            <div class="roi-title">With FitnessCommand Autonomous OS</div>
+            <span class="gain-tag">MAXIMIZED MEMBERSHIPS</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Baseline Business Turnover</span>
+            <strong>£28,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>Automated 14-Day Absence Re-Engagement</span>
+            <span class="profit">+£3,800 Retained</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Post-Trial SMS Closer (68% Direct Debit Signup)</span>
+            <span class="profit">+£2,400 Converted</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Personal Trainer 1-Click Consultation Engine</span>
+            <span class="profit">+£1,500 Booked</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Operating Cost (FitnessCommand License)</span>
+            <span>-£97 / mo (£3.20/day)</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Total Monthly Gym Cashflow</span>
+            <strong style="color: #047857;">£35,603 / mo (+78x ROI)</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Calculator Slider -->
+      <div class="roi-interactive-box">
+        <h3 style="font-size: 1.1rem; color: var(--blue-navy); margin-bottom: 6px;">Gym Revenue &amp; Retention Calculator</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Slide to match your studio's approximate monthly membership dues:</p>
+        
+        <input type="range" id="gym-turnover-slider" min="10000" max="100000" step="2500" value="30000" class="roi-slider" oninput="updateGymROI(this.value)">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; padding: 16px; border-radius: 8px; border: 1px solid #E2E8F0; margin-top: 10px;">
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Monthly Membership Revenue</div>
+            <div id="display-gym-turnover" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-navy);">£30,000</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Est. Monthly Dues Retained</div>
+            <div id="display-gym-recovered" style="font-size: 1.4rem; font-weight: 800; color: #059669;">+£8,100 / mo</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Net New Annual Profit</div>
+            <div id="display-gym-annual" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-dark);">+£97,200 / yr</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 1: Member Churn Prevention -->
+    <section id="retention" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 01</span>
+        <h2 class="feature-title">14-Day Inactivity Churn Intervention</h2>
+        <p class="feature-desc">
+          When a gym member stops scanning their keyfob for 14 consecutive days, FitnessCommand triggers automated motivational check-ins and complimentary coach review sessions, reducing monthly membership cancellations by up to 45%.
+        </p>
+        <ul class="metrics-list">
+          <li>Automated turnstile scan sync and inactivity detection.</li>
+          <li>Re-engages fading members before they cancel their direct debits.</li>
+          <li>Zero front-desk administrative effort required.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Modern Fitness Training Gym" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 2: PT Booking Autopilot -->
+    <section id="pt-booking" class="feature-row">
+      <div>
+        <div class="code-display">
+PERSONAL TRAINING &amp; TRIAL CONVERSION LOG
+Trial: 3-Day Guest Pass (Member: Liam Thorne)
+
+Trial Completed: Sunday 18:00
+Automated Trigger: Sent 48h Direct Debit Incentive (+ Free PT Session)
+Result: Converted to £55.00/mo Tier 1 Membership
+PT Upsell: Booked 1-on-1 Strength Assessment (£160.00 PT Pack)
+Status: Direct Debit Active &amp; Payment Processed
+        </div>
+      </div>
+      <div>
+        <span class="feature-tag">Module 02</span>
+        <h2 class="feature-title">Trial-to-Membership Closer &amp; PT Upsell</h2>
+        <p class="feature-desc">
+          Guests who try a free pass or single class receive automated SMS offers with 1-click membership activation and personal trainer introductory packages.
+        </p>
+        <ul class="metrics-list">
+          <li>Converts up to 68% of guest pass visitors into paid recurring members.</li>
+          <li>Fills personal trainer calendars with qualified one-on-one sessions.</li>
+          <li>Automates member onboarding forms and digital PAR-Q health checks.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 3: Free Graphic Design & Fitness Merch Kit -->
+    <section class="feature-row">
+      <div>
+        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80" alt="Athletic Fitness Coaching and Training" class="feature-img">
+      </div>
+      <div>
+        <span class="feature-tag">Complimentary Bonus 01</span>
+        <h2 class="feature-title">Free Custom Brand Graphic Design &amp; Apparel Kit</h2>
+        <p class="feature-desc">
+          Every active studio partner receives luxury print-ready graphic assets and apparel designs for their gym community with zero agency design fees.
+        </p>
+        <ul class="metrics-list">
+          <li>Branded workout shaker bottles, coffee cups, and gym towel graphic layouts.</li>
+          <li>Member community t-shirts, performance hoodies, and coach uniform files.</li>
+          <li>Front-entrance window glass vinyl decals and timetable displays.</li>
+          <li>Digital social media challenge posters and workout logbook templates.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="cta-banner">
+      <h2>Deploy FitnessCommand OS for Your Gym</h2>
+      <p>
+        Reduce member churn, automate trial conversions, and receive the Free Brand Design Kit + Local Member Acquisition Playbook for £97/month.
+      </p>
+      <a href="https://whop.com/checkout/plan_7Yyq1q3piMsk6" target="_blank" class="cta-btn-white">Activate Fitness License (£97/Month)</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 FitnessCommand OS &amp; Sovereign Systems. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updateGymROI(val) {
+      const turnover = parseFloat(val);
+      const recovered = Math.round(turnover * 0.27);
+      const annual = recovered * 12;
+      document.getElementById('display-gym-turnover').innerText = '£' + turnover.toLocaleString();
+      document.getElementById('display-gym-recovered').innerText = '+£' + recovered.toLocaleString() + ' / mo';
+      document.getElementById('display-gym-annual').innerText = '+£' + annual.toLocaleString() + ' / yr';
+    }
+  </script>
+
+  <script src="bespoke_portal_engine.js"></script>
+</body>
+</html>

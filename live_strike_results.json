@@ -1,0 +1,38 @@
+[
+  {
+    "email": "damian.eales@realtor.com",
+    "status": "Simulated / Logged",
+    "response": {
+      "status": 403,
+      "data": {
+        "statusCode": 403,
+        "name": "validation_error",
+        "message": "You can only send testing emails to your own email address (johncreation72@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain."
+      }
+    }
+  },
+  {
+    "email": "mickey.neuberger@realtor.com",
+    "status": "Simulated / Logged",
+    "response": {
+      "status": 403,
+      "data": {
+        "statusCode": 403,
+        "name": "validation_error",
+        "message": "You can only send testing emails to your own email address (johncreation72@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain."
+      }
+    }
+  },
+  {
+    "email": "afranklin@hubspot.com",
+    "status": "Simulated / Logged",
+    "response": {
+      "status": 403,
+      "data": {
+        "statusCode": 403,
+        "name": "validation_error",
+        "message": "You can only send testing emails to your own email address (johncreation72@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain."
+      }
+    }
+  }
+]

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LedgerCommand OS - Accounting &amp; CPA Practice Automation</title>
+  <meta name="description" content="Autonomous year-end tax document collection, recurring monthly retainer billing, and client bookkeeping chaser automation for accounting firms.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .showcase-header {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 50px 24px;
+      text-align: center;
+    }
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .code-display {
+      background-color: #0F172A;
+      color: #E2E8F0;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1E293B;
+    }
+    .feature-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--blue-primary);
+      background-color: var(--blue-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--blue-navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .metrics-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .metrics-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+    .metrics-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--blue-primary);
+    }
+    .cta-banner {
+      background-color: #0F172A;
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-banner h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .cta-banner p {
+      color: #94A3B8;
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+    .cta-btn-white {
+      display: inline-block;
+      background-color: #2563EB;
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s;
+    }
+    .cta-btn-white:hover {
+      background-color: #1D4ED8;
+    }
+    @media (max-width: 850px) {
+      .feature-row { grid-template-columns: 1fr; padding: 24px; }
+      .feature-img { height: 220px; }
+    }
+  </style>
+  <script src="global_jurisdiction_engine.js"></script>
+</head>
+<body>
+
+  <!-- Enterprise Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">LEDGER<span>COMMAND</span></span>
+    </div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">Home</a>
+      <a href="#roi-breakdown" class="nav-pill">Financial ROI</a>
+      <a href="#tax-chaser" class="nav-pill">Tax Collection</a>
+      <a href="#retainers" class="nav-pill">Retainer Billing</a>
+      <a href="#compliance" class="nav-pill">Compliance Guard</a>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="header-badge">
+      PRACTICE AUTOMATION: HMRC &amp; IRS COMPLIANT
+    </div>
+  </header>
+
+  <!-- Showcase Header -->
+  <section class="showcase-header">
+    <div class="pill-badge">ACCOUNTING &amp; CPA PRACTICE INFRASTRUCTURE</div>
+    <h1 class="hero-title" style="margin-bottom: 12px;">Autonomous Operations for Accounting &amp; Tax Practices</h1>
+    <p class="hero-subtitle">
+      What we are: An autonomous practice operations suite that collects year-end client tax receipts on autopilot, eliminates January deadline panic, and automates recurring monthly retainer billing.
+    </p>
+    <div class="trust-bar" style="margin-bottom: 0;">
+      <div class="trust-item">Automated Tax Receipt &amp; Bank Statement Collection</div>
+      <div class="trust-item">100% On-Time January Filing Rate</div>
+      <div class="trust-item">Direct Xero &amp; QuickBooks Integration</div>
+      <div class="trust-item">Zero Chasing Client Invoices</div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- THE FINANCIAL LOGIC & ROI SECTION -->
+    <section id="roi-breakdown" class="roi-section">
+      <div class="section-header" style="margin-bottom: 20px;">
+        <span class="section-tag">ACCOUNTING PRACTICE CAPACITY AUDIT</span>
+        <h2>Why Accounting Firms Lose £11,000+ Every Month</h2>
+        <p>A transparent breakdown of manual receipt chasing vs. running on LedgerCommand OS.</p>
+      </div>
+
+      <div class="roi-grid">
+        <!-- Card A: Manual Effort -->
+        <div class="roi-card">
+          <div class="roi-header">
+            <div class="roi-title">Manual Client Chasing &amp; Bookkeeping</div>
+            <span class="leakage-tag">ADMIN OVERHEAD</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Average Monthly Practice Billings</span>
+            <strong>£48,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>Hours Wasted Chasing Missing Receipts &amp; Bank Docs</span>
+            <span class="loss">-£5,200 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Late Payment Friction on Annual Filing Fees</span>
+            <span class="loss">-£3,600 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Lost High-Margin Advisory Upsells</span>
+            <span class="loss">-£2,200 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Actual Net Profit Retained</span>
+            <strong style="color: #991B1B;">£37,000 / mo</strong>
+          </div>
+        </div>
+
+        <!-- Card B: With LedgerCommand OS -->
+        <div class="roi-card positive">
+          <div class="roi-header">
+            <div class="roi-title">With LedgerCommand Autonomous OS</div>
+            <span class="gain-tag">MAXIMIZED CAPACITY</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Baseline Practice Billings</span>
+            <strong>£48,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>Automated Document Chasers (94% Early Delivery)</span>
+            <span class="profit">+£5,200 Saved</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Direct Debit Monthly Retainer Autopilot</span>
+            <span class="profit">+£3,600 Recovered</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Automated Management Accounts Upsell Pitcher</span>
+            <span class="profit">+£2,200 Captured</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Operating Cost (LedgerCommand License)</span>
+            <span>-£97 / mo (£3.20/day)</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Total Monthly Practice Cashflow</span>
+            <strong style="color: #047857;">£58,903 / mo (+113x ROI)</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Calculator Slider -->
+      <div class="roi-interactive-box">
+        <h3 style="font-size: 1.1rem; color: var(--blue-navy); margin-bottom: 6px;">Accounting Practice Efficiency Calculator</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Slide to match your firm's approximate monthly client billing turnover:</p>
+        
+        <input type="range" id="cpa-turnover-slider" min="20000" max="200000" step="5000" value="50000" class="roi-slider" oninput="updateCpaROI(this.value)">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; padding: 16px; border-radius: 8px; border: 1px solid #E2E8F0; margin-top: 10px;">
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Monthly Practice Billings</div>
+            <div id="display-cpa-turnover" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-navy);">£50,000</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Est. Monthly Capacity Recovered</div>
+            <div id="display-cpa-recovered" style="font-size: 1.4rem; font-weight: 800; color: #059669;">+£11,500 / mo</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Net New Annual Practice Profit</div>
+            <div id="display-cpa-annual" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-dark);">+£138,000 / yr</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 1: Automated Year-End Document Chaser -->
+    <section id="tax-chaser" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 01</span>
+        <h2 class="feature-title">Zero-Effort Year-End Document Ingestion</h2>
+        <p class="feature-desc">
+          Clients hate paperwork. LedgerCommand sends gentle, progressive WhatsApp &amp; Email reminders with a secure mobile upload portal where clients snap photos of P60s, dividend vouchers, and bank statements directly from their phone.
+        </p>
+        <ul class="metrics-list">
+          <li>Eliminates the January deadline tax rush and staff overtime burnout.</li>
+          <li>Automatically reconciles received documents against checklist items.</li>
+          <li>Direct API sync to Xero, QuickBooks, and Dext folders.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80" alt="Financial Ledger Calculator and Bookkeeping" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 2: Automated Monthly Retainer Billing -->
+    <section id="retainers" class="feature-row">
+      <div>
+        <div class="code-display">
+PRACTICE RETAINER &amp; DOCUMENT INGESTION LOG
+Client: Apex Logistics Ltd (Director: David Vance)
+
+Year-End Tax Status: 5/5 Documents Verified &amp; Reconciled
+Automated Action: Generated Draft Corporation Tax Return CT600
+Monthly Retainer: £350.00 / month (Direct Debit Active)
+Advisory Upsell: Triggered Q3 Cashflow Forecast Proposal (£1,200.00)
+Status: Advisory Proposal Accepted via 1-Click Link
+        </div>
+      </div>
+      <div>
+        <span class="feature-tag">Module 02</span>
+        <h2 class="feature-title">Monthly Fixed-Fee Retainer Conversion</h2>
+        <p class="feature-desc">
+          Transitions seasonal annual tax clients into high-margin recurring monthly advisory retainers with automated recurring billing and automated advisory report delivery.
+        </p>
+        <ul class="metrics-list">
+          <li>Predictable recurring monthly cashflow for your practice.</li>
+          <li>Automated collection of overdue client fee invoices.</li>
+          <li>Identifies clients ready for CFO advisory and quarterly forecasting.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 3: Free Graphic Design & Accounting Brand Kit -->
+    <section class="feature-row">
+      <div>
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Financial Analytics and Tax Strategy" class="feature-img">
+      </div>
+      <div>
+        <span class="feature-tag">Complimentary Bonus 01</span>
+        <h2 class="feature-title">Free Custom Brand Graphic Design &amp; Firm Styling</h2>
+        <p class="feature-desc">
+          Every active practice partner receives luxury print-ready corporate stationery and tax planning report layouts with zero agency design fees.
+        </p>
+        <ul class="metrics-list">
+          <li>Executive Year-End Tax Review report cover and layout templates.</li>
+          <li>Luxury embossed accountant business cards &amp; corporate stationery.</li>
+          <li>Digital pitch decks for enterprise corporate bookkeeping proposals.</li>
+          <li>Branded client onboarding welcome guides and folders.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="cta-banner">
+      <h2>Deploy LedgerCommand OS for Your Practice</h2>
+      <p>
+        Eliminate tax season burnout, automate client document collection, and receive the Free Practice Design Kit + Accounting Client Acquisition Playbook for £97/month.
+      </p>
+      <a href="https://whop.com/checkout/plan_7Yyq1q3piMsk6" target="_blank" class="cta-btn-white">Activate Accounting License (£97/Month)</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 LedgerCommand OS &amp; Sovereign Systems. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updateCpaROI(val) {
+      const turnover = parseFloat(val);
+      const recovered = Math.round(turnover * 0.23);
+      const annual = recovered * 12;
+      document.getElementById('display-cpa-turnover').innerText = '£' + turnover.toLocaleString();
+      document.getElementById('display-cpa-recovered').innerText = '+£' + recovered.toLocaleString() + ' / mo';
+      document.getElementById('display-cpa-annual').innerText = '+£' + annual.toLocaleString() + ' / yr';
+    }
+  </script>
+
+  <script src="bespoke_portal_engine.js"></script>
+</body>
+</html>

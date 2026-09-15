@@ -1,0 +1,10 @@
+node_modules
+.whatsapp_sovereign_auth
+*.log
+.DS_Store
+.wwebjs_auth/
+.whatsapp_sovereign_auth/
+.wwebjs_cache/
+*.log
+.DS_Store
+node_modules/

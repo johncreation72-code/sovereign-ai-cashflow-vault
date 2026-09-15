@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LexCommand OS - Law Firm &amp; Solicitor Practice Automation</title>
+  <meta name="description" content="Autonomous client intake triage, high-ticket legal retainer qualification, and automated conflict-check workflows for private solicitors and law practices.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .showcase-header {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 50px 24px;
+      text-align: center;
+    }
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .code-display {
+      background-color: #0F172A;
+      color: #E2E8F0;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1E293B;
+    }
+    .feature-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--blue-primary);
+      background-color: var(--blue-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--blue-navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .metrics-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .metrics-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+    .metrics-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--blue-primary);
+    }
+    .cta-banner {
+      background-color: #0F172A;
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-banner h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .cta-banner p {
+      color: #94A3B8;
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+    .cta-btn-white {
+      display: inline-block;
+      background-color: #2563EB;
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s;
+    }
+    .cta-btn-white:hover {
+      background-color: #1D4ED8;
+    }
+    @media (max-width: 850px) {
+      .feature-row { grid-template-columns: 1fr; padding: 24px; }
+      .feature-img { height: 220px; }
+    }
+  </style>
+  <script src="global_jurisdiction_engine.js"></script>
+</head>
+<body>
+
+  <!-- Enterprise Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">LEX<span>COMMAND</span></span>
+    </div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">Home</a>
+      <a href="#roi-breakdown" class="nav-pill">Financial ROI</a>
+      <a href="#intake" class="nav-pill">Client Intake</a>
+      <a href="#retainers" class="nav-pill">Retainer Closer</a>
+      <a href="#conflicts" class="nav-pill">Conflict Checks</a>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="header-badge">
+      LEGAL PRACTICE COMPLIANCE: SRA &amp; BAR READY
+    </div>
+  </header>
+
+  <!-- Showcase Header -->
+  <section class="showcase-header">
+    <div class="pill-badge">LEGAL PRACTICE &amp; SOLICITOR INFRASTRUCTURE</div>
+    <h1 class="hero-title" style="margin-bottom: 12px;">Autonomous Operations for Law Firms &amp; Solicitors</h1>
+    <p class="hero-subtitle">
+      What we are: An autonomous legal operations engine that pre-qualifies high-value case inquiries in 90 seconds, automates retainer agreement execution, and runs preliminary conflict checks.
+    </p>
+    <div class="trust-bar" style="margin-bottom: 0;">
+      <div class="trust-item">Instant High-Value Retainer E-Sign</div>
+      <div class="trust-item">24/7 Client Inquiry Pre-Qualification</div>
+      <div class="trust-item">Automated Legal Document Intake</div>
+      <div class="trust-item">SRA Regulatory Compliance Standard</div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- THE FINANCIAL LOGIC & ROI SECTION -->
+    <section id="roi-breakdown" class="roi-section">
+      <div class="section-header" style="margin-bottom: 20px;">
+        <span class="section-tag">LEGAL PRACTICE AUDIT</span>
+        <h2>Why Law Firms Lose £18,000+ Every Month</h2>
+        <p>A transparent comparison of manual partner intake vs. running on LexCommand OS.</p>
+      </div>
+
+      <div class="roi-grid">
+        <!-- Card A: Manual Effort -->
+        <div class="roi-card">
+          <div class="roi-header">
+            <div class="roi-title">Manual Partner &amp; Paralegal Intake</div>
+            <span class="leakage-tag">BILLABLE LEAKAGE</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Average Monthly Fee Billings</span>
+            <strong>£75,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>Hours Wasted on Unqualified Case Calls</span>
+            <span class="loss">-£8,500 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Stalled Client Retainer Deposit Follow-Ups</span>
+            <span class="loss">-£6,200 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Manual Identity &amp; Conflict Verification Friction</span>
+            <span class="loss">-£3,300 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Actual Realized Billable Profit</span>
+            <strong style="color: #991B1B;">£57,000 / mo</strong>
+          </div>
+        </div>
+
+        <!-- Card B: With LexCommand OS -->
+        <div class="roi-card positive">
+          <div class="roi-header">
+            <div class="roi-title">With LexCommand Autonomous OS</div>
+            <span class="gain-tag">MAXIMIZED BILLABLE HOURS</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Baseline Practice Billings</span>
+            <strong>£75,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>90s Instant Case Merit &amp; Budget Filter</span>
+            <span class="profit">+£8,500 Unlocked</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Automated Engagement Letter &amp; Retainer Closer</span>
+            <span class="profit">+£6,200 Secured</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Instant AML &amp; Conflict Intake Form Automation</span>
+            <span class="profit">+£3,300 Saved</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Operating Cost (LexCommand License)</span>
+            <span>-£97 / mo (£3.20/day)</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Total Monthly Practice Cashflow</span>
+            <strong style="color: #047857;">£92,903 / mo (+185x ROI)</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Calculator Slider -->
+      <div class="roi-interactive-box">
+        <h3 style="font-size: 1.1rem; color: var(--blue-navy); margin-bottom: 6px;">Legal Practice Capacity &amp; Revenue Calculator</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Slide to match your firm's approximate monthly billing turnover:</p>
+        
+        <input type="range" id="law-turnover-slider" min="30000" max="300000" step="10000" value="75000" class="roi-slider" oninput="updateLawROI(this.value)">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; padding: 16px; border-radius: 8px; border: 1px solid #E2E8F0; margin-top: 10px;">
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Monthly Fee Billings</div>
+            <div id="display-law-turnover" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-navy);">£75,000</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Est. Monthly Billable Value Gained</div>
+            <div id="display-law-recovered" style="font-size: 1.4rem; font-weight: 800; color: #059669;">+£18,000 / mo</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Net New Annual Practice Profit</div>
+            <div id="display-law-annual" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-dark);">+£216,000 / yr</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 1: High-Ticket Client Intake -->
+    <section id="intake" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 01</span>
+        <h2 class="feature-title">24/7 Intelligent Legal Case Intake</h2>
+        <p class="feature-desc">
+          Prospective commercial and private clients require immediate answers. LexCommand evaluates jurisdiction, claim size, statute of limitations, and financial merit within 90 seconds, scheduling qualified appointments directly with partners.
+        </p>
+        <ul class="metrics-list">
+          <li>Eliminates hours wasted on non-viable or out-of-scope inquiries.</li>
+          <li>Routes high-value corporate disputes straight to senior solicitors.</li>
+          <li>Provides instant preliminary onboarding document checklists.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80" alt="Law Library Courtroom Scales" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 2: Retainer Closer & Agreement E-Sign -->
+    <section id="retainers" class="feature-row">
+      <div>
+        <div class="code-display">
+LEGAL ENGAGEMENT &amp; RETAINER DISPATCH LOG
+Matter: Commercial Lease Dispute (#LEX-2026-441)
+
+Client: Meridian Retail Holdings Ltd (Managing Director)
+Retainer Required: £3,500.00 Initial Trust Deposit
+Action: Engagement letter and automated ID/AML portal link dispatched.
+Status: Engagement signed via e-sign &amp; £3,500 retainer paid within 22 mins.
+Result: Matter Active &amp; Dispatched to Senior Associate Calendar
+        </div>
+      </div>
+      <div>
+        <span class="feature-tag">Module 02</span>
+        <h2 class="feature-title">Automated Retainer &amp; Engagement Letter Closer</h2>
+        <p class="feature-desc">
+          Turns initial verbal consultation agreements into legally binding signed engagement letters with upfront client trust deposits secured within minutes.
+        </p>
+        <ul class="metrics-list">
+          <li>Automated 24h/48h reminders for unsigned retainer agreements.</li>
+          <li>Integrated digital AML (Anti-Money Laundering) identity verification.</li>
+          <li>Secures upfront retainers before work begins, eliminating bad debt.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 3: Free Graphic Design & Legal Practice Brand Kit -->
+    <section class="feature-row">
+      <div>
+        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80" alt="Law Firm Boardroom and Executive Signing" class="feature-img">
+      </div>
+      <div>
+        <span class="feature-tag">Complimentary Bonus 01</span>
+        <h2 class="feature-title">Free Custom Brand Graphic Design &amp; Firm Styling</h2>
+        <p class="feature-desc">
+          Every active practice partner receives luxury print-ready corporate stationery and presentation collateral with zero agency design fees.
+        </p>
+        <ul class="metrics-list">
+          <li>Luxury embossed solicitor business cards &amp; corporate letterheads.</li>
+          <li>Executive client presentation folders and litigation binder covers.</li>
+          <li>Gated corporate brochure design files for commercial clients.</li>
+          <li>Digital pitch decks for enterprise corporate retainer proposals.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="cta-banner">
+      <h2>Deploy LexCommand OS for Your Firm</h2>
+      <p>
+        Streamline client intake, secure upfront retainers, and receive the Free Corporate Design Kit + Legal Practice Acquisition Playbook for £97/month.
+      </p>
+      <a href="https://whop.com/checkout/plan_7Yyq1q3piMsk6" target="_blank" class="cta-btn-white">Activate Legal License (£97/Month)</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 LexCommand OS &amp; Sovereign Systems. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updateLawROI(val) {
+      const turnover = parseFloat(val);
+      const recovered = Math.round(turnover * 0.24);
+      const annual = recovered * 12;
+      document.getElementById('display-law-turnover').innerText = '£' + turnover.toLocaleString();
+      document.getElementById('display-law-recovered').innerText = '+£' + recovered.toLocaleString() + ' / mo';
+      document.getElementById('display-law-annual').innerText = '+£' + annual.toLocaleString() + ' / yr';
+    }
+  </script>
+
+  <script src="bespoke_portal_engine.js"></script>
+</body>
+</html>

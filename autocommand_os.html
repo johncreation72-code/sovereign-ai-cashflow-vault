@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoCommand OS - Auto Repair &amp; Garage Operations Automation</title>
+  <meta name="description" content="Autonomous MOT &amp; service reminders, 60-second digital repair estimates with video diagnostics, and technician parts margin guard for independent garages.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .showcase-header {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 50px 24px;
+      text-align: center;
+    }
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .code-display {
+      background-color: #0F172A;
+      color: #E2E8F0;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1E293B;
+    }
+    .feature-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--blue-primary);
+      background-color: var(--blue-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--blue-navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .metrics-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .metrics-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+    .metrics-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--blue-primary);
+    }
+    .cta-banner {
+      background-color: #0F172A;
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-banner h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .cta-banner p {
+      color: #94A3B8;
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+    .cta-btn-white {
+      display: inline-block;
+      background-color: #2563EB;
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s;
+    }
+    .cta-btn-white:hover {
+      background-color: #1D4ED8;
+    }
+    @media (max-width: 850px) {
+      .feature-row { grid-template-columns: 1fr; padding: 24px; }
+      .feature-img { height: 220px; }
+    }
+  </style>
+  <script src="global_jurisdiction_engine.js"></script>
+</head>
+<body>
+
+  <!-- Enterprise Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">AUTO<span>COMMAND</span></span>
+    </div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">Home</a>
+      <a href="#roi-breakdown" class="nav-pill">Financial ROI</a>
+      <a href="#estimates" class="nav-pill">Digital Estimates</a>
+      <a href="#reminders" class="nav-pill">MOT Reminders</a>
+      <a href="#parts" class="nav-pill">Parts Margin Guard</a>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="header-badge">
+      GARAGE AUTOMATION: ACTIVE
+    </div>
+  </header>
+
+  <!-- Showcase Header -->
+  <section class="showcase-header">
+    <div class="pill-badge">AUTOMOTIVE &amp; GARAGE INFRASTRUCTURE</div>
+    <h1 class="hero-title" style="margin-bottom: 12px;">Autonomous Operations for Independent Garages</h1>
+    <p class="hero-subtitle">
+      What we are: An autonomous garage operations platform that automates MOT &amp; annual service recall bookings, dispatches 60-second digital repair estimates with photo approvals, and audits parts margins.
+    </p>
+    <div class="trust-bar" style="margin-bottom: 0;">
+      <div class="trust-item">Instant Digital Customer Approvals</div>
+      <div class="trust-item">Automated MOT &amp; Service Recalls</div>
+      <div class="trust-item">Wholesale Parts Price Protection</div>
+      <div class="trust-item">Zero Workshop Ramp Downtime</div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- THE FINANCIAL LOGIC & ROI SECTION -->
+    <section id="roi-breakdown" class="roi-section">
+      <div class="section-header" style="margin-bottom: 20px;">
+        <span class="section-tag">WORKSHOP REVENUE AUDIT</span>
+        <h2>Why Auto Garages Lose £8,500+ Every Month</h2>
+        <p>A transparent breakdown of manual garage reception vs. running on AutoCommand OS.</p>
+      </div>
+
+      <div class="roi-grid">
+        <!-- Card A: Manual Effort -->
+        <div class="roi-card">
+          <div class="roi-header">
+            <div class="roi-title">Manual Garage Bookkeeping</div>
+            <span class="leakage-tag">RAMP LEAKAGE</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Average Monthly Workshop Billings</span>
+            <strong>£32,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>Overdue MOT &amp; Service Lapses</span>
+            <span class="loss">-£4,200 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Stalled Repair Phone Approvals</span>
+            <span class="loss">-£2,800 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Supplier Parts Price Mark-Up Slippage</span>
+            <span class="loss">-£1,500 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Actual Net Profit Retained</span>
+            <strong style="color: #991B1B;">£23,500 / mo</strong>
+          </div>
+        </div>
+
+        <!-- Card B: With AutoCommand OS -->
+        <div class="roi-card positive">
+          <div class="roi-header">
+            <div class="roi-title">With AutoCommand OS</div>
+            <span class="gain-tag">MAXIMIZED WORKSHOP</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Baseline Workshop Billings</span>
+            <strong>£32,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>Automated MOT &amp; 12-Month Service Recalls</span>
+            <span class="profit">+£4,200 Recovered</span>
+          </div>
+          <div class="roi-math-row">
+            <span>60s SMS Digital Estimates (88% Same-Day Signoff)</span>
+            <span class="profit">+£2,800 Unlocked</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Parts Wholesale Price Spike Guard</span>
+            <span class="profit">+£1,500 Saved</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Operating Cost (AutoCommand License)</span>
+            <span>-£97 / mo (£3.20/day)</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Total Monthly Cashflow Retained</span>
+            <strong style="color: #047857;">£40,403 / mo (+87x ROI)</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Calculator Slider -->
+      <div class="roi-interactive-box">
+        <h3 style="font-size: 1.1rem; color: var(--blue-navy); margin-bottom: 6px;">Garage Revenue Recovery Calculator</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Slide to match your workshop's approximate monthly billing volume:</p>
+        
+        <input type="range" id="garage-turnover-slider" min="15000" max="150000" step="5000" value="35000" class="roi-slider" oninput="updateGarageROI(this.value)">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; padding: 16px; border-radius: 8px; border: 1px solid #E2E8F0; margin-top: 10px;">
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Monthly Workshop Turnover</div>
+            <div id="display-garage-turnover" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-navy);">£35,000</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Est. Monthly Ramp Profit Captured</div>
+            <div id="display-garage-recovered" style="font-size: 1.4rem; font-weight: 800; color: #059669;">+£9,100 / mo</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Net New Annual Profit</div>
+            <div id="display-garage-annual" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-dark);">+£109,200 / yr</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 1: Digital Repair Estimates -->
+    <section id="estimates" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 01</span>
+        <h2 class="feature-title">60-Second Digital Repair Estimates</h2>
+        <p class="feature-desc">
+          Technicians take a quick phone photo or video of worn brake pads, cracked suspension bushings, or fluid leaks. The AI formats an itemized SMS estimate with 1-click digital approval.
+        </p>
+        <ul class="metrics-list">
+          <li>Eliminates phone tag delays while customer cars sit idle on ramps.</li>
+          <li>Increases supplemental repair authorization rates by 42%.</li>
+          <li>Transparent photographic evidence builds absolute customer trust.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80" alt="Car Engine Diagnostics and Mechanic Work" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 2: MOT & Service Reminders -->
+    <section id="reminders" class="feature-row">
+      <div>
+        <div class="code-display">
+AUTOMATED MOT &amp; SERVICE RECALL DISPATCH
+Date: Monday Batch (Week Ending Recalls)
+
+1. Reg: LD68 XTY (BMW 3 Series - Mr. Cooper)
+   MOT Expiry: 14 Days Remaining
+   Action: Dispatched SMS Booking Link with 1-Click Time Slot
+   Result: Booked for Thursday 09:30 AM (£54.85 MOT + £180 Full Service)
+
+2. Reg: EK19 ZPL (Ford Transit - Apex Deliveries)
+   Annual Service: 12 Months Due
+   Action: Automated Fleet Recall Dispatched
+   Result: 3 Commercial Vans Booked for Fleet Maintenance (£840.00 Total)
+        </div>
+      </div>
+      <div>
+        <span class="feature-tag">Module 02</span>
+        <h2 class="feature-title">Automated MOT &amp; Service Recalls</h2>
+        <p class="feature-desc">
+          Syncs directly with national vehicle databases to automatically text car owners 30 days, 14 days, and 3 days before their MOT and annual service expire, keeping workshop ramps operating at full capacity.
+        </p>
+        <ul class="metrics-list">
+          <li>Zero manual phone calls from service receptionists.</li>
+          <li>Fills mid-week workshop ramps automatically.</li>
+          <li>Captures high-margin commercial fleet maintenance accounts.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 3: Parts Margin Sentinel -->
+    <section id="parts" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 03</span>
+        <h2 class="feature-title">Euro Car Parts &amp; GSF Invoice Sentinel</h2>
+        <p class="feature-desc">
+          Snap photos of wholesale parts invoices. The system checks supplier part costs against your retail markup targets to prevent margin erosion on OEM filters, brakes, and fluids.
+        </p>
+        <ul class="metrics-list">
+          <li>Guarantees strict 35%+ parts markup margins.</li>
+          <li>Flags supplier price creeping across recurring OEM part numbers.</li>
+          <li>Automated monthly parts expense ledger summaries.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&w=1200&q=80" alt="Automotive Tools and Service Workshop" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 4: Free Graphic Design & Garage Brand Kit -->
+    <section class="feature-row">
+      <div>
+        <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1200&q=80" alt="Modern Garage Service Facility" class="feature-img">
+      </div>
+      <div>
+        <span class="feature-tag">Complimentary Bonus 01</span>
+        <h2 class="feature-title">Free Custom Brand Graphic Design Kit</h2>
+        <p class="feature-desc">
+          Every active garage partner receives bespoke print-ready graphic design assets created for their reception and courtesy vehicles with zero design fees.
+        </p>
+        <ul class="metrics-list">
+          <li>Windscreen MOT reminder service sticker design templates.</li>
+          <li>Luxury embossed customer business cards &amp; service record booklet files.</li>
+          <li>Courtesy car exterior vinyl livery wrap graphics.</li>
+          <li>Branded technician workshop overalls, polo shirts, and keyrings.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 5: Local Driver Lead Gen -->
+    <section class="feature-row">
+      <div>
+        <span class="feature-tag">Complimentary Bonus 02</span>
+        <h2 class="feature-title">Local Fleet Lead Gen &amp; Map Pack Dominance</h2>
+        <p class="feature-desc">
+          Proven acquisition frameworks to make your garage the most trusted repair center in your town.
+        </p>
+        <ul class="metrics-list">
+          <li>Google Map Pack #1 ranking protocol for local car repair &amp; MOT terms.</li>
+          <li>Automated 5-star Google review requests sent upon vehicle collection.</li>
+          <li>Local delivery fleet and courier corporate maintenance pitch scripts.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Sports Car and Automotive Workshop" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="cta-banner">
+      <h2>Deploy AutoCommand OS for Your Garage</h2>
+      <p>
+        Maximize workshop ramp utilization, accelerate repair estimate approvals, and receive the Free Brand Kit + Local Lead Gen Playbook for £97/month.
+      </p>
+      <a href="https://whop.com/checkout/plan_7Yyq1q3piMsk6" target="_blank" class="cta-btn-white">Activate Garage Plan (£97/Month)</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 AutoCommand OS &amp; Sovereign Systems. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updateGarageROI(val) {
+      const turnover = parseFloat(val);
+      const recovered = Math.round(turnover * 0.26);
+      const annual = recovered * 12;
+      document.getElementById('display-garage-turnover').innerText = '£' + turnover.toLocaleString();
+      document.getElementById('display-garage-recovered').innerText = '+£' + recovered.toLocaleString() + ' / mo';
+      document.getElementById('display-garage-annual').innerText = '+£' + annual.toLocaleString() + ' / yr';
+    }
+  </script>
+
+  <script src="bespoke_portal_engine.js"></script>
+</body>
+</html>

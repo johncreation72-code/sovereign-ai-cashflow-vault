@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VECTOR 1 // BESPOKE DIRECTOR AUDIT STRIKE DASHBOARD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0F172A;
+      --blue: #2563EB;
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --border: #CBD5E1;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--navy);
+      margin: 0;
+      padding: 30px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 16px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      margin: 0;
+    }
+    .badge {
+      background: #EFF6FF;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid #BFDBFE;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .company-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .director-meta {
+      font-size: 13px;
+      color: #64748B;
+      margin: 4px 0 12px;
+    }
+    .copy-box {
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #334155;
+      margin-bottom: 14px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .btn-group {
+      display: flex;
+      gap: 8px;
+    }
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+    }
+    .btn-secondary {
+      background: #E2E8F0;
+      color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div>
+      <h1>VECTOR 1 // BESPOKE DIRECTOR AUDIT STRIKE DASHBOARD</h1>
+      <p style="margin:4px 0 0; color:#64748B; font-size:14px;">15 Verified Real-World High-Revenue Businesses (25–35% Expected Conversion Rate)</p>
+    </div>
+    <span class="badge">STATUS: 15 BESPOKE AUDITS STAGED</span>
+  </div>
+
+  <div class="grid" id="manifestGrid"></div>
+
+  <script>
+    fetch("master_director_strike_manifest.json")
+      .then(r => r.json())
+      .then(data => {
+        const grid = document.getElementById("manifestGrid");
+        grid.innerHTML = data.map(item => `
+          <div class="card">
+            <div>
+              <div class="company-title">${item.companyName}</div>
+              <div class="director-meta">Attention: <strong>${item.director}</strong> | ${item.location} | Ref: ${item.regNumber}</div>
+              <div style="font-size:12px; font-weight:700; color:#16A34A; margin-bottom:8px;">Recoverable: ${item.recoverable}</div>
+              <div class="copy-box">${item.personalizedInMailCopy}</div>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-secondary" onclick="navigator.clipboard.writeText('${item.personalizedInMailCopy.replace(/'/g, "\\'")}'); alert('Copied tailored pitch for ${item.director} to clipboard!');">Copy 1-to-1 Pitch</button>
+              <a href="${item.portalLink}" target="_blank" class="btn btn-primary">Open Staged Portal &rarr;</a>
+            </div>
+          </div>
+        `).join("");
+      })
+      .catch(e => {
+        document.getElementById("manifestGrid").innerHTML = "<p>Manifest loading... Please ensure master_director_strike_manifest.json is present.</p>";
+      });
+  </script>
+
+</body>
+</html>

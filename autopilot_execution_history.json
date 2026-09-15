@@ -1,0 +1,82 @@
+[
+  {
+    "target": "Prestige Loft & Construction UK",
+    "industry": "Builders & Construction",
+    "contact": "enquiries@prestigelofts.co.uk",
+    "portal": "https://sovereign-empire-os-ub2.vercel.app/sitecommand_os.html",
+    "status": "SUCCESS_DISPATCHED",
+    "timestamp": "2026-09-14T22:36:47.133Z"
+  },
+  {
+    "target": "Apex Civil Contracting",
+    "industry": "Builders & Construction",
+    "contact": "contact@apexcivil.co.uk",
+    "portal": "https://sovereign-empire-os-ub2.vercel.app/sitecommand_os.html",
+    "status": "SUCCESS_DISPATCHED",
+    "timestamp": "2026-09-14T22:36:47.227Z"
+  },
+  {
+    "target": "Miami Dental Excellence",
+    "industry": "Dental & Medical Clinics",
+    "contact": "info@miamidentalexcellence.com",
+    "portal": "https://sovereign-empire-os-ub2.vercel.app/clinic_sovereign_os.html",
+    "status": "SUCCESS_DISPATCHED",
+    "timestamp": "2026-09-14T22:36:47.297Z"
+  },
+  {
+    "target": "Harley Street Aesthetic Clinic",
+    "industry": "Dental & Medical Clinics",
+    "contact": "consultations@harleycosmetics.co.uk",
+    "portal": "https://sovereign-empire-os-ub2.vercel.app/clinic_sovereign_os.html",
+    "status": "SUCCESS_DISPATCHED",
+    "timestamp": "2026-09-14T22:36:47.417Z"
+  },
+  {
+    "target": "West End Auto Performance",
+    "industry": "Auto Mechanics & Garages",
+    "contact": "service@westendauto.co.uk",
+    "portal": "https://sovereign-empire-os-ub2.vercel.app/autocommand_os.html",
+    "status": "SUCCESS_DISPATCHED",
+    "timestamp": "2026-09-14T22:36:47.498Z"
+  },
+  {
+    "target": "Apex German Car Specialist",
+    "industry": "Auto Mechanics & Garages",
+    "contact": "workshop@apexgerman.co.uk",
+    "portal": "https://sovereign-empire-os-ub2.vercel.app/autocommand_os.html",
+    "status": "SUCCESS_DISPATCHED",
+    "timestamp": "2026-09-14T22:36:47.546Z"
+  },
+  {
+    "target": "The Mayfair Tasting Room",
+    "industry": "Fine Dining & Restaurants",
+    "contact": "reservations@mayfairtasting.co.uk",
+    "portal": "https://sovereign-empire-os-ub2.vercel.app/culinary_command_os.html",
+    "status": "SUCCESS_DISPATCHED",
+    "timestamp": "2026-09-14T22:36:47.587Z"
+  },
+  {
+    "target": "Osteria Bella Vista",
+    "industry": "Fine Dining & Restaurants",
+    "contact": "info@bellavistabristol.co.uk",
+    "portal": "https://sovereign-empire-os-ub2.vercel.app/culinary_command_os.html",
+    "status": "SUCCESS_DISPATCHED",
+    "timestamp": "2026-09-14T22:36:47.627Z"
+  },
+  {
+    "target": "Mayfair Prime Properties",
+    "industry": "Luxury Real Estate",
+    "contact": "enquiries@mayfairprime.co.uk",
+    "portal": "https://sovereign-empire-os-ub2.vercel.app/estate_command_os.html",
+    "status": "SUCCESS_DISPATCHED",
+    "timestamp": "2026-09-14T22:36:47.745Z"
+  },
+  {
+    "target": "Nordic Lifestyle Apparel",
+    "industry": "E-Commerce & Brands",
+    "contact": "growth@nordiclifestyle.co.uk",
+    "portal": "https://sovereign-empire-os-ub2.vercel.app/commerce_command_os.html",
+    "status": "SUCCESS_DISPATCHED",
+    "timestamp": "2026-09-14T22:36:47.827Z"
+  }
+]

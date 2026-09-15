@@ -1,0 +1,341 @@
+[
+  {
+    "value": "mickey.neuberger@realtor.com",
+    "type": "personal",
+    "source_type": "generated",
+    "confidence": 98,
+    "sources": [
+      {
+        "domain": "mymortgagemindset.com",
+        "uri": "https://mymortgagemindset.com/down-payment-resource-teams-up-with-realtor-com-to-help-home-shoppers-find-homebuyer-assistance-programs",
+        "extracted_on": "2026-07-25",
+        "last_seen_on": "2026-07-25",
+        "still_on_page": true
+      },
+      {
+        "domain": "1776re.com",
+        "uri": "https://1776re.com/realtor-com-launches-realassistai-powered-by-google",
+        "extracted_on": "2026-06-15",
+        "last_seen_on": "2026-06-15",
+        "still_on_page": true
+      },
+      {
+        "domain": "realtor.com",
+        "uri": "https://1776re.com/realtor-com-launches-chatgpt-app-for-home-search-planning",
+        "extracted_on": "2026-06-15",
+        "last_seen_on": "2026-06-15",
+        "still_on_page": true
+      }
+    ],
+    "first_name": "Mickey",
+    "last_name": "Neuberger",
+    "position": "CMO",
+    "position_raw": "CMO",
+    "seniority": "executive",
+    "department": "marketing",
+    "decision_maker": true,
+    "linkedin": null,
+    "twitter": null,
+    "phone_number": null,
+    "verification": {
+      "date": "2026-09-03",
+      "status": "valid"
+    }
+  },
+  {
+    "value": "damian.eales@realtor.com",
+    "type": "personal",
+    "source_type": "generated",
+    "confidence": 98,
+    "sources": [
+      {
+        "domain": "infinansa.com",
+        "uri": "https://infinansa.com/mortgage-rates-unchanged-at-6-76-freddie-mac",
+        "extracted_on": "2026-06-24",
+        "last_seen_on": "2026-06-24",
+        "still_on_page": true
+      },
+      {
+        "domain": "homes-in.com",
+        "uri": "https://homes-in.com/real-estate-is-not-broken-anywheres-sue-yannaccone",
+        "extracted_on": "2026-06-19",
+        "last_seen_on": "2026-06-19",
+        "still_on_page": true
+      },
+      {
+        "domain": "homes-in.com",
+        "uri": "https://homes-in.com/realtor-who-tipped-pulte-to-schiff-loans-now-a-witness-exclusive",
+        "extracted_on": "2026-06-18",
+        "last_seen_on": "2026-06-18",
+        "still_on_page": true
+      },
+      {
+        "domain": "1776re.com",
+        "uri": "https://1776re.com/realtor-com-launches-realassistai-powered-by-google",
+        "extracted_on": "2026-06-15",
+        "last_seen_on": "2026-06-15",
+        "still_on_page": true
+      },
+      {
+        "domain": "industrymovement.com",
+        "uri": "https://industrymovement.com/blog/category/real-estate/page/6",
+        "extracted_on": "2026-04-11",
+        "last_seen_on": "2026-04-11",
+        "still_on_page": true
+      }
+    ],
+    "first_name": "Damian",
+    "last_name": "Eales",
+    "position": "CEO",
+    "position_raw": "CEO",
+    "seniority": "executive",
+    "department": "executive",
+    "decision_maker": true,
+    "linkedin": null,
+    "twitter": null,
+    "phone_number": null,
+    "verification": {
+      "date": "2026-09-09",
+      "status": "valid"
+    }
+  },
+  {
+    "value": "danielle.hale@realtor.com",
+    "type": "personal",
+    "source_type": "generated",
+    "confidence": 98,
+    "sources": [
+      {
+        "domain": "blog.parkerscottproperties.com",
+        "uri": "https://blog.parkerscottproperties.com/tag/mortgage-rates/page/2",
+        "extracted_on": "2026-09-14",
+        "last_seen_on": "2026-09-14",
+        "still_on_page": true
+      },
+      {
+        "domain": "rosannepbrealestate.com",
+        "uri": "https://rosannepbrealestate.com/newly-built-homes-could-be-a-game-changer-this-spring",
+        "extracted_on": "2026-09-13",
+        "last_seen_on": "2026-09-13",
+        "still_on_page": true
+      },
+      {
+        "domain": "kristenvartian.com",
+        "uri": "https://kristenvartian.com/2023-real-estate-market-outlook-and-what-it-means-for-you",
+        "extracted_on": "2026-09-12",
+        "last_seen_on": "2026-09-12",
+        "still_on_page": true
+      },
+      {
+        "domain": "kristenvartian.com",
+        "uri": "https://kristenvartian.com/a-return-to-normal-the-state-of-real-estate-in-2022",
+        "extracted_on": "2026-09-12",
+        "last_seen_on": "2026-09-12",
+        "still_on_page": true
+      },
+      {
+        "domain": "kristenvartian.com",
+        "uri": "https://kristenvartian.com/national-real-estate-market-update-for-2023",
+        "extracted_on": "2026-09-12",
+        "last_seen_on": "2026-09-12",
+        "still_on_page": true
+      },
+      {
+        "domain": "kristenvartian.com",
+        "uri": "https://kristenvartian.com/2020-outlook-real-estate-market-forecast",
+        "extracted_on": "2026-09-12",
+        "last_seen_on": "2026-09-12",
+        "still_on_page": true
+      },
+      {
+        "domain": "kristenvartian.com",
+        "uri": "https://kristenvartian.com/mid-year-market-update-for-2024-what-buyers-and-sellers-need-to-know",
+        "extracted_on": "2026-09-12",
+        "last_seen_on": "2026-09-12",
+        "still_on_page": true
+      },
+      {
+        "domain": "ws-207-213-21-135.car.org",
+        "uri": "https://ws-207-213-21-135.car.org/-/media/CAR/Documents/Learn-and-Thrive/PDF/Market-Matters/2024/Beyond-the-Headlines-5-16-24.pdf",
+        "extracted_on": "2026-09-11",
+        "last_seen_on": "2026-09-11",
+        "still_on_page": true
+      },
+      {
+        "domain": "livingbysouthflorida.com",
+        "uri": "https://livingbysouthflorida.com/winter-will-bring-a-flurry-of-activity-to-the-housing-market",
+        "extracted_on": "2026-09-10",
+        "last_seen_on": "2026-09-10",
+        "still_on_page": true
+      },
+      {
+        "domain": "gordcollins.com",
+        "uri": "https://gordcollins.com/real-estate/corona-virus-real-estate-market",
+        "extracted_on": "2026-09-09",
+        "last_seen_on": "2026-09-09",
+        "still_on_page": true
+      },
+      {
+        "domain": "watermelonmortgage.com",
+        "uri": "https://watermelonmortgage.com/blog/gen-z-and-the-dream-of-homeownership-adapting-to-a-challenging-market",
+        "extracted_on": "2026-09-09",
+        "last_seen_on": "2026-09-09",
+        "still_on_page": true
+      },
+      {
+        "domain": "jenniferruspini.com",
+        "uri": "https://jenniferruspini.com/buyer-traffic-is-still-stronger-than-the-norm",
+        "extracted_on": "2026-09-08",
+        "last_seen_on": "2026-09-08",
+        "still_on_page": true
+      },
+      {
+        "domain": "samitre.com",
+        "uri": "https://samitre.com/press",
+        "extracted_on": "2026-09-07",
+        "last_seen_on": "2026-09-07",
+        "still_on_page": true
+      },
+      {
+        "domain": "spacecollective.co",
+        "uri": "https://spacecollective.co/how-todays-mortgage-rates-impact-your-home-purchase",
+        "extracted_on": "2026-09-06",
+        "last_seen_on": "2026-09-06",
+        "still_on_page": true
+      },
+      {
+        "domain": "spacecollective.co",
+        "uri": "https://spacecollective.co/more-americans-choose-real-estate-as-the-best-investment-than-ever-before",
+        "extracted_on": "2026-09-06",
+        "last_seen_on": "2026-09-06",
+        "still_on_page": true
+      },
+      {
+        "domain": "unvelo.io",
+        "uri": "https://unvelo.io/blog/expired-listing-scripts",
+        "extracted_on": "2026-09-02",
+        "last_seen_on": "2026-09-02",
+        "still_on_page": true
+      },
+      {
+        "domain": "christinawalton.com",
+        "uri": "https://christinawalton.com/author/christy/page/59",
+        "extracted_on": "2026-08-31",
+        "last_seen_on": "2026-08-31",
+        "still_on_page": true
+      },
+      {
+        "domain": "612properties.com",
+        "uri": "https://612properties.com/are-you-wondering-if-this-is-the-year-to-buy-a-home",
+        "extracted_on": "2026-08-30",
+        "last_seen_on": "2026-08-30",
+        "still_on_page": true
+      },
+      {
+        "domain": "spartanswill.forumotion.com",
+        "uri": "https://spartanswill.forumotion.com/t24295p80-81-no-now-85-of-americans-increasingly-see-corporations-being-greedy-as-cause-of-inflation",
+        "extracted_on": "2026-08-27",
+        "last_seen_on": "2026-08-27",
+        "still_on_page": true
+      },
+      {
+        "domain": "bestpittsburghhomes.com",
+        "uri": "https://bestpittsburghhomes.com/what-every-homeowner-needs-to-know-in-todays-shifting-market",
+        "extracted_on": "2026-08-26",
+        "last_seen_on": "2026-08-26",
+        "still_on_page": true
+      },
+      {
+        "domain": "quantivcapital.com",
+        "uri": "https://quantivcapital.com/blog/gen-z-and-the-dream-of-homeownership-adapting-to-a-challenging-market",
+        "extracted_on": "2026-08-25",
+        "last_seen_on": "2026-08-25",
+        "still_on_page": true
+      },
+      {
+        "domain": "thesaragoochteam.com",
+        "uri": "https://thesaragoochteam.com/blog/the-take-it-or-leave-it-attitude-is-fading-from-the-market-what-that-means-for-you",
+        "extracted_on": "2026-08-23",
+        "last_seen_on": "2026-08-23",
+        "still_on_page": true
+      },
+      {
+        "domain": "sondermountainco.com",
+        "uri": "https://sondermountainco.com/market-update/1-percent-less-5-million-more",
+        "extracted_on": "2026-08-22",
+        "last_seen_on": "2026-08-22",
+        "still_on_page": true
+      },
+      {
+        "domain": "sellyourdeals.com",
+        "uri": "https://sellyourdeals.com/mortgage-rates-inch-up-following-fed-policy-changes",
+        "extracted_on": "2026-08-21",
+        "last_seen_on": "2026-08-21",
+        "still_on_page": true
+      },
+      {
+        "domain": "livenowfox.com",
+        "uri": "https://livenowfox.com/news/record-decline-home-asking-prices-offers-buyers-affordability-boost",
+        "extracted_on": "2026-08-20",
+        "last_seen_on": "2026-08-20",
+        "still_on_page": true
+      },
+      {
+        "domain": "martaguerrero.realtor",
+        "uri": "https://martaguerrero.realtor/mid-year-market-update-for-2024-what-buyers-and-sellers-need-to-know",
+        "extracted_on": "2026-08-19",
+        "last_seen_on": "2026-08-19",
+        "still_on_page": true
+      },
+      {
+        "domain": "whyismy.org",
+        "uri": "https://whyismy.org/articles/why-is-my-home-not-selling",
+        "extracted_on": "2026-08-14",
+        "last_seen_on": "2026-08-14",
+        "still_on_page": true
+      },
+      {
+        "domain": "colonialmtg.com",
+        "uri": "https://colonialmtg.com/blog/11181/4-predictions-for-the-2021-mortgage-market",
+        "extracted_on": "2026-08-13",
+        "last_seen_on": "2026-08-13",
+        "still_on_page": true
+      },
+      {
+        "domain": "affiliates.mortgage",
+        "uri": "https://affiliates.mortgage/blog/gen-z-and-the-dream-of-homeownership-adapting-to-a-challenging-market",
+        "extracted_on": "2026-08-13",
+        "last_seen_on": "2026-08-13",
+        "still_on_page": true
+      },
+      {
+        "domain": "colonialmtg.com",
+        "uri": "https://colonialmtg.com/blog/259131/purchasing-a-home/whats-rent-vesting-and-can-it-help-me-become-a-homeowner",
+        "extracted_on": "2026-08-13",
+        "last_seen_on": "2026-08-13",
+        "still_on_page": true
+      },
+      {
+        "domain": "fox5dc.com",
+        "uri": "https://fox5dc.com/money/freddie-mac-mortgage-rates",
+        "extracted_on": "2026-08-13",
+        "last_seen_on": "2026-08-13",
+        "still_on_page": true
+      }
+    ],
+    "first_name": "Danielle",
+    "last_name": "Hale",
+    "position": "Chief Economist",
+    "position_raw": "Chief Economist",
+    "seniority": null,
+    "department": "executive",
+    "decision_maker": true,
+    "linkedin": null,
+    "twitter": null,
+    "phone_number": null,
+    "verification": {
+      "date": "2026-09-03",
+      "status": "valid"
+    }
+  }
+]

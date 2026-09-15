@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiteCommand OS - Autonomous Contractor Operations &amp; Quote Automation</title>
+  <meta name="description" content="Autonomous operations platform for general contractors, builders, and trades. 60-second proposals, subcontractor attendance tracking, and client progress reporting.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .showcase-header {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 50px 24px;
+      text-align: center;
+    }
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .code-display {
+      background-color: #0F172A;
+      color: #E2E8F0;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1E293B;
+    }
+    .feature-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--blue-primary);
+      background-color: var(--blue-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--blue-navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .metrics-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .metrics-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+    .metrics-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--blue-primary);
+    }
+    .cta-banner {
+      background-color: #0F172A;
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-banner h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .cta-banner p {
+      color: #94A3B8;
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+    .cta-btn-white {
+      display: inline-block;
+      background-color: #2563EB;
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s;
+    }
+    .cta-btn-white:hover {
+      background-color: #1D4ED8;
+    }
+    @media (max-width: 850px) {
+      .feature-row { grid-template-columns: 1fr; padding: 24px; }
+      .feature-img { height: 220px; }
+    }
+  </style>
+  <script src="global_jurisdiction_engine.js"></script>
+</head>
+<body>
+
+  <!-- Enterprise Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">SITECOMMAND<span>OS</span></span>
+    </div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">Home</a>
+      <a href="#roi-breakdown" class="nav-pill">Financial ROI</a>
+      <a href="#proposals" class="nav-pill">Proposals</a>
+      <a href="#attendance" class="nav-pill">Crew Tracking</a>
+      <a href="#reports" class="nav-pill">Client Shield</a>
+      <a href="#reactivation" class="nav-pill">Lead Recovery</a>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="header-badge">
+      OPERATIONAL STATUS: ACTIVE
+    </div>
+  </header>
+
+  <!-- Showcase Header -->
+  <section class="showcase-header">
+    <div class="pill-badge">ENTERPRISE TRADE INFRASTRUCTURE</div>
+    <h1 class="hero-title" style="margin-bottom: 12px;">Autonomous Operations for Builders &amp; Contractors</h1>
+    <p class="hero-subtitle">
+      What we are: An autonomous operations system that eliminates quote delays, tracks subcontractor attendance via WhatsApp, stops homeowner payment disputes, and revives unclosed quotes.
+    </p>
+    <div class="trust-bar" style="margin-bottom: 0;">
+      <div class="trust-item">Standard CIS Tax Compliance</div>
+      <div class="trust-item">Instant Digital E-Signatures</div>
+      <div class="trust-item">Automated 24h/48h Deposit Chasing</div>
+      <div class="trust-item">Dedicated WhatsApp Business API</div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="container">
+
+    <!-- THE FINANCIAL LOGIC & ROI SECTION -->
+    <section id="roi-breakdown" class="roi-section">
+      <div class="section-header" style="margin-bottom: 20px;">
+        <span class="section-tag">FINANCIAL REALITY AUDIT</span>
+        <h2>Why Manual Operations Cost You £12,000+ Every Month</h2>
+        <p>A transparent breakdown of your current business on its own vs. running on SiteCommand OS.</p>
+      </div>
+
+      <div class="roi-grid">
+        <!-- Card A: Current Manual Business -->
+        <div class="roi-card">
+          <div class="roi-header">
+            <div class="roi-title">Your Business on Manual Effort</div>
+            <span class="leakage-tag">REVENUE LEAKAGE</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Current Monthly Turnover</span>
+            <strong>£35,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>Lost to Slow Quote Follow-Up (4-day delay)</span>
+            <span class="loss">-£6,500 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Subcontractor Timecard Rounding &amp; Lates</span>
+            <span class="loss">-£2,200 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Client Payment Dispute Friction</span>
+            <span class="loss">-£3,000 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Actual Net Cashflow Retained</span>
+            <strong style="color: #991B1B;">£23,300 / mo</strong>
+          </div>
+        </div>
+
+        <!-- Card B: Running on SiteCommand OS -->
+        <div class="roi-card positive">
+          <div class="roi-header">
+            <div class="roi-title">With SiteCommand Autonomous OS</div>
+            <span class="gain-tag">OPTIMIZED PROFIT</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Baseline Business Turnover</span>
+            <strong>£35,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>60s Proposals + 24h Deposit Closer</span>
+            <span class="profit">+£6,500 Recovered</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Geofenced WhatsApp Clock-In + CIS Audit</span>
+            <span class="profit">+£2,200 Saved</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Daily Photo Shield (Zero Payment Friction)</span>
+            <span class="profit">+£3,000 Unlocked</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Operating Cost (SiteCommand License)</span>
+            <span>-£97 / mo (£3.20/day)</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Total Monthly Net Profit</span>
+            <strong style="color: #047857;">£46,603 / mo (+100% ROI)</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Calculator Slider -->
+      <div class="roi-interactive-box">
+        <h3 style="font-size: 1.1rem; color: var(--blue-navy); margin-bottom: 6px;">Interactive Revenue Recovery Calculator</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Slide to match your current approximate monthly business turnover:</p>
+        
+        <input type="range" id="builder-turnover-slider" min="15000" max="150000" step="5000" value="40000" class="roi-slider" oninput="updateBuilderROI(this.value)">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; padding: 16px; border-radius: 8px; border: 1px solid #E2E8F0; margin-top: 10px;">
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Current Monthly Turnover</div>
+            <div id="display-turnover" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-navy);">£40,000</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Est. Monthly Revenue Leaks Stopped</div>
+            <div id="display-recovered" style="font-size: 1.4rem; font-weight: 800; color: #059669;">+£11,200 / mo</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Net New Annual Profit</div>
+            <div id="display-annual" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-dark);">+£134,400 / yr</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 1: Luxury Proposal Generator -->
+    <section id="proposals" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 01</span>
+        <h2 class="feature-title">60-Second Luxury Client Proposals</h2>
+        <p class="feature-desc">
+          Convert rough site notes or voice memos into branded, itemized commercial proposals. Automatically includes payment milestone schedules, terms of service, and direct e-signature links.
+        </p>
+        <ul class="metrics-list">
+          <li>Automated 24-hour and 48-hour follow-up reminders via SMS and Email.</li>
+          <li>Enforces 25% calendar booking deposits before project mobilization.</li>
+          <li>Reduces quote drafting turnaround time from 4 days to under 60 seconds.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" alt="Architectural Plans and Blueprints" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 2: Crew Tracking & CIS Payroll -->
+    <section id="attendance" class="feature-row">
+      <div>
+        <div class="code-display">
+CREW ATTENDANCE &amp; CIS PAYROLL REPORT
+Period: Week Ending Friday, 16:00
+
+1. Dave Miller (Lead Bricklayer - Richmond Site)
+   Hours: 41.5 hrs | Rate: £25.00/hr
+   Gross: £1,037.50 | CIS 20%: -£207.50 | Net: £830.00
+   Status: Verified On-Time (100%)
+
+2. Mick O'Connor (Plasterer - Richmond Site)
+   Hours: 32.0 hrs | Rate: £22.00/hr
+   Gross: £704.00 | CIS 20%: -£140.80 | Net: £563.20
+   Status: Flagged - 1 Unexcused Absence
+
+3. Samir Khan (Electrician - Kensington Site)
+   Hours: 40.0 hrs | Rate: £28.00/hr
+   Gross: £1,120.00 | CIS 20%: -£224.00 | Net: £896.00
+   Status: Verified On-Time (100%)
+        </div>
+      </div>
+      <div>
+        <span class="feature-tag">Module 02</span>
+        <h2 class="feature-title">Subcontractor Attendance &amp; CIS Payroll</h2>
+        <p class="feature-desc">
+          Subcontractors check in and out directly via WhatsApp with geofenced location verification. Daily summaries identify late arrivals and absences at 08:30 AM, with automated CIS-compliant payroll calculations every Friday.
+        </p>
+        <ul class="metrics-list">
+          <li>Zero manual timecard data entry or paper sheet tracking.</li>
+          <li>Instant alerts when subcontractors fail to arrive on site.</li>
+          <li>Automated calculation of standard 20% and 30% UK CIS tax deductions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 3: Anti-Dispute Client Shield -->
+    <section id="reports" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 03</span>
+        <h2 class="feature-title">Daily Client Progress Reporting Shield</h2>
+        <p class="feature-desc">
+          Eliminate evening client calls and payment disputes. The system compiles daily site photos and completed milestones into a clean summary sent directly to the homeowner every afternoon at 16:30 PM.
+        </p>
+        <ul class="metrics-list">
+          <li>Maintains a timestamped audit trail of all approved work phases.</li>
+          <li>Accelerates stage-payment signoffs without on-site delays.</li>
+          <li>Builds high client trust through consistent, professional communication.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="Construction Management Engineer on Site" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 4: 9-Word Lead Reactivation -->
+    <section id="reactivation" class="feature-row">
+      <div>
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Luxury Residential Construction" class="feature-img">
+      </div>
+      <div>
+        <span class="feature-tag">Module 04</span>
+        <h2 class="feature-title">Unclosed Quote Pipeline Reactivation</h2>
+        <p class="feature-desc">
+          Reclaim lost revenue from archived quotations. The system executes a low-friction 3-touch sequence across previous inquiries from the last 12 months, reopening active project discussions with zero advertising cost.
+        </p>
+        <div class="code-display" style="margin-top: 14px; font-size: 0.8rem;">
+Day 1 Touch: "Hi [Client Name], are you still looking to proceed with the [Project Scope]?"
+Outcome: 18% to 26% direct response rate within 4 hours.
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 5: Free Graphic Design & Brand Asset Suite -->
+    <section class="feature-row">
+      <div>
+        <span class="feature-tag">Complimentary Bonus 01</span>
+        <h2 class="feature-title">Free Custom Brand Graphic Design &amp; Merch Kit</h2>
+        <p class="feature-desc">
+          Every active partner receives bespoke print-ready graphic design assets created specifically for their company with zero design fees.
+        </p>
+        <ul class="metrics-list">
+          <li>Luxury embossed business card design files (front &amp; back).</li>
+          <li>Commercial vehicle &amp; van livery decal wrap layouts.</li>
+          <li>High-visibility on-site lawn signs, scaffolding banners, and site boards.</li>
+          <li>Branded crew uniform t-shirts, hoodies, and coffee mugs.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" alt="Architectural Blueprint and Design Assets" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 6: Local Lead Generation & Capital Growth -->
+    <section class="feature-row">
+      <div>
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80" alt="Construction Planning and Project Growth" class="feature-img">
+      </div>
+      <div>
+        <span class="feature-tag">Complimentary Bonus 02</span>
+        <h2 class="feature-title">Local Lead Generation &amp; Postcode Dominance</h2>
+        <p class="feature-desc">
+          Step-by-step organic lead generation systems to ensure your calendar stays fully booked with high-margin residential inquiries across your target postcodes.
+        </p>
+        <ul class="metrics-list">
+          <li>Google Map Pack #1 local search optimization strategy.</li>
+          <li>Automated 5-star review collection sequence upon job completion.</li>
+          <li>QR-code neighbor flyer magnets dropped around active project sites.</li>
+          <li>High-margin architect and structural engineer referral partnership frameworks.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="cta-banner">
+      <h2>Deploy SiteCommand OS for Your Business</h2>
+      <p>
+        Activate the complete contractor operations suite + Free Custom Graphic Design Kit + Local Lead Gen Playbook for just £97/month.
+      </p>
+      <a href="https://whop.com/checkout/plan_JLfIPcacfHZZJ" target="_blank" class="cta-btn-white">Activate Contractor Plan (£97/Month)</a>
+    </div>
+
+  </div>
+
+  <!-- Enterprise Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 SiteCommand OS &amp; Sovereign Systems. All rights reserved. Support: <a href="https://t.me/sovereign_ai_hub_bot">AI Concierge</a></p>
+  </footer>
+
+  <script>
+    function updateBuilderROI(val) {
+      const turnover = parseFloat(val);
+      const recovered = Math.round(turnover * 0.28);
+      const annual = recovered * 12;
+      document.getElementById('display-turnover').innerText = '£' + turnover.toLocaleString();
+      document.getElementById('display-recovered').innerText = '+£' + recovered.toLocaleString() + ' / mo';
+      document.getElementById('display-annual').innerText = '+£' + annual.toLocaleString() + ' / yr';
+    }
+  </script>
+
+  <script src="bespoke_portal_engine.js"></script>
+</body>
+</html>

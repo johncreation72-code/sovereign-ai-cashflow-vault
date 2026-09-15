@@ -1,0 +1,26 @@
+[
+  {
+    "name": "The 2026 AI Prompt Engineering Codex",
+    "price": 24,
+    "desc": "100 Production-ready chain-of-thought prompts for software developers, copywriters, and agency operators.",
+    "category": "Prompt Engineering",
+    "id": "prod_UFsYQjiXqdgYM",
+    "checkoutUrl": "https://whop.com/checkout/plan_owdSICbjKd69O"
+  },
+  {
+    "name": "Local Business AI Automation Suite",
+    "price": 39,
+    "desc": "Complete Twilio/Zapier/Make workflows for automated missed-call booking, review management, and client onboarding.",
+    "category": "B2B Automation",
+    "id": "prod_3KYZCrQZ7cNFz",
+    "checkoutUrl": "https://whop.com/checkout/plan_iPYnZvLtDv80E"
+  },
+  {
+    "name": "The 30-Day Executive Dopamine & Focus Protocol",
+    "price": 19,
+    "desc": "High-performance neuroscience reset manual with Notion daily habit and task tracking architecture.",
+    "category": "High Performance",
+    "id": "prod_anZUV6c0j7IeB",
+    "checkoutUrl": "https://whop.com/checkout/plan_gY6xNy68bTyxQ"
+  }
+]

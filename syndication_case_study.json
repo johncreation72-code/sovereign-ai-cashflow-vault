@@ -1,0 +1,16 @@
+{
+  "title": "Building an Autonomous Multi-Jurisdiction Operations Platform",
+  "sectorsCovered": 9,
+  "jurisdictionsSupported": [
+    "UK",
+    "US",
+    "EU",
+    "CA",
+    "AU",
+    "GCC"
+  ],
+  "liveDeployment": "https://sovereign-empire-os-ub2.vercel.app",
+  "zeroEmojiEnforced": true,
+  "autonomousDaemons": 8,
+  "timestamp": "2026-09-14T23:35:47.420Z"
+}

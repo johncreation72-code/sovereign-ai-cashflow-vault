@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WhatsApp Business Command Center | Sovereign OS</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #F8FAFC; color: #1E293B; margin: 0; padding: 30px 20px; }
+    .container { max-width: 960px; margin: 0 auto; }
+    h1 { color: #0F172A; font-size: 28px; margin-bottom: 6px; }
+    p.subtitle { color: #64748B; margin-top: 0; margin-bottom: 24px; font-size: 15px; }
+    
+    .quick-sender-box { background: #FFFFFF; border: 2px solid #25D366; border-radius: 12px; padding: 24px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(37,211,102,0.12); }
+    .quick-sender-box h3 { margin-top: 0; color: #0F172A; font-size: 18px; margin-bottom: 8px; }
+    .input-row { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
+    .input-row input { flex: 1; min-width: 240px; padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 15px; }
+    .input-row select { padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 15px; background: white; }
+    .btn-send-custom { background: #25D366; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: background 0.2s; }
+    .btn-send-custom:hover { background: #1EBE5D; }
+
+    .card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .biz-name { font-size: 18px; font-weight: 700; color: #0F172A; }
+    .badge { background: #EEF2F6; color: #1E3A8A; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .pitch-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 14px; font-size: 14px; line-height: 1.5; color: #334155; margin-bottom: 16px; position: relative; }
+    
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-action { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 8px; font-weight: 600; font-size: 13px; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s; }
+    .btn-wa-web { background: #25D366; color: #FFFFFF; }
+    .btn-wa-web:hover { background: #1EBE5D; }
+    .btn-wa-app { background: #0F172A; color: #FFFFFF; }
+    .btn-wa-app:hover { background: #1E293B; }
+    .btn-copy { background: #E2E8F0; color: #1E293B; }
+    .btn-copy:hover { background: #CBD5E1; }
+    
+    .toast { position: fixed; bottom: 20px; right: 20px; background: #0F172A; color: white; padding: 12px 20px; border-radius: 8px; font-size: 14px; display: none; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>WhatsApp Business Direct Command Center</h1>
+    <p class="subtitle">Direct 1-click dispatch to any phone number or copy-paste directly into WhatsApp.</p>
+
+    <!-- QUICK SENDER BOX -->
+    <div class="quick-sender-box">
+      <h3>Direct Phone Number Dispatcher (Any Lead from Google)</h3>
+      <p style="margin: 0; color: #64748B; font-size: 14px;">Found a business phone number on Google Maps? Type it here, pick the industry, and launch WhatsApp directly:</p>
+      <div class="input-row">
+        <input type="text" id="targetPhone" placeholder="Enter phone number (e.g. 07123456789 or +447...)">
+        <select id="industrySelect">
+          <option value="0">Builders & Construction</option>
+          <option value="1">Dental & Medical Clinics</option>
+          <option value="2">Restaurants & Dining</option>
+          <option value="3">Luxury Real Estate</option>
+          <option value="4">Auto Mechanics & Garages</option>
+          <option value="5">E-Commerce & Shopify Brands</option>
+        </select>
+        <button class="btn-send-custom" onclick="sendCustomWhatsApp()"> Launch WhatsApp Chat</button>
+      </div>
+    </div>
+
+    <!-- PRE-MADE INDUSTRY CARDS -->
+    <h3 style="color: #0F172A; margin-bottom: 16px;">Industry Pitch Packages:</h3>
+    
+      <div class="card">
+        <div class="card-header">
+          <div class="biz-name">${l.company}</div>
+          <span class="badge">${l.niche}</span>
+        </div>
+        <div class="pitch-box" id="pitch-${i}">${l.pitch}</div>
+        <div class="actions">
+          <button class="btn-action btn-copy" onclick="copyPitch(${i})"> Copy Pitch Text</button>
+          <button class="btn-action btn-wa-web" onclick="promptAndSend(${i})"> Send via WhatsApp Web</button>
+          <a href="${l.portal}" target="_blank" class="btn-action btn-wa-app"> Preview Portal</a>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-header">
+          <div class="biz-name">${l.company}</div>
+          <span class="badge">${l.niche}</span>
+        </div>
+        <div class="pitch-box" id="pitch-${i}">${l.pitch}</div>
+        <div class="actions">
+          <button class="btn-action btn-copy" onclick="copyPitch(${i})"> Copy Pitch Text</button>
+          <button class="btn-action btn-wa-web" onclick="promptAndSend(${i})"> Send via WhatsApp Web</button>
+          <a href="${l.portal}" target="_blank" class="btn-action btn-wa-app"> Preview Portal</a>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-header">
+          <div class="biz-name">${l.company}</div>
+          <span class="badge">${l.niche}</span>
+        </div>
+        <div class="pitch-box" id="pitch-${i}">${l.pitch}</div>
+        <div class="actions">
+          <button class="btn-action btn-copy" onclick="copyPitch(${i})"> Copy Pitch Text</button>
+          <button class="btn-action btn-wa-web" onclick="promptAndSend(${i})"> Send via WhatsApp Web</button>
+          <a href="${l.portal}" target="_blank" class="btn-action btn-wa-app"> Preview Portal</a>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-header">
+          <div class="biz-name">${l.company}</div>
+          <span class="badge">${l.niche}</span>
+        </div>
+        <div class="pitch-box" id="pitch-${i}">${l.pitch}</div>
+        <div class="actions">
+          <button class="btn-action btn-copy" onclick="copyPitch(${i})"> Copy Pitch Text</button>
+          <button class="btn-action btn-wa-web" onclick="promptAndSend(${i})"> Send via WhatsApp Web</button>
+          <a href="${l.portal}" target="_blank" class="btn-action btn-wa-app"> Preview Portal</a>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-header">
+          <div class="biz-name">${l.company}</div>
+          <span class="badge">${l.niche}</span>
+        </div>
+        <div class="pitch-box" id="pitch-${i}">${l.pitch}</div>
+        <div class="actions">
+          <button class="btn-action btn-copy" onclick="copyPitch(${i})"> Copy Pitch Text</button>
+          <button class="btn-action btn-wa-web" onclick="promptAndSend(${i})"> Send via WhatsApp Web</button>
+          <a href="${l.portal}" target="_blank" class="btn-action btn-wa-app"> Preview Portal</a>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-header">
+          <div class="biz-name">${l.company}</div>
+          <span class="badge">${l.niche}</span>
+        </div>
+        <div class="pitch-box" id="pitch-${i}">${l.pitch}</div>
+        <div class="actions">
+          <button class="btn-action btn-copy" onclick="copyPitch(${i})"> Copy Pitch Text</button>
+          <button class="btn-action btn-wa-web" onclick="promptAndSend(${i})"> Send via WhatsApp Web</button>
+          <a href="${l.portal}" target="_blank" class="btn-action btn-wa-app"> Preview Portal</a>
+        </div>
+      </div>
+    
+  </div>
+
+  <div id="toast" class="toast"> Copied to clipboard! Ready to paste in WhatsApp.</div>
+
+  <script>
+    const pitches = ["Hi, saw your building work online. We built a 60-second quote generator and crew attendance tracking system specifically for UK builders: https://sovereign-empire-os-ub2.vercel.app/sitecommand_os.html - We are offering a 7-day free trial this week. Would you be open to a 2-minute look?","Hi, saw your clinic. On average, dental practices miss 35% of patient calls after 5 PM. We built an AI assistant that answers after-hours patient inquiries and books appointments automatically: https://sovereign-empire-os-ub2.vercel.app/clinic_sovereign_os.html - Free 7-day pilot available this week. Worth a quick check?","Hi, love your menu! We built an automated private dining buyout package system and table cancellation backfiller: https://sovereign-empire-os-ub2.vercel.app/culinary_command_os.html - Offering a 7-day risk-free test this week. Open to a 60-second look?","Hi, saw your luxury property listings. We built an instant 15-second buyer qualification and private showing booking system: https://sovereign-empire-os-ub2.vercel.app/estate_command_os.html - Free trial available for your next 5 inquiries. Open to a quick preview?","Hi, saw your garage in the area. We built a 60-second photo repair estimate and automated MOT recall system: https://sovereign-empire-os-ub2.vercel.app/autocommand_os.html - Setting this up free for 3 local garages this week. Worth a quick look?","Hi, saw your store online. We built an automated 15-minute SMS abandoned cart recovery engine that restores 18% of dropped checkouts: https://sovereign-empire-os-ub2.vercel.app/commerce_command_os.html - Offering a 7-day free trial this week. Open to a quick look?"];
+
+    function formatPhone(phone) {
+      let cleaned = phone.replace(/[^0-9]/g, "");
+      if (cleaned.startsWith("07")) {
+        cleaned = "44" + cleaned.substring(1);
+      }
+      return cleaned;
+    }
+
+    function copyPitch(index) {
+      const text = pitches[index];
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(" Copied to clipboard! Just paste (Cmd+V) in WhatsApp.");
+      });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.innerText = msg;
+      t.style.display = "block";
+      setTimeout(() => { t.style.display = "none"; }, 3000);
+    }
+
+    function sendCustomWhatsApp() {
+      const phoneInput = document.getElementById("targetPhone").value.trim();
+      const industryIdx = document.getElementById("industrySelect").value;
+      if (!phoneInput) {
+        alert("Please enter a phone number.");
+        return;
+      }
+      const formatted = formatPhone(phoneInput);
+      const text = encodeURIComponent(pitches[industryIdx]);
+      window.open("https://web.whatsapp.com/send?phone=" + formatted + "&text=" + text, "_blank");
+    }
+
+    function promptAndSend(index) {
+      const phone = prompt("Enter the recipient phone number (e.g. 07123456789 or +44...):");
+      if (phone) {
+        const formatted = formatPhone(phone);
+        const text = encodeURIComponent(pitches[index]);
+        window.open("https://web.whatsapp.com/send?phone=" + formatted + "&text=" + text, "_blank");
+      }
+    }
+  </script>
+</body>
+</html>

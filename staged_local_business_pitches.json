@@ -1,0 +1,116 @@
+[
+  {
+    "name": "Dr. Carlos Alvarez",
+    "company": "Miami Dental Excellence",
+    "email": "info@miamidentalexcellence.com",
+    "niche": "Dental & Implant Clinic",
+    "city": "Miami, FL",
+    "pitch": {
+      "subject": "Quick question regarding Miami Dental Excellence's after-hours inquiries, Dr.",
+      "body": "Hi Dr. Carlos Alvarez, I noticed Miami Dental Excellence gets high patient search volume in Miami, FL. On average, clinics miss 35% of inbound calls after 5:00 PM. We built an AI voice assistant that answers 100% of missed calls, answers pricing/insurance questions, and books cleanings directly into your calendar. Happy to set this up on a 7-day free test for your practice. Worth a quick look?"
+    },
+    "payload": {
+      "id": "local_1789421914721_cy5s",
+      "campaign_id": "cmp_streetwear_1789416817990",
+      "first_name": "Dr.",
+      "last_name": "Carlos Alvarez",
+      "email": "info@miamidentalexcellence.com",
+      "status": "staged_for_pitch"
+    }
+  },
+  {
+    "name": "Practice Manager",
+    "company": "Brickell Cosmetic Dentistry",
+    "email": "contact@brickelldental.com",
+    "niche": "Dental & Implant Clinic",
+    "city": "Miami, FL",
+    "pitch": {
+      "subject": "Quick question regarding Brickell Cosmetic Dentistry's after-hours inquiries, Practice",
+      "body": "Hi Practice Manager, I noticed Brickell Cosmetic Dentistry gets high patient search volume in Miami, FL. On average, clinics miss 35% of inbound calls after 5:00 PM. We built an AI voice assistant that answers 100% of missed calls, answers pricing/insurance questions, and books cleanings directly into your calendar. Happy to set this up on a 7-day free test for your practice. Worth a quick look?"
+    },
+    "payload": {
+      "id": "local_1789421914800_vq04",
+      "campaign_id": "cmp_streetwear_1789416817990",
+      "first_name": "Practice",
+      "last_name": "Manager",
+      "email": "contact@brickelldental.com",
+      "status": "staged_for_pitch"
+    }
+  },
+  {
+    "name": "Dr. Sheila Nazarian",
+    "company": "Nazarian Plastic Surgery",
+    "email": "info@nazarianplasticsurgery.com",
+    "niche": "Cosmetic & MedSpa",
+    "city": "Beverly Hills, CA",
+    "pitch": {
+      "subject": "Quick question regarding Nazarian Plastic Surgery's after-hours inquiries, Dr.",
+      "body": "Hi Dr. Sheila Nazarian, love what you've built at Nazarian Plastic Surgery. We deployed a 24/7 automated booking assistant that answers procedure questions, pre-screens consultation clients, and confirms deposits on autopilot. We are offering a zero-risk 7-day trial this week. Let me know if you'd like a 2-minute demo."
+    },
+    "payload": {
+      "id": "local_1789421915026_vlxn",
+      "campaign_id": "cmp_streetwear_1789416817990",
+      "first_name": "Dr.",
+      "last_name": "Sheila Nazarian",
+      "email": "info@nazarianplasticsurgery.com",
+      "status": "staged_for_pitch"
+    }
+  },
+  {
+    "name": "Clinic Director",
+    "company": "Beverly Hills Rejuvenation Center",
+    "email": "contact@bhrc.com",
+    "niche": "Cosmetic & MedSpa",
+    "city": "Beverly Hills, CA",
+    "pitch": {
+      "subject": "Quick question regarding Beverly Hills Rejuvenation Center's after-hours inquiries, Clinic",
+      "body": "Hi Clinic Director, love what you've built at Beverly Hills Rejuvenation Center. We deployed a 24/7 automated booking assistant that answers procedure questions, pre-screens consultation clients, and confirms deposits on autopilot. We are offering a zero-risk 7-day trial this week. Let me know if you'd like a 2-minute demo."
+    },
+    "payload": {
+      "id": "local_1789421915112_06y9",
+      "campaign_id": "cmp_streetwear_1789416817990",
+      "first_name": "Clinic",
+      "last_name": "Director",
+      "email": "contact@bhrc.com",
+      "status": "staged_for_pitch"
+    }
+  },
+  {
+    "name": "Managing Partner",
+    "company": "Mayfair Prime Properties",
+    "email": "enquiries@mayfairprime.co.uk",
+    "niche": "Luxury Estate Agency",
+    "city": "London, UK",
+    "pitch": {
+      "subject": "Quick question regarding Mayfair Prime Properties's after-hours inquiries, Managing",
+      "body": "Hi Managing Partner, saw your latest luxury property listings across London, UK. We built an instant AI text qualifier that engages weekend portal buyers in under 15 seconds and filters serious cash buyers before passing them to your agents. Happy to set this up free to test on your next 5 inquiries."
+    },
+    "payload": {
+      "id": "local_1789421915191_zjjo",
+      "campaign_id": "cmp_streetwear_1789416817990",
+      "first_name": "Managing",
+      "last_name": "Partner",
+      "email": "enquiries@mayfairprime.co.uk",
+      "status": "staged_for_pitch"
+    }
+  },
+  {
+    "name": "Lead Partner",
+    "company": "Manhattan Injury Law Associates",
+    "email": "intake@manhattaninjurylaw.com",
+    "niche": "Personal Injury Practice",
+    "city": "New York, NY",
+    "pitch": {
+      "subject": "Quick question regarding Manhattan Injury Law Associates's after-hours inquiries, Lead",
+      "body": "Hi Lead Partner, quick question regarding Manhattan Injury Law Associates's intake response time in New York, NY. When prospective clients call after hours, our instant AI intake assistant captures their case details and schedules a consultation within 30 seconds. We're setting this up free for 3 local practices this week. Open to seeing how it works?"
+    },
+    "payload": {
+      "id": "local_1789421915280_5j36",
+      "campaign_id": "cmp_streetwear_1789416817990",
+      "first_name": "Lead",
+      "last_name": "Partner",
+      "email": "intake@manhattaninjurylaw.com",
+      "status": "staged_for_pitch"
+    }
+  }
+]

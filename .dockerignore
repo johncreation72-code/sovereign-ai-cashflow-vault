@@ -1,0 +1,6 @@
+node_modules
+.wwebjs_auth
+.whatsapp_sovereign_auth
+.git
+.DS_Store
+*.log

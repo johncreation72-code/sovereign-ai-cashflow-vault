@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "crons": [
+    {
+      "path": "/api/global_dispatch",
+      "schedule": "*/15 * * * *"
+    },
+    {
+      "path": "/api/lead_replenish",
+      "schedule": "0 */1 * * *"
+    }
+  ]
+}

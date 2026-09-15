@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CommerceCommand OS - E-Commerce, Shopify &amp; Amazon Brand Automation</title>
+  <meta name="description" content="Autonomous 15-minute abandoned checkout recovery, supplier margin guard, and review automation for Shopify, Amazon, eBay, and Etsy retail brands.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .showcase-header {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 50px 24px;
+      text-align: center;
+    }
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .code-display {
+      background-color: #0F172A;
+      color: #E2E8F0;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1E293B;
+    }
+    .feature-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--blue-primary);
+      background-color: var(--blue-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--blue-navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .metrics-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .metrics-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+    .metrics-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--blue-primary);
+    }
+    .cta-banner {
+      background-color: #0F172A;
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-banner h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .cta-banner p {
+      color: #94A3B8;
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+    .cta-btn-white {
+      display: inline-block;
+      background-color: #2563EB;
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s;
+    }
+    .cta-btn-white:hover {
+      background-color: #1D4ED8;
+    }
+    @media (max-width: 850px) {
+      .feature-row { grid-template-columns: 1fr; padding: 24px; }
+      .feature-img { height: 220px; }
+    }
+  </style>
+  <script src="global_jurisdiction_engine.js"></script>
+</head>
+<body>
+
+  <!-- Enterprise Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">COMMERCE<span>COMMAND</span></span>
+    </div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">Home</a>
+      <a href="#roi-breakdown" class="nav-pill">Financial ROI</a>
+      <a href="#abandoned-cart" class="nav-pill">Cart Recovery</a>
+      <a href="#supplier-guard" class="nav-pill">Margin Guard</a>
+      <a href="#reviews" class="nav-pill">Review Autopilot</a>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="header-badge">
+      ECOMMERCE OPERATIONS: ACTIVE
+    </div>
+  </header>
+
+  <!-- Showcase Header -->
+  <section class="showcase-header">
+    <div class="pill-badge">E-COMMERCE &amp; RETAIL BRAND INFRASTRUCTURE</div>
+    <h1 class="hero-title" style="margin-bottom: 12px;">Autonomous Operations for E-Commerce &amp; Retail Brands</h1>
+    <p class="hero-subtitle">
+      What we are: An autonomous conversion platform for Shopify, Amazon, eBay, and Etsy sellers that recovers 15%+ of abandoned checkouts on WhatsApp/SMS, audits supplier margins, and automates 5-star customer reviews.
+    </p>
+    <div class="trust-bar" style="margin-bottom: 0;">
+      <div class="trust-item">Instant Shopify &amp; WooCommerce Webhook Sync</div>
+      <div class="trust-item">15-Minute Conversational Cart Recovery</div>
+      <div class="trust-item">Automated Amazon &amp; Etsy Review Generation</div>
+      <div class="trust-item">Zero Ad Spend Required</div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- THE FINANCIAL LOGIC & ROI SECTION -->
+    <section id="roi-breakdown" class="roi-section">
+      <div class="section-header" style="margin-bottom: 20px;">
+        <span class="section-tag">STORE REVENUE LEAKAGE AUDIT</span>
+        <h2>Why E-Commerce Stores Bleed £14,000+ Every Month</h2>
+        <p>A transparent breakdown of standard un-optimized checkouts vs. running on CommerceCommand OS.</p>
+      </div>
+
+      <div class="roi-grid">
+        <!-- Card A: Standard Store -->
+        <div class="roi-card">
+          <div class="roi-header">
+            <div class="roi-title">Standard Un-Optimized Store</div>
+            <span class="leakage-tag">ABANDONED REVENUE</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Average Monthly Gross Merchandise Value</span>
+            <strong>£50,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>Lost to Abandoned Checkout Dropoff (72% average)</span>
+            <span class="loss">-£8,500 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Uncaptured VIP Customer Repeat Orders</span>
+            <span class="loss">-£3,800 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Supplier Wholesale Price Creep &amp; Shipping Margin Loss</span>
+            <span class="loss">-£2,100 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Actual Realized Net Cashflow</span>
+            <strong style="color: #991B1B;">£35,600 / mo</strong>
+          </div>
+        </div>
+
+        <!-- Card B: With CommerceCommand OS -->
+        <div class="roi-card positive">
+          <div class="roi-header">
+            <div class="roi-title">With CommerceCommand Autonomous OS</div>
+            <span class="gain-tag">MAXIMIZED RECOVERY</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Baseline Store Revenue</span>
+            <strong>£50,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>15-Min SMS Cart Re-Engagement (18% Recovery)</span>
+            <span class="profit">+£8,500 Recovered</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Automated Post-Purchase VIP Cross-Sells</span>
+            <span class="profit">+£3,800 Generated</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Supplier COGS Sentinel &amp; Margin Guard</span>
+            <span class="profit">+£2,100 Protected</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Operating Cost (CommerceCommand License)</span>
+            <span>-£97 / mo (£3.20/day)</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Total Monthly Cashflow Retained</span>
+            <strong style="color: #047857;">£64,303 / mo (+148x ROI)</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Calculator Slider -->
+      <div class="roi-interactive-box">
+        <h3 style="font-size: 1.1rem; color: var(--blue-navy); margin-bottom: 6px;">E-Commerce Store Revenue Recovery Calculator</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Slide to match your store's approximate monthly sales turnover:</p>
+        
+        <input type="range" id="ecom-turnover-slider" min="10000" max="250000" step="5000" value="50000" class="roi-slider" oninput="updateEcomROI(this.value)">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; padding: 16px; border-radius: 8px; border: 1px solid #E2E8F0; margin-top: 10px;">
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Monthly Store Turnover</div>
+            <div id="display-ecom-turnover" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-navy);">£50,000</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Est. Monthly Leaked Sales Recaptured</div>
+            <div id="display-ecom-recovered" style="font-size: 1.4rem; font-weight: 800; color: #059669;">+£14,400 / mo</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Net New Annual Store Profit</div>
+            <div id="display-ecom-annual" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-dark);">+£172,800 / yr</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 1: Abandoned Cart Recovery -->
+    <section id="abandoned-cart" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 01</span>
+        <h2 class="feature-title">15-Minute Conversational Cart Recovery</h2>
+        <p class="feature-desc">
+          When a shopper enters their shipping info but exits before payment, CommerceCommand triggers an automated, high-converting WhatsApp &amp; SMS re-engagement offer with 1-click instant checkout, recovering 14% to 22% of abandoned carts without paid retargeting ads.
+        </p>
+        <ul class="metrics-list">
+          <li>Automated webhook triggers on Shopify, WooCommerce, and custom carts.</li>
+          <li>Dynamic 1-click personalized checkout links with applied discounts.</li>
+          <li>Zero ad spend or expensive retargeting agency fees.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1200&q=80" alt="E-Commerce Payment and Checkout Optimization" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 2: Supplier COGS Margin Guard -->
+    <section id="supplier-guard" class="feature-row">
+      <div>
+        <div class="code-display">
+ECOMMERCE REVENUE RECOVERY &amp; MARGIN DISPATCH
+Store: Lumina Apparel Group (Shopify Plus)
+
+Abandoned Carts (Last 24 Hours): 38 Checkouts (£3,420.00 Value)
+Action: Dispatched 15-Minute Conversational Recovery Sequence
+Recovered: 9 Completed Orders (£810.00 Net Cash Recaptured)
+Supplier COGS Audit: Flagged 8% freight increase on supplier invoice #SUP-882
+Profit Margin Saved: £450.00 protected
+        </div>
+      </div>
+      <div>
+        <span class="feature-tag">Module 02</span>
+        <h2 class="feature-title">Supplier Price Creep &amp; COGS Sentinel</h2>
+        <p class="feature-desc">
+          Audits manufacturer invoices, 3PL freight bills, and marketplace transaction fees to ensure your products maintain healthy 65%+ gross profit margins.
+        </p>
+        <ul class="metrics-list">
+          <li>Detects unannounced raw material or freight price spikes.</li>
+          <li>Automated profit-per-SKU analytics ledger.</li>
+          <li>Protects bottom-line cashflow across high-volume product catalogs.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 3: Automated Review Generation -->
+    <section id="reviews" class="feature-row">
+      <div>
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80" alt="Luxury Packaging and High-End Products" class="feature-img">
+      </div>
+      <div>
+        <span class="feature-tag">Module 03</span>
+        <h2 class="feature-title">Amazon, Trustpilot &amp; Etsy Review Autopilot</h2>
+        <p class="feature-desc">
+          Triggers smart photo-review requests 3 days after parcel delivery confirmation, accelerating verified 5-star product reviews on Amazon, Etsy, and Google Shopping.
+        </p>
+        <ul class="metrics-list">
+          <li>Boosts listing organic search rankings on Amazon A9 and Etsy algorithms.</li>
+          <li>Filters negative experiences to customer support before public posting.</li>
+          <li>Generates high-converting user-generated content (UGC) for product pages.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 4: Free Graphic Design & Packaging Kit -->
+    <section class="feature-row">
+      <div>
+        <span class="feature-tag">Complimentary Bonus 01</span>
+        <h2 class="feature-title">Free Custom Brand Graphic Design &amp; Packaging Kit</h2>
+        <p class="feature-desc">
+          Every active retail partner receives luxury print-ready packaging designs, unboxing cards, and store banner graphics with zero design fees.
+        </p>
+        <ul class="metrics-list">
+          <li>Luxury product unboxing thank-you cards and insert discount flyers.</li>
+          <li>Print-ready custom packaging box, tissue paper, and sticker layouts.</li>
+          <li>High-converting Shopify hero banners and product collection graphics.</li>
+          <li>Amazon A+ Content layout assets and infographic templates.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80" alt="Global E-Commerce Logistics and Brand Fulfillment" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 5: Omnichannel Lead Gen & Traffic Playbook -->
+    <section class="feature-row">
+      <div>
+        <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80" alt="Modern Retail Storefront and Brand Growth" class="feature-img">
+      </div>
+      <div>
+        <span class="feature-tag">Complimentary Bonus 02</span>
+        <h2 class="feature-title">Omnichannel Traffic &amp; Marketplace Dominance Playbook</h2>
+        <p class="feature-desc">
+          Step-by-step organic acquisition playbooks to drive consistent sales on TikTok Shop, Amazon, eBay, and Etsy.
+        </p>
+        <ul class="metrics-list">
+          <li>TikTok Shop affiliate creator recruitment and sample seeding scripts.</li>
+          <li>Amazon A9 product title and backend search term SEO blueprint.</li>
+          <li>Etsy high-volume keyword placement and tag optimization formula.</li>
+          <li>VIP customer SMS VIP club subscription funnels.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="cta-banner">
+      <h2>Deploy CommerceCommand OS for Your Store</h2>
+      <p>
+        Recover 15%+ of abandoned checkouts, protect product margins, and receive the Free Packaging Design Kit + Marketplace Traffic Playbook for £97/month.
+      </p>
+      <a href="https://whop.com/checkout/plan_7Yyq1q3piMsk6" target="_blank" class="cta-btn-white">Activate E-Commerce License (£97/Month)</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 CommerceCommand OS &amp; Sovereign Systems. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updateEcomROI(val) {
+      const turnover = parseFloat(val);
+      const recovered = Math.round(turnover * 0.288);
+      const annual = recovered * 12;
+      document.getElementById('display-ecom-turnover').innerText = '£' + turnover.toLocaleString();
+      document.getElementById('display-ecom-recovered').innerText = '+£' + recovered.toLocaleString() + ' / mo';
+      document.getElementById('display-ecom-annual').innerText = '+£' + annual.toLocaleString() + ' / yr';
+    }
+  </script>
+
+  <script src="bespoke_portal_engine.js"></script>
+</body>
+</html>

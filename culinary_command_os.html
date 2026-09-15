@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CulinaryCommand OS - Restaurant Operations &amp; VIP Guest Automation</title>
+  <meta name="description" content="Autonomous reservation optimization, private dining event conversion, and supplier margin guard for fine dining restaurants and hospitality groups.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .showcase-header {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 50px 24px;
+      text-align: center;
+    }
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .code-display {
+      background-color: #0F172A;
+      color: #E2E8F0;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1E293B;
+    }
+    .feature-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--blue-primary);
+      background-color: var(--blue-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--blue-navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .metrics-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .metrics-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+    .metrics-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--blue-primary);
+    }
+    .cta-banner {
+      background-color: #0F172A;
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-banner h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .cta-banner p {
+      color: #94A3B8;
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+    .cta-btn-white {
+      display: inline-block;
+      background-color: #2563EB;
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s;
+    }
+    .cta-btn-white:hover {
+      background-color: #1D4ED8;
+    }
+    @media (max-width: 850px) {
+      .feature-row { grid-template-columns: 1fr; padding: 24px; }
+      .feature-img { height: 220px; }
+    }
+  </style>
+  <script src="global_jurisdiction_engine.js"></script>
+</head>
+<body>
+
+  <!-- Enterprise Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">CULINARY<span>COMMAND</span></span>
+    </div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">Home</a>
+      <a href="#roi-breakdown" class="nav-pill">Financial ROI</a>
+      <a href="#privatedining" class="nav-pill">Private Dining</a>
+      <a href="#reservations" class="nav-pill">Table Yield</a>
+      <a href="#foodcost" class="nav-pill">Supplier Auditing</a>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="header-badge">
+      HOSPITALITY SYSTEMS: OPERATIONAL
+    </div>
+  </header>
+
+  <!-- Showcase Header -->
+  <section class="showcase-header">
+    <div class="pill-badge">HOSPITALITY &amp; FINE DINING INFRASTRUCTURE</div>
+    <h1 class="hero-title" style="margin-bottom: 12px;">Autonomous Operations for Premier Restaurants</h1>
+    <p class="hero-subtitle">
+      What we are: An autonomous operational software suite that locks in high-margin private dining buyouts, backfills weekend table cancellations, and audits supplier invoices for stealth price increases.
+    </p>
+    <div class="trust-bar" style="margin-bottom: 0;">
+      <div class="trust-item">Instant Private Event Contracts</div>
+      <div class="trust-item">Zero Table No-Show Protocols</div>
+      <div class="trust-item">Real-Time Supplier Cost Auditing</div>
+      <div class="trust-item">VIP Guest CRM Integration</div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- THE FINANCIAL LOGIC & ROI SECTION -->
+    <section id="roi-breakdown" class="roi-section">
+      <div class="section-header" style="margin-bottom: 20px;">
+        <span class="section-tag">HOSPITALITY REVENUE AUDIT</span>
+        <h2>Why Restaurants Lose £9,000+ Every Month</h2>
+        <p>A transparent comparison of manual front-of-house operations vs. running on CulinaryCommand OS.</p>
+      </div>
+
+      <div class="roi-grid">
+        <!-- Card A: Current Manual Operations -->
+        <div class="roi-card">
+          <div class="roi-header">
+            <div class="roi-title">Current Manual Service &amp; Booking</div>
+            <span class="leakage-tag">LOST COVERS</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Average Monthly Revenue</span>
+            <strong>£45,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>Lost to Slow Private Dining Follow-Up</span>
+            <span class="loss">-£4,800 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Empty Tables from Late Cancellations</span>
+            <span class="loss">-£2,600 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Unnoticed Supplier Invoice Price Creep</span>
+            <span class="loss">-£1,800 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Actual Net Profit Retained</span>
+            <strong style="color: #991B1B;">£35,800 / mo</strong>
+          </div>
+        </div>
+
+        <!-- Card B: With CulinaryCommand OS -->
+        <div class="roi-card positive">
+          <div class="roi-header">
+            <div class="roi-title">With CulinaryCommand OS</div>
+            <span class="gain-tag">MAXIMIZED COVERS</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Baseline Business Turnover</span>
+            <strong>£45,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>45s Event Proposals (50% Deposits Locked)</span>
+            <span class="profit">+£4,800 Recovered</span>
+          </div>
+          <div class="roi-math-row">
+            <span>VIP Waitlist Auto-Backfill on Cancellations</span>
+            <span class="profit">+£2,600 Saved</span>
+          </div>
+          <div class="roi-math-row">
+            <span>AI Food Cost Invoice Sentinel (28% Target)</span>
+            <span class="profit">+£1,800 Protected</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Operating Cost (CulinaryCommand License)</span>
+            <span>-£97 / mo (£3.20/day)</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Total Monthly Cashflow</span>
+            <strong style="color: #047857;">£54,103 / mo (+94x ROI)</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Calculator Slider -->
+      <div class="roi-interactive-box">
+        <h3 style="font-size: 1.1rem; color: var(--blue-navy); margin-bottom: 6px;">Hospitality Revenue Recovery Calculator</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Slide to match your restaurant's approximate monthly food &amp; beverage turnover:</p>
+        
+        <input type="range" id="restaurant-turnover-slider" min="20000" max="200000" step="5000" value="50000" class="roi-slider" oninput="updateRestaurantROI(this.value)">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; padding: 16px; border-radius: 8px; border: 1px solid #E2E8F0; margin-top: 10px;">
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Monthly Food &amp; Beverage Revenue</div>
+            <div id="display-dining-turnover" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-navy);">£50,000</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Est. Monthly Margin Captured</div>
+            <div id="display-dining-recovered" style="font-size: 1.4rem; font-weight: 800; color: #059669;">+£10,500 / mo</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Net New Annual Profit</div>
+            <div id="display-dining-annual" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-dark);">+£126,000 / yr</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 1: Private Dining & Buyout Proposals -->
+    <section id="privatedining" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 01</span>
+        <h2 class="feature-title">Instant Private Dining &amp; Event Proposals</h2>
+        <p class="feature-desc">
+          High-value private dining inquiries often go cold due to 48-hour manager response delays. CulinaryCommand generates bespoke, itemized multi-course event packages with deposit schedules and e-signatures in 45 seconds.
+        </p>
+        <ul class="metrics-list">
+          <li>Automated minimum spend calculations and wine pairing tiers.</li>
+          <li>Enforces non-refundable 50% booking deposits to secure dates.</li>
+          <li>Integrated allergy, dietary, and seating layout preference capture.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Fine Dining Restaurant Interior" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 2: Table Cancellation Waitlist Backfiller -->
+    <section id="reservations" class="feature-row">
+      <div>
+        <div class="code-display">
+RESERVATION YIELD &amp; TABLE RECOVERY LOG
+Date: Friday Evening Service (19:00 - 22:00)
+
+1. Prime Table #14 (4 Guests - 19:30)
+   Status: Cancelled at 16:45 PM
+   System Action: Triggered Priority VIP Waitlist SMS
+   Result: Rebooked at 16:49 PM (Mr. Harrison - £340.00 Est. Spend)
+   Loss Prevented: £340.00
+
+2. Private Wine Room (12 Guests - 20:00)
+   Status: Confirmed &amp; Deposit Paid (£1,800.00 Minimum Spend)
+   Action: Automated Sommelier Pairing Briefing Dispatched to Kitchen
+        </div>
+      </div>
+      <div>
+        <span class="feature-tag">Module 02</span>
+        <h2 class="feature-title">Table Yield &amp; Cancellation Recovery</h2>
+        <p class="feature-desc">
+          When a prime weekend table cancels, the system automatically messages verified waitlisted guests in order of historical dining spend, filling 100% of open capacity within minutes.
+        </p>
+        <ul class="metrics-list">
+          <li>Zero empty tables during peak service hours.</li>
+          <li>Automated 24-hour SMS confirmation that eliminates late no-shows.</li>
+          <li>Re-engages high-spending VIP diners with exclusive tasting menu openings.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 3: Food Cost & Supplier Invoice Sentinel -->
+    <section id="foodcost" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 03</span>
+        <h2 class="feature-title">Supplier Price Spike &amp; Cost Guard</h2>
+        <p class="feature-desc">
+          Chefs snap photos of delivery invoices from meat, seafood, and produce suppliers. The AI flags unannounced wholesale price increases against recipe yield targets to maintain strict 28% food cost margins.
+        </p>
+        <ul class="metrics-list">
+          <li>Detects stealth price increases on core proteins and specialty produce.</li>
+          <li>Automated weekly food cost variance summaries for head chefs.</li>
+          <li>Eliminates manual bookkeeping and invoice paper clutter.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80" alt="Gourmet Plated Dish Culinary" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 4: Free Graphic Design & Hospitality Brand Kit -->
+    <section class="feature-row">
+      <div>
+        <span class="feature-tag">Complimentary Bonus 01</span>
+        <h2 class="feature-title">Free Custom Brand Graphic Design &amp; Menu Styling</h2>
+        <p class="feature-desc">
+          Every active restaurant partner receives print-ready luxury graphic assets designed for their dining room and bar with zero agency design fees.
+        </p>
+        <ul class="metrics-list">
+          <li>Seasonal multi-course tasting menu and wine list design files.</li>
+          <li>VIP private dining cards and bespoke reservation gift vouchers.</li>
+          <li>Front-of-house window decals, street signage, and coaster branding.</li>
+          <li>Branded server aprons, staff uniforms, and takeaway packaging graphics.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80" alt="Fine Dining Table Setting and Hospitality Brand" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 5: Local Foodie Lead Gen & Cover Maximizer -->
+    <section class="feature-row">
+      <div>
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Restaurant Interior Atmosphere" class="feature-img">
+      </div>
+      <div>
+        <span class="feature-tag">Complimentary Bonus 02</span>
+        <h2 class="feature-title">Local Dining Lead Gen &amp; VIP Footfall Playbook</h2>
+        <p class="feature-desc">
+          High-impact strategies to drive continuous affluent dining traffic during slower Tuesday–Thursday mid-week services.
+        </p>
+        <ul class="metrics-list">
+          <li>Google Map Pack and TripAdvisor #1 local dining ranking framework.</li>
+          <li>Automated post-dining 5-star review collection sequence via SMS.</li>
+          <li>Local corporate concierge partnership outreach for private events.</li>
+          <li>High-spending local business lunch account acquisition scripts.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="cta-banner">
+      <h2>Deploy CulinaryCommand OS for Your Restaurant</h2>
+      <p>
+        Accelerate private event sales, prevent empty weekend tables, and receive the Free Custom Design Kit + Local Lead Gen Playbook for just £97/month.
+      </p>
+      <a href="https://whop.com/checkout/plan_7Yyq1q3piMsk6" target="_blank" class="cta-btn-white">Activate Hospitality License (£97/Month)</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 CulinaryCommand OS &amp; Sovereign Systems. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updateRestaurantROI(val) {
+      const turnover = parseFloat(val);
+      const recovered = Math.round(turnover * 0.21);
+      const annual = recovered * 12;
+      document.getElementById('display-dining-turnover').innerText = '£' + turnover.toLocaleString();
+      document.getElementById('display-dining-recovered').innerText = '+£' + recovered.toLocaleString() + ' / mo';
+      document.getElementById('display-dining-annual').innerText = '+£' + annual.toLocaleString() + ' / yr';
+    }
+  </script>
+
+  <script src="bespoke_portal_engine.js"></script>
+</body>
+</html>

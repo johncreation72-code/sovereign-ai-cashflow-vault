@@ -1,0 +1,261 @@
+{
+  "totalLeads": 11,
+  "tier1Count": 4,
+  "tier2Count": 2,
+  "tier3Count": 5,
+  "leads": [
+    {
+      "id": "lead_1789414689123_ndj0n6",
+      "name": "Angel Franklin",
+      "email": "afranklin@hubspot.com",
+      "position": "Vice President of Total Rewards",
+      "company": "hubspot.com",
+      "industry": "B2B SaaS & Marketing",
+      "confidence": 99,
+      "tier": 1,
+      "tierLabel": "Tier 1: C-Suite / Owner",
+      "priorityScore": 98,
+      "personalizedPitch": {
+        "subject": "Quick question regarding hubspot.com automation efficiency, Angel",
+        "alternativeSubjects": [
+          "Quick question regarding hubspot.com automation efficiency, Angel",
+          "Eliminating optimizing at hubspot.com (24/7 AI workflow)",
+          "Angel - 3 automated workflows to recapture lost B2B SaaS & Marketing revenue"
+        ],
+        "body": "Hi Angel,\n\nI noticed your leadership as Vice President of Total Rewards at hubspot.com.\n\nMost high-performing teams in B2B SaaS & Marketing are currently leaking 20-30% of warm inbound inquiries due to optimizing automated pipeline velocity and outbound response conversion.\n\nWe engineered a lightweight, zero-overhead Sovereign AI Infrastructure that:\n1. Instantly engages, qualifies, and books inbound leads in under 15 seconds (24/7/365).\n2. Syncs qualified appointments directly to your CRM without human intervention.\n3. Automatically reactivates dormant lead databases using tailored AI follow-up sequences.\n\nWe built a complete 2-minute live demo showing exactly how this plugs into hubspot.com's current tech stack.\n\nWould you be open to a 3-minute video breakdown, or should I send over the technical blueprint directly?\n\nBest regards,\n\nJohn S.\nLead Architect // Sovereign AI Systems\nhttps://sovereign-empire-os-ub2.vercel.app\nDirect Bot: https://t.me/sovereign_ai_hub_bot"
+      },
+      "status": "Ready for Dispatch",
+      "discoveredAt": "2026-09-14T19:38:09.123Z"
+    },
+    {
+      "id": "lead_1789414689123_ysde74",
+      "name": "Paulo Costa",
+      "email": "pcosta@hubspot.com",
+      "position": "Content Partner",
+      "company": "hubspot.com",
+      "industry": "B2B SaaS & Marketing",
+      "confidence": 99,
+      "tier": 1,
+      "tierLabel": "Tier 1: C-Suite / Owner",
+      "priorityScore": 98,
+      "personalizedPitch": {
+        "subject": "Quick question regarding hubspot.com automation efficiency, Paulo",
+        "alternativeSubjects": [
+          "Quick question regarding hubspot.com automation efficiency, Paulo",
+          "Eliminating optimizing at hubspot.com (24/7 AI workflow)",
+          "Paulo - 3 automated workflows to recapture lost B2B SaaS & Marketing revenue"
+        ],
+        "body": "Hi Paulo,\n\nI noticed your leadership as Content Partner at hubspot.com.\n\nMost high-performing teams in B2B SaaS & Marketing are currently leaking 20-30% of warm inbound inquiries due to optimizing automated pipeline velocity and outbound response conversion.\n\nWe engineered a lightweight, zero-overhead Sovereign AI Infrastructure that:\n1. Instantly engages, qualifies, and books inbound leads in under 15 seconds (24/7/365).\n2. Syncs qualified appointments directly to your CRM without human intervention.\n3. Automatically reactivates dormant lead databases using tailored AI follow-up sequences.\n\nWe built a complete 2-minute live demo showing exactly how this plugs into hubspot.com's current tech stack.\n\nWould you be open to a 3-minute video breakdown, or should I send over the technical blueprint directly?\n\nBest regards,\n\nJohn S.\nLead Architect // Sovereign AI Systems\nhttps://sovereign-empire-os-ub2.vercel.app\nDirect Bot: https://t.me/sovereign_ai_hub_bot"
+      },
+      "status": "Ready for Dispatch",
+      "discoveredAt": "2026-09-14T19:38:09.123Z"
+    },
+    {
+      "id": "lead_1789414687355_kykwme",
+      "name": "Mickey Neuberger",
+      "email": "mickey.neuberger@realtor.com",
+      "position": "CMO",
+      "company": "realtor.com",
+      "industry": "Real Estate & Brokerage",
+      "confidence": 98,
+      "tier": 1,
+      "tierLabel": "Tier 1: C-Suite / Owner",
+      "priorityScore": 97,
+      "personalizedPitch": {
+        "subject": "Quick question regarding realtor.com automation efficiency, Mickey",
+        "alternativeSubjects": [
+          "Quick question regarding realtor.com automation efficiency, Mickey",
+          "Eliminating manual at realtor.com (24/7 AI workflow)",
+          "Mickey - 3 automated workflows to recapture lost Real Estate & Brokerage revenue"
+        ],
+        "body": "Hi Mickey,\n\nI noticed your leadership as CMO at realtor.com.\n\nMost high-performing teams in Real Estate & Brokerage are currently leaking 20-30% of warm inbound inquiries due to manual lead qualification and high bounce rates on property inquiries.\n\nWe engineered a lightweight, zero-overhead Sovereign AI Infrastructure that:\n1. Instantly engages, qualifies, and books inbound leads in under 15 seconds (24/7/365).\n2. Syncs qualified appointments directly to your CRM without human intervention.\n3. Automatically reactivates dormant lead databases using tailored AI follow-up sequences.\n\nWe built a complete 2-minute live demo showing exactly how this plugs into realtor.com's current tech stack.\n\nWould you be open to a 3-minute video breakdown, or should I send over the technical blueprint directly?\n\nBest regards,\n\nJohn S.\nLead Architect // Sovereign AI Systems\nhttps://sovereign-empire-os-ub2.vercel.app\nDirect Bot: https://t.me/sovereign_ai_hub_bot"
+      },
+      "status": "Ready for Dispatch",
+      "discoveredAt": "2026-09-14T19:38:07.355Z"
+    },
+    {
+      "id": "lead_1789414687422_rdiyh0",
+      "name": "Damian Eales",
+      "email": "damian.eales@realtor.com",
+      "position": "CEO",
+      "company": "realtor.com",
+      "industry": "Real Estate & Brokerage",
+      "confidence": 98,
+      "tier": 1,
+      "tierLabel": "Tier 1: C-Suite / Owner",
+      "priorityScore": 97,
+      "personalizedPitch": {
+        "subject": "Quick question regarding realtor.com automation efficiency, Damian",
+        "alternativeSubjects": [
+          "Quick question regarding realtor.com automation efficiency, Damian",
+          "Eliminating manual at realtor.com (24/7 AI workflow)",
+          "Damian - 3 automated workflows to recapture lost Real Estate & Brokerage revenue"
+        ],
+        "body": "Hi Damian,\n\nI noticed your leadership as CEO at realtor.com.\n\nMost high-performing teams in Real Estate & Brokerage are currently leaking 20-30% of warm inbound inquiries due to manual lead qualification and high bounce rates on property inquiries.\n\nWe engineered a lightweight, zero-overhead Sovereign AI Infrastructure that:\n1. Instantly engages, qualifies, and books inbound leads in under 15 seconds (24/7/365).\n2. Syncs qualified appointments directly to your CRM without human intervention.\n3. Automatically reactivates dormant lead databases using tailored AI follow-up sequences.\n\nWe built a complete 2-minute live demo showing exactly how this plugs into realtor.com's current tech stack.\n\nWould you be open to a 3-minute video breakdown, or should I send over the technical blueprint directly?\n\nBest regards,\n\nJohn S.\nLead Architect // Sovereign AI Systems\nhttps://sovereign-empire-os-ub2.vercel.app\nDirect Bot: https://t.me/sovereign_ai_hub_bot"
+      },
+      "status": "Ready for Dispatch",
+      "discoveredAt": "2026-09-14T19:38:07.422Z"
+    },
+    {
+      "id": "lead_1789414689124_mhzpk9",
+      "name": "Darren Light",
+      "email": "dlight@hubspot.com",
+      "position": "Head of Mid-Market",
+      "company": "hubspot.com",
+      "industry": "B2B SaaS & Marketing",
+      "confidence": 99,
+      "tier": 2,
+      "tierLabel": "Tier 2: VP / Director",
+      "priorityScore": 84,
+      "personalizedPitch": {
+        "subject": "Quick question regarding hubspot.com automation efficiency, Darren",
+        "alternativeSubjects": [
+          "Quick question regarding hubspot.com automation efficiency, Darren",
+          "Eliminating optimizing at hubspot.com (24/7 AI workflow)",
+          "Darren - 3 automated workflows to recapture lost B2B SaaS & Marketing revenue"
+        ],
+        "body": "Hi Darren,\n\nI noticed your leadership as Head of Mid-Market at hubspot.com.\n\nMost high-performing teams in B2B SaaS & Marketing are currently leaking 20-30% of warm inbound inquiries due to optimizing automated pipeline velocity and outbound response conversion.\n\nWe engineered a lightweight, zero-overhead Sovereign AI Infrastructure that:\n1. Instantly engages, qualifies, and books inbound leads in under 15 seconds (24/7/365).\n2. Syncs qualified appointments directly to your CRM without human intervention.\n3. Automatically reactivates dormant lead databases using tailored AI follow-up sequences.\n\nWe built a complete 2-minute live demo showing exactly how this plugs into hubspot.com's current tech stack.\n\nWould you be open to a 3-minute video breakdown, or should I send over the technical blueprint directly?\n\nBest regards,\n\nJohn S.\nLead Architect // Sovereign AI Systems\nhttps://sovereign-empire-os-ub2.vercel.app\nDirect Bot: https://t.me/sovereign_ai_hub_bot"
+      },
+      "status": "Ready for Dispatch",
+      "discoveredAt": "2026-09-14T19:38:09.124Z"
+    },
+    {
+      "id": "lead_1789414689124_0g76d2",
+      "name": "Niamh Cleary",
+      "email": "ncleary@hubspot.com",
+      "position": "Director of Human Resources",
+      "company": "hubspot.com",
+      "industry": "B2B SaaS & Marketing",
+      "confidence": 99,
+      "tier": 2,
+      "tierLabel": "Tier 2: VP / Director",
+      "priorityScore": 84,
+      "personalizedPitch": {
+        "subject": "Quick question regarding hubspot.com automation efficiency, Niamh",
+        "alternativeSubjects": [
+          "Quick question regarding hubspot.com automation efficiency, Niamh",
+          "Eliminating optimizing at hubspot.com (24/7 AI workflow)",
+          "Niamh - 3 automated workflows to recapture lost B2B SaaS & Marketing revenue"
+        ],
+        "body": "Hi Niamh,\n\nI noticed your leadership as Director of Human Resources at hubspot.com.\n\nMost high-performing teams in B2B SaaS & Marketing are currently leaking 20-30% of warm inbound inquiries due to optimizing automated pipeline velocity and outbound response conversion.\n\nWe engineered a lightweight, zero-overhead Sovereign AI Infrastructure that:\n1. Instantly engages, qualifies, and books inbound leads in under 15 seconds (24/7/365).\n2. Syncs qualified appointments directly to your CRM without human intervention.\n3. Automatically reactivates dormant lead databases using tailored AI follow-up sequences.\n\nWe built a complete 2-minute live demo showing exactly how this plugs into hubspot.com's current tech stack.\n\nWould you be open to a 3-minute video breakdown, or should I send over the technical blueprint directly?\n\nBest regards,\n\nJohn S.\nLead Architect // Sovereign AI Systems\nhttps://sovereign-empire-os-ub2.vercel.app\nDirect Bot: https://t.me/sovereign_ai_hub_bot"
+      },
+      "status": "Ready for Dispatch",
+      "discoveredAt": "2026-09-14T19:38:09.124Z"
+    },
+    {
+      "id": "lead_1789414687422_q02ya8",
+      "name": "Danielle Hale",
+      "email": "danielle.hale@realtor.com",
+      "position": "Chief Economist",
+      "company": "realtor.com",
+      "industry": "Real Estate & Brokerage",
+      "confidence": 98,
+      "tier": 3,
+      "tierLabel": "Tier 3: Management",
+      "priorityScore": 64,
+      "personalizedPitch": {
+        "subject": "Quick question regarding realtor.com automation efficiency, Danielle",
+        "alternativeSubjects": [
+          "Quick question regarding realtor.com automation efficiency, Danielle",
+          "Eliminating manual at realtor.com (24/7 AI workflow)",
+          "Danielle - 3 automated workflows to recapture lost Real Estate & Brokerage revenue"
+        ],
+        "body": "Hi Danielle,\n\nI noticed your leadership as Chief Economist at realtor.com.\n\nMost high-performing teams in Real Estate & Brokerage are currently leaking 20-30% of warm inbound inquiries due to manual lead qualification and high bounce rates on property inquiries.\n\nWe engineered a lightweight, zero-overhead Sovereign AI Infrastructure that:\n1. Instantly engages, qualifies, and books inbound leads in under 15 seconds (24/7/365).\n2. Syncs qualified appointments directly to your CRM without human intervention.\n3. Automatically reactivates dormant lead databases using tailored AI follow-up sequences.\n\nWe built a complete 2-minute live demo showing exactly how this plugs into realtor.com's current tech stack.\n\nWould you be open to a 3-minute video breakdown, or should I send over the technical blueprint directly?\n\nBest regards,\n\nJohn S.\nLead Architect // Sovereign AI Systems\nhttps://sovereign-empire-os-ub2.vercel.app\nDirect Bot: https://t.me/sovereign_ai_hub_bot"
+      },
+      "status": "Ready for Dispatch",
+      "discoveredAt": "2026-09-14T19:38:07.422Z"
+    },
+    {
+      "id": "lead_1789414687422_h7whq9",
+      "name": "Daniel Bortz",
+      "email": "dan@realtor.com",
+      "position": "Realtor",
+      "company": "realtor.com",
+      "industry": "Real Estate & Brokerage",
+      "confidence": 99,
+      "tier": 3,
+      "tierLabel": "Tier 3: Management",
+      "priorityScore": 64,
+      "personalizedPitch": {
+        "subject": "Quick question regarding realtor.com automation efficiency, Daniel",
+        "alternativeSubjects": [
+          "Quick question regarding realtor.com automation efficiency, Daniel",
+          "Eliminating manual at realtor.com (24/7 AI workflow)",
+          "Daniel - 3 automated workflows to recapture lost Real Estate & Brokerage revenue"
+        ],
+        "body": "Hi Daniel,\n\nI noticed your leadership as Realtor at realtor.com.\n\nMost high-performing teams in Real Estate & Brokerage are currently leaking 20-30% of warm inbound inquiries due to manual lead qualification and high bounce rates on property inquiries.\n\nWe engineered a lightweight, zero-overhead Sovereign AI Infrastructure that:\n1. Instantly engages, qualifies, and books inbound leads in under 15 seconds (24/7/365).\n2. Syncs qualified appointments directly to your CRM without human intervention.\n3. Automatically reactivates dormant lead databases using tailored AI follow-up sequences.\n\nWe built a complete 2-minute live demo showing exactly how this plugs into realtor.com's current tech stack.\n\nWould you be open to a 3-minute video breakdown, or should I send over the technical blueprint directly?\n\nBest regards,\n\nJohn S.\nLead Architect // Sovereign AI Systems\nhttps://sovereign-empire-os-ub2.vercel.app\nDirect Bot: https://t.me/sovereign_ai_hub_bot"
+      },
+      "status": "Ready for Dispatch",
+      "discoveredAt": "2026-09-14T19:38:07.422Z"
+    },
+    {
+      "id": "lead_1789414687422_c8tv38",
+      "name": "Susan Ramsey",
+      "email": "susanramsey@realtor.com",
+      "position": "Real Estate Agent",
+      "company": "realtor.com",
+      "industry": "Real Estate & Brokerage",
+      "confidence": 99,
+      "tier": 3,
+      "tierLabel": "Tier 3: Management",
+      "priorityScore": 64,
+      "personalizedPitch": {
+        "subject": "Quick question regarding realtor.com automation efficiency, Susan",
+        "alternativeSubjects": [
+          "Quick question regarding realtor.com automation efficiency, Susan",
+          "Eliminating manual at realtor.com (24/7 AI workflow)",
+          "Susan - 3 automated workflows to recapture lost Real Estate & Brokerage revenue"
+        ],
+        "body": "Hi Susan,\n\nI noticed your leadership as Real Estate Agent at realtor.com.\n\nMost high-performing teams in Real Estate & Brokerage are currently leaking 20-30% of warm inbound inquiries due to manual lead qualification and high bounce rates on property inquiries.\n\nWe engineered a lightweight, zero-overhead Sovereign AI Infrastructure that:\n1. Instantly engages, qualifies, and books inbound leads in under 15 seconds (24/7/365).\n2. Syncs qualified appointments directly to your CRM without human intervention.\n3. Automatically reactivates dormant lead databases using tailored AI follow-up sequences.\n\nWe built a complete 2-minute live demo showing exactly how this plugs into realtor.com's current tech stack.\n\nWould you be open to a 3-minute video breakdown, or should I send over the technical blueprint directly?\n\nBest regards,\n\nJohn S.\nLead Architect // Sovereign AI Systems\nhttps://sovereign-empire-os-ub2.vercel.app\nDirect Bot: https://t.me/sovereign_ai_hub_bot"
+      },
+      "status": "Ready for Dispatch",
+      "discoveredAt": "2026-09-14T19:38:07.422Z"
+    },
+    {
+      "id": "lead_1789414688815_8ecmde",
+      "name": "Verified Executive",
+      "email": "info@modernaesthetics.com",
+      "position": "Key Executive",
+      "company": "modernaesthetics.com",
+      "industry": "Aesthetic Clinics & MedSpas",
+      "confidence": 99,
+      "tier": 3,
+      "tierLabel": "Tier 3: Management",
+      "priorityScore": 64,
+      "personalizedPitch": {
+        "subject": "Quick question regarding modernaesthetics.com automation efficiency, there",
+        "alternativeSubjects": [
+          "Quick question regarding modernaesthetics.com automation efficiency, there",
+          "Eliminating missed at modernaesthetics.com (24/7 AI workflow)",
+          "there - 3 automated workflows to recapture lost Aesthetic Clinics & MedSpas revenue"
+        ],
+        "body": "Hi there,\n\nI noticed your leadership as Leader at modernaesthetics.com.\n\nMost high-performing teams in Aesthetic Clinics & MedSpas are currently leaking 20-30% of warm inbound inquiries due to missed weekend booking calls resulting in thousands in lost injectable consultations.\n\nWe engineered a lightweight, zero-overhead Sovereign AI Infrastructure that:\n1. Instantly engages, qualifies, and books inbound leads in under 15 seconds (24/7/365).\n2. Syncs qualified appointments directly to your CRM without human intervention.\n3. Automatically reactivates dormant lead databases using tailored AI follow-up sequences.\n\nWe built a complete 2-minute live demo showing exactly how this plugs into modernaesthetics.com's current tech stack.\n\nWould you be open to a 3-minute video breakdown, or should I send over the technical blueprint directly?\n\nBest regards,\n\nJohn S.\nLead Architect // Sovereign AI Systems\nhttps://sovereign-empire-os-ub2.vercel.app\nDirect Bot: https://t.me/sovereign_ai_hub_bot"
+      },
+      "status": "Ready for Dispatch",
+      "discoveredAt": "2026-09-14T19:38:08.815Z"
+    },
+    {
+      "id": "lead_1789414689123_j7h1yo",
+      "name": "Dharmesh Shah",
+      "email": "dharmesh.shah@hubspot.com",
+      "position": "CTO",
+      "company": "hubspot.com",
+      "industry": "B2B SaaS & Marketing",
+      "confidence": 99,
+      "tier": 3,
+      "tierLabel": "Tier 3: Management",
+      "priorityScore": 64,
+      "personalizedPitch": {
+        "subject": "Quick question regarding hubspot.com automation efficiency, Dharmesh",
+        "alternativeSubjects": [
+          "Quick question regarding hubspot.com automation efficiency, Dharmesh",
+          "Eliminating optimizing at hubspot.com (24/7 AI workflow)",
+          "Dharmesh - 3 automated workflows to recapture lost B2B SaaS & Marketing revenue"
+        ],
+        "body": "Hi Dharmesh,\n\nI noticed your leadership as CTO at hubspot.com.\n\nMost high-performing teams in B2B SaaS & Marketing are currently leaking 20-30% of warm inbound inquiries due to optimizing automated pipeline velocity and outbound response conversion.\n\nWe engineered a lightweight, zero-overhead Sovereign AI Infrastructure that:\n1. Instantly engages, qualifies, and books inbound leads in under 15 seconds (24/7/365).\n2. Syncs qualified appointments directly to your CRM without human intervention.\n3. Automatically reactivates dormant lead databases using tailored AI follow-up sequences.\n\nWe built a complete 2-minute live demo showing exactly how this plugs into hubspot.com's current tech stack.\n\nWould you be open to a 3-minute video breakdown, or should I send over the technical blueprint directly?\n\nBest regards,\n\nJohn S.\nLead Architect // Sovereign AI Systems\nhttps://sovereign-empire-os-ub2.vercel.app\nDirect Bot: https://t.me/sovereign_ai_hub_bot"
+      },
+      "status": "Ready for Dispatch",
+      "discoveredAt": "2026-09-14T19:38:09.123Z"
+    }
+  ]
+}

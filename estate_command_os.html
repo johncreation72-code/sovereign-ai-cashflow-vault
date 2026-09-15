@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EstateCommand OS - Luxury Real Estate &amp; Private Brokerage Automation</title>
+  <meta name="description" content="Autonomous high-net-worth buyer pre-qualification, private showing scheduling, and off-market listing distribution for premier real estate agencies.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .showcase-header {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 50px 24px;
+      text-align: center;
+    }
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .code-display {
+      background-color: #0F172A;
+      color: #E2E8F0;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1E293B;
+    }
+    .feature-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--blue-primary);
+      background-color: var(--blue-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--blue-navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .metrics-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .metrics-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+    .metrics-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--blue-primary);
+    }
+    .cta-banner {
+      background-color: #0F172A;
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-banner h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .cta-banner p {
+      color: #94A3B8;
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+    .cta-btn-white {
+      display: inline-block;
+      background-color: #2563EB;
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s;
+    }
+    .cta-btn-white:hover {
+      background-color: #1D4ED8;
+    }
+    @media (max-width: 850px) {
+      .feature-row { grid-template-columns: 1fr; padding: 24px; }
+      .feature-img { height: 220px; }
+    }
+  </style>
+  <script src="global_jurisdiction_engine.js"></script>
+</head>
+<body>
+
+  <!-- Enterprise Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">ESTATE<span>COMMAND</span></span>
+    </div>
+    <div class="nav-pills">
+      <a href="index.html" class="nav-pill">Home</a>
+      <a href="#roi-breakdown" class="nav-pill">Financial ROI</a>
+      <a href="#buyer-qual" class="nav-pill">Buyer Qualification</a>
+      <a href="#showings" class="nav-pill">Private Showings</a>
+      <a href="#offmarket" class="nav-pill">Off-Market Matcher</a>
+    </div>
+    <div id="jurisdiction-picker-container"></div>
+    <div class="header-badge">
+      LUXURY REAL ESTATE ARCHITECTURE: ACTIVE
+    </div>
+  </header>
+
+  <!-- Showcase Header -->
+  <section class="showcase-header">
+    <div class="pill-badge">LUXURY REAL ESTATE INFRASTRUCTURE</div>
+    <h1 class="hero-title" style="margin-bottom: 12px;">Autonomous Operations for Premier Brokerages</h1>
+    <p class="hero-subtitle">
+      What we are: An autonomous deal acceleration platform that qualifies high-net-worth buyers in 90 seconds, automates private showing NDAs, and matches off-market listings with verified cash capital.
+    </p>
+    <div class="trust-bar" style="margin-bottom: 0;">
+      <div class="trust-item">Instant Verified POF Ingestion</div>
+      <div class="trust-item">Automated Agent Calendar Coordination</div>
+      <div class="trust-item">Zero Unqualified Showing Time-Wasting</div>
+      <div class="trust-item">CRM &amp; MLS Webhook Synchronization</div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- THE FINANCIAL LOGIC & ROI SECTION -->
+    <section id="roi-breakdown" class="roi-section">
+      <div class="section-header" style="margin-bottom: 20px;">
+        <span class="section-tag">COMMISSION LEAKAGE AUDIT</span>
+        <h2>Why Luxury Brokerages Lose £25,000+ Every Month</h2>
+        <p>A transparent breakdown of manual agent qualification vs. running on EstateCommand OS.</p>
+      </div>
+
+      <div class="roi-grid">
+        <!-- Card A: Manual Agent Qualification -->
+        <div class="roi-card">
+          <div class="roi-header">
+            <div class="roi-title">Manual Ingestion &amp; Showings</div>
+            <span class="leakage-tag">TIME LEAKAGE</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Average Monthly Brokerage Commission</span>
+            <strong>£80,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>Agent Hours Wasted on Unqualified Buyers</span>
+            <span class="loss">-£12,000 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Lost Off-Market Match Velocity</span>
+            <span class="loss">-£15,000 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Unsigned Showing NDAs &amp; Cancellations</span>
+            <span class="loss">-£3,500 / mo</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Actual Net Deal Value Realized</span>
+            <strong style="color: #991B1B;">£49,500 / mo</strong>
+          </div>
+        </div>
+
+        <!-- Card B: With EstateCommand OS -->
+        <div class="roi-card positive">
+          <div class="roi-header">
+            <div class="roi-title">With EstateCommand Autonomous OS</div>
+            <span class="gain-tag">MAXIMIZED COMMISSIONS</span>
+          </div>
+          
+          <div class="roi-math-row">
+            <span>Baseline Commission Run Rate</span>
+            <strong>£80,000 / mo</strong>
+          </div>
+          <div class="roi-math-row">
+            <span>90s Proof-of-Funds Verification (Zero Time Wasted)</span>
+            <span class="profit">+£12,000 Unlocked</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Automated Off-Market Buyer Database Matching</span>
+            <span class="profit">+£15,000 Captured</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Automated Digital NDA &amp; Showing Concierge</span>
+            <span class="profit">+£3,500 Saved</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Operating Cost (EstateCommand License)</span>
+            <span>-£97 / mo (£3.20/day)</span>
+          </div>
+          <div class="roi-math-row">
+            <span>Total Monthly Commission Velocity</span>
+            <strong style="color: #047857;">£110,403 / mo (+313x ROI)</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Calculator Slider -->
+      <div class="roi-interactive-box">
+        <h3 style="font-size: 1.1rem; color: var(--blue-navy); margin-bottom: 6px;">Brokerage Commission Acceleration Calculator</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Slide to match your agency's average monthly gross commission income:</p>
+        
+        <input type="range" id="brokerage-turnover-slider" min="30000" max="300000" step="10000" value="80000" class="roi-slider" oninput="updateBrokerageROI(this.value)">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; padding: 16px; border-radius: 8px; border: 1px solid #E2E8F0; margin-top: 10px;">
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Monthly Commission Turnover</div>
+            <div id="display-re-turnover" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-navy);">£80,000</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Est. Monthly Deal Velocity Gained</div>
+            <div id="display-re-recovered" style="font-size: 1.4rem; font-weight: 800; color: #059669;">+£30,500 / mo</div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-caption); text-transform: uppercase; font-weight: 700;">Net New Annual Deal Flow</div>
+            <div id="display-re-annual" style="font-size: 1.4rem; font-weight: 800; color: var(--blue-dark);">+£366,000 / yr</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 1: High-Net-Worth Buyer Qualification -->
+    <section id="buyer-qual" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 01</span>
+        <h2 class="feature-title">Instant High-Net-Worth Buyer Qualification</h2>
+        <p class="feature-desc">
+          Top brokerages waste hundreds of agent hours answering casual inquiries. EstateCommand verifies proof-of-funds criteria, financing pre-approval, and purchasing timelines within 90 seconds of portal form submission.
+        </p>
+        <ul class="metrics-list">
+          <li>Automated verification of purchase liquidity before booking viewings.</li>
+          <li>Routes qualified buyers directly to the listing agent's mobile calendar.</li>
+          <li>Filters out 90%+ of non-transacting inquiries and tire-kickers.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Luxury Architectural Penthouse Residence" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 2: Private Showing Concierge -->
+    <section id="showings" class="feature-row">
+      <div>
+        <div class="code-display">
+PRIVATE VIEWING DISPATCH LOG
+Listing: Penthouse #4A, Kensington Gardens (£4,250,000)
+
+Inquiry: Alistair Vance (Private Family Office)
+Verification: Verified Cash Buyer / POF Logged
+Showing Date: Saturday at 11:30 AM
+Action: Building security clearance &amp; digital NDA auto-dispatched to guest.
+Listing Broker Alert: "VIP Client Confirmed. Viewing locked."
+        </div>
+      </div>
+      <div>
+        <span class="feature-tag">Module 02</span>
+        <h2 class="feature-title">Private Tour Concierge &amp; NDA Automation</h2>
+        <p class="feature-desc">
+          Coordinates luxury viewings, dispatches digital confidentiality agreements, and sends gated entry instructions to confirmed buyers without manual back-and-forth emails.
+        </p>
+        <ul class="metrics-list">
+          <li>Enforces automated non-disclosure agreements on off-market listings.</li>
+          <li>Sends GPS building access and private parking instructions via SMS.</li>
+          <li>Automated 2-hour pre-viewing SMS confirmation reduces cancellations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature 3: Off-Market Buyer Matching Engine -->
+    <section id="offmarket" class="feature-row">
+      <div>
+        <span class="feature-tag">Module 03</span>
+        <h2 class="feature-title">Off-Market Inventory &amp; Buyer Matcher</h2>
+        <p class="feature-desc">
+          When a private seller signs an exclusive pocket listing, EstateCommand cross-references the property parameters against your database of pre-qualified active buyers, generating targeted buyer viewings within 24 hours.
+        </p>
+        <ul class="metrics-list">
+          <li>Monetizes archived buyer CRM contacts without public ad spend.</li>
+          <li>Maintains strict seller privacy with encrypted listing previews.</li>
+          <li>Delivers predictable deal velocity on premier listings.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" alt="Contemporary Luxury Villa Exterior" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 4: Free Graphic Design & Real Estate Presentation Kit -->
+    <section class="feature-row">
+      <div>
+        <span class="feature-tag">Complimentary Bonus 01</span>
+        <h2 class="feature-title">Free Custom Brand Graphic Design &amp; Listing Styling</h2>
+        <p class="feature-desc">
+          Every active brokerage partner receives print-ready luxury graphic assets designed for their listing presentations and investor proposals with zero design fees.
+        </p>
+        <ul class="metrics-list">
+          <li>Architectural property brochure and lookbook templates.</li>
+          <li>Embossed luxury business cards and private office presentation folders.</li>
+          <li>High-end 'For Sale / Under Offer' site boards and window showcase displays.</li>
+          <li>Digital pitch decks for private off-market investor presentations.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="Luxury Real Estate Interior Architecture" class="feature-img">
+      </div>
+    </section>
+
+    <!-- Feature 5: High-Net-Worth Buyer Lead Gen -->
+    <section class="feature-row">
+      <div>
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Contemporary Luxury Villa Architecture" class="feature-img">
+      </div>
+      <div>
+        <span class="feature-tag">Complimentary Bonus 02</span>
+        <h2 class="feature-title">High-Net-Worth Buyer Acquisition &amp; Valuation Magnet</h2>
+        <p class="feature-desc">
+          Proven acquisition systems to attract prime sellers looking for off-market discretion and international capital buyers.
+        </p>
+        <ul class="metrics-list">
+          <li>Local high-value neighborhood market report lead magnets.</li>
+          <li>Private family office and wealth manager outreach templates.</li>
+          <li>Automated 5-star Google review and testimonial capture on completed sales.</li>
+          <li>Direct-mail luxury postcard sequences for prime residential postcodes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="cta-banner">
+      <h2>Deploy EstateCommand OS for Your Brokerage</h2>
+      <p>
+        Accelerate luxury deal flow, automate private viewings, and receive the Free Graphic Design Kit + HNW Buyer Lead Gen Playbook for £97/month.
+      </p>
+      <a href="https://whop.com/checkout/plan_7Yyq1q3piMsk6" target="_blank" class="cta-btn-white">Activate Real Estate License (£97/Month)</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 EstateCommand OS &amp; Sovereign Systems. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updateBrokerageROI(val) {
+      const turnover = parseFloat(val);
+      const recovered = Math.round(turnover * 0.38);
+      const annual = recovered * 12;
+      document.getElementById('display-re-turnover').innerText = '£' + turnover.toLocaleString();
+      document.getElementById('display-re-recovered').innerText = '+£' + recovered.toLocaleString() + ' / mo';
+      document.getElementById('display-re-annual').innerText = '+£' + annual.toLocaleString() + ' / yr';
+    }
+  </script>
+
+  <script src="bespoke_portal_engine.js"></script>
+</body>
+</html>

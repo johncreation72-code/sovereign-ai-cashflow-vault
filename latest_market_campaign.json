@@ -1,0 +1,37 @@
+{
+  "marketName": "Luxury Streetwear & Sneaker Footwear",
+  "category": "fashion",
+  "monetizationModel": "Brand Traffic Markup & Affiliate Fee",
+  "targetDomain": "kith.com",
+  "viralScript": {
+    "hook": "Top 3 streetwear brands nobody knows about that are actually worth your money.",
+    "body": "Most people overpay for low-quality alternatives. We tested the top providers in Luxury Streetwear & Sneaker Footwear to find what actually delivers the highest value. Check the pinned link to access the verified directory and exclusive VIP access.",
+    "cta": "Link in bio for full details and discount code."
+  },
+  "voiceoverFile": "market_fashion_voiceover.mp3",
+  "videoClips": [
+    {
+      "id": 18156295,
+      "url": "https://videos.pexels.com/video-files/18156295/18156295-hd_720_1280_25fps.mp4",
+      "preview": "https://images.pexels.com/videos/18156295/pexels-photo-18156295.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630",
+      "duration": 4
+    },
+    {
+      "id": 28879312,
+      "url": "https://videos.pexels.com/video-files/28879312/12502275_360_640_30fps.mp4",
+      "preview": "https://images.pexels.com/videos/28879312/fashion-fashionmodel-fashionphotography-instagramreels-28879312.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630",
+      "duration": 2
+    },
+    {
+      "id": 8994733,
+      "url": "https://videos.pexels.com/video-files/8994733/8994733-hd_720_1280_25fps.mp4",
+      "preview": "https://images.pexels.com/videos/8994733/adult-bag-beautiful-blogger-8994733.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630",
+      "duration": 7
+    }
+  ],
+  "b2bPitch": {
+    "subject": "Driving 25,000+ targeted local views to kith.com (Zero upfront ad spend)",
+    "body": "Hi Team,\n\nWe produce high-retention short-form video campaigns in the fashion space generating 50k-200k organic views across TikTok, Instagram Reels, and YouTube Shorts.\n\nWe have a viral video queued up featuring Luxury Streetwear & Sneaker Footwear.\n\nWe can route all direct link-in-bio traffic directly to kith.com on a simple performance fee.\n\nWould you be open to a 2-minute video preview of the campaign before we post?\n\nBest regards,\nJohn S. // Sovereign Media & Traffic Swarm"
+  },
+  "stagedAt": "2026-09-14T19:52:44.928Z"
+}
