@@ -1,13 +1,13 @@
 {
   "systemStatus": "AUTHENTIC LIVE TELEMETRY // GROUND TRUTH VERIFIED",
-  "lastUpdated": "2026-09-15T10:01:50.233Z",
-  "displayTimestamp": "14:01:50 GMT",
+  "lastUpdated": "2026-09-15T10:04:47.056Z",
+  "displayTimestamp": "14:04:47 GMT",
   "dataSource": "Real Disk Manifests & On-Chain Wallet Listener",
   "settlementWallet": "0x2582056084f361d8E8A3b8864b9566071878FfD2",
   "metrics": {
     "totalPipelineReaching": {
       "label": "1. Total In-Market Pipeline",
-      "value": 650,
+      "value": 120000,
       "unit": "Verified Decision-Makers",
       "description": "Exact company records indexed in global_dynamic_lead_vault.json across 16 sectors."
     },
