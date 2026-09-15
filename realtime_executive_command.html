@@ -638,22 +638,22 @@
       <div class="funnel-steps">
         <div class="funnel-step">
           <div class="funnel-step-label">Step 1: Live Sent</div>
-          <div class="funnel-step-val" id="funnelReached">31</div>
+          <div class="funnel-step-val" id="funnelReached">0</div>
           <div class="funnel-step-rate">100% Delivered</div>
         </div>
         <div class="funnel-step">
           <div class="funnel-step-label">Step 2: Opens / Views</div>
-          <div class="funnel-step-val" id="funnelEngaged">21</div>
+          <div class="funnel-step-val" id="funnelEngaged">0</div>
           <div class="funnel-step-rate">67.7% Active Rate</div>
         </div>
         <div class="funnel-step">
           <div class="funnel-step-label">Step 3: Inbound Leads</div>
-          <div class="funnel-step-val" id="funnelConversations">7</div>
+          <div class="funnel-step-val" id="funnelConversations">0</div>
           <div class="funnel-step-rate">22.5% Inbound Rate</div>
         </div>
         <div class="funnel-step">
           <div class="funnel-step-label">Step 4: Checkout Clicks</div>
-          <div class="funnel-step-val" id="funnelViews">18</div>
+          <div class="funnel-step-val" id="funnelViews">0</div>
           <div class="funnel-step-rate">58.0% Portal Intent</div>
         </div>
         <div class="funnel-step" style="background:#ECFDF5; border-color:#A7F3D0;">
@@ -722,33 +722,33 @@
           <tbody id="sectorTableBody">
             <tr>
               <td><strong>Builders &amp; Trades</strong></td>
-              <td id="secSentBuilders" style="font-weight:700;">14</td>
-              <td id="secEngBuilders" style="font-weight:700; color:var(--green-verified);">10</td>
+              <td id="secSentBuilders" style="font-weight:700;">0</td>
+              <td id="secEngBuilders" style="font-weight:700; color:var(--green-verified);">0</td>
               <td>60s CIS 20% Tax Deduction Shield</td>
             </tr>
             <tr>
               <td><strong>Dental Clinics</strong></td>
-              <td id="secSentDental" style="font-weight:700;">11</td>
-              <td id="secEngDental" style="font-weight:700; color:var(--green-verified);">7</td>
+              <td id="secSentDental" style="font-weight:700;">0</td>
+              <td id="secEngDental" style="font-weight:700; color:var(--green-verified);">0</td>
               <td>24/7 After-Hours Cosmetic Inquiries</td>
             </tr>
             <tr>
               <td><strong>HVAC &amp; Gas</strong></td>
-              <td id="secSentHVAC" style="font-weight:700;">7</td>
-              <td id="secEngHVAC" style="font-weight:700; color:var(--green-verified);">5</td>
+              <td id="secSentHVAC" style="font-weight:700;">0</td>
+              <td id="secEngHVAC" style="font-weight:700; color:var(--green-verified);">0</td>
               <td>Annual CP12 Gas Safety Auto-Recall</td>
             </tr>
             <tr>
               <td><strong>Auto Garages</strong></td>
-              <td id="secSentAuto" style="font-weight:700;">6</td>
-              <td id="secEngAuto" style="font-weight:700; color:var(--green-verified);">3</td>
+              <td id="secSentAuto" style="font-weight:700;">0</td>
+              <td id="secEngAuto" style="font-weight:700; color:var(--green-verified);">0</td>
               <td>30-Day Automated MOT SMS Chaser</td>
             </tr>
             <tr>
-              <td><strong>Freight Fleets</strong></td>
-              <td id="secSentFreight" style="font-weight:700;">5</td>
-              <td id="secEngFreight" style="font-weight:700; color:var(--green-verified);">3</td>
-              <td>Dynamic Brent Crude Fuel Surcharge</td>
+              <td><strong>Fine Dining &amp; Hospitality</strong></td>
+              <td id="secSentFreight" style="font-weight:700;">0</td>
+              <td id="secEngFreight" style="font-weight:700; color:var(--green-verified);">0</td>
+              <td>45-Second Private Dining Buyout Engine</td>
             </tr>
           </tbody>
         </table>
@@ -874,12 +874,12 @@
       const elRevenue = document.getElementById("metricRevenue");
       if (elRevenue) elRevenue.innerText = `GBP ${m.settledRevenueGBP} (USDT ${m.onChainUSDTBalance})`;
 
-      // Real Events Stream
-      if (Array.isArray(data.recentRealEvents) && data.recentRealEvents.length > 0) {
-        const container = document.getElementById("eventStreamContainer");
-        if (container) {
+      // Dynamic Real Event Stream
+      const container = document.getElementById("eventStreamContainer");
+      if (container) {
+        if (Array.isArray(data.recentRealEvents) && data.recentRealEvents.length > 0) {
           let html = "";
-          data.recentRealEvents.slice(0, 8).forEach(evt => {
+          data.recentRealEvents.slice(0, 10).forEach(evt => {
             let statusClass = "status-dispatched";
             if (evt.status === "ENGAGED") statusClass = "status-engaged";
             if (evt.status === "VIEW") statusClass = "status-listening";
@@ -899,6 +899,14 @@
             `;
           });
           container.innerHTML = html;
+        } else {
+          container.innerHTML = `
+            <div class="feed-item">
+              <div class="feed-time">${data.displayTime || "--:--:--"}</div>
+              <div class="feed-event">Ground-truth telemetry active. Standing by for authentic visitor traffic... <span class="feed-client">— Vercel Edge Cloud</span></div>
+              <div class="feed-status status-listening">LISTENING</div>
+            </div>
+          `;
         }
       }
 
