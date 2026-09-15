@@ -1,13 +1,19 @@
 {
   "version": 2,
-  "crons": [
+  "cleanUrls": false,
+  "headers": [
     {
-      "path": "/api/global_dispatch",
-      "schedule": "*/15 * * * *"
-    },
-    {
-      "path": "/api/lead_replenish",
-      "schedule": "0 */1 * * *"
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
     }
   ]
 }

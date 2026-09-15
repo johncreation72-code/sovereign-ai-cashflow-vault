@@ -9,3 +9,4 @@ node_modules
 .DS_Store
 node_modules/
 global_dynamic_lead_vault.json
+.token
