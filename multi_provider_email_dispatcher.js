@@ -25,6 +25,7 @@ function getCredentials() {
   return {
     brevoKey: process.env.BREVO_API_KEY || (creds.brevo && creds.brevo.apiKey) || "",
     resendKey: process.env.RESEND_API_KEY || (creds.resend && creds.resend.apiKey) || "",
+    sendgridKey: process.env.SENDGRID_API_KEY || (creds.sendgrid && creds.sendgrid.apiKey) || "",
     senderEmail: (creds.brevo && creds.brevo.email) || "johncreation72@gmail.com"
   };
 }
@@ -162,6 +163,47 @@ function sendResendEmail({ to, subject, htmlContent, textContent }) {
   });
 }
 
+function sendSendGridEmail({ to, subject, htmlContent, textContent }) {
+  return new Promise((resolve) => {
+    const creds = getCredentials();
+    if (!creds.sendgridKey) return resolve({ error: true, message: "Missing SendGrid API Key" });
+
+    const payload = JSON.stringify({
+      personalizations: [{ to: [{ email: to }] }],
+      from: { email: creds.senderEmail, name: SENDER_NAME },
+      subject: subject,
+      content: [
+        { type: "text/plain", value: textContent },
+        { type: "text/html", value: htmlContent }
+      ]
+    });
+
+    const req = https.request({
+      hostname: "api.sendgrid.com",
+      path: "/v3/mail/send",
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${creds.sendgridKey}`,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(payload)
+      },
+      timeout: 5000
+    }, (res) => {
+      let body = "";
+      res.on("data", chunk => body += chunk);
+      res.on("end", () => {
+        try { resolve({ status: res.statusCode, data: body ? JSON.parse(body) : { ok: true } }); }
+        catch (e) { resolve({ status: res.statusCode, raw: body }); }
+      });
+    });
+
+    req.on("error", err => resolve({ error: true, message: err.message }));
+    req.on("timeout", () => { req.destroy(); resolve({ error: true, message: "timeout" }); });
+    req.write(payload);
+    req.end();
+  });
+}
+
 function buildEmailPayload(lead) {
   const tpl = SECTOR_TEMPLATES[lead.sector] || SECTOR_TEMPLATES["Builders & Construction"];
   const docRef = "DOC-" + lead.companyNumber.replace(/[^0-9]/g, "").slice(0, 8);
@@ -224,6 +266,7 @@ async function dispatchSingleLead(lead, preferredProvider = null) {
     const available = [];
     if (creds.brevoKey) available.push("Brevo (300/Day)");
     if (creds.resendKey) available.push("Resend (100/Day)");
+    if (creds.sendgridKey) available.push("SendGrid (100/Day)");
     provider = available.length > 0 ? available[dispatchCounter % available.length] : "Brevo (300/Day)";
     dispatchCounter++;
   }
@@ -271,8 +314,8 @@ async function runBatchDispatch(count = 25) {
   const creds = getCredentials();
   console.log("================================================================================");
   console.log(` SOVEREIGN MULTI-PROVIDER DISPATCHER // RUNNING BATCH OF ${count} DISPATCHES`);
-  console.log(` Active Free Tiers: Brevo (300/day: ${creds.brevoKey ? "ONLINE" : "OFFLINE"}), Resend (100/day: ${creds.resendKey ? "ONLINE" : "OFFLINE"})`);
-  console.log(" Total Active Capacity: 400 Free Emails / Day (12,000 / Month)");
+  console.log(` Active Free Tiers: Brevo (300/day: ${creds.brevoKey ? "ONLINE" : "OFFLINE"}), Resend (100/day: ${creds.resendKey ? "ONLINE" : "OFFLINE"}), SendGrid (100/day: ${creds.sendgridKey ? "ONLINE" : "OFFLINE"})`);
+  console.log(" Total Active Capacity: 500 Free Emails / Day (15,000 / Month)");
   console.log(" Mode: 100% Ground Truth // Supabase Cloud PostgreSQL // Zero Local Dependency");
   console.log("================================================================================\n");
 
