@@ -449,6 +449,11 @@ To update communication preferences or opt out, simply reply with "Unsubscribe".
                 To update your communication preferences or opt out of future updates, simply reply to this email with "Unsubscribe".
               </p>
             </td>
+          <!-- Tracking Pixel for Instant Open Detection & Mobile Alerts -->
+          <tr>
+            <td style="height:1px;line-height:1px;font-size:1px;">
+              <img src="https://sovereign-empire-os-ub2.vercel.app/api/track_open?ref=${docRef}&biz=${encodeURIComponent(lead.companyName)}&sector=${encodeURIComponent(lead.sector)}&city=${encodeURIComponent(lead.city)}&email=${encodeURIComponent('director@' + lead.companyName.toLowerCase().replace(/[^a-z0-9]/g, '') + '.co.uk')}" width="1" height="1" alt="" style="display:none;width:1px;height:1px;border:0;" />
+            </td>
           </tr>
 
         </table>
