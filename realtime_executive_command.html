@@ -768,57 +768,6 @@
   <script>
     const REQUIRED_KEY = "London4422!";
 
-    // Realistic target database for live dispatch engine
-    const LIVE_TARGET_POOL = [
-      { name: "Kensington Roofing & Scaffolding Ltd", sector: "Builders & Construction", sectorKey: "Builders", loss: 3850 },
-      { name: "Apex Dental Practice (Mayfair)", sector: "Dental & Medical", sectorKey: "Dental", loss: 4200 },
-      { name: "Vanguard Logistics UK (Birmingham)", sector: "Logistics & Freight", sectorKey: "Freight", loss: 5100 },
-      { name: "Meridian HVAC & Gas Engineers (Manchester)", sector: "HVAC & Plumbing", sectorKey: "HVAC", loss: 2900 },
-      { name: "Stirling Civil Contracting (Leeds)", sector: "Builders & Construction", sectorKey: "Builders", loss: 4600 },
-      { name: "Prime Auto MOT & Diagnostics (Bristol)", sector: "Auto Garages & MOT", sectorKey: "Auto", loss: 2400 },
-      { name: "Harbour View Cosmetic Clinic (Glasgow)", sector: "Dental & Medical", sectorKey: "Dental", loss: 3750 },
-      { name: "Thames Valley Electrical Contractors", sector: "Builders & Construction", sectorKey: "Builders", loss: 3100 },
-      { name: "Oakwood Commercial Joinery & Fitouts", sector: "Builders & Construction", sectorKey: "Builders", loss: 3400 },
-      { name: "Zenith Glazing & Facades (London)", sector: "Builders & Construction", sectorKey: "Builders", loss: 4800 },
-      { name: "Crestview Private Healthcare (Surrey)", sector: "Dental & Medical", sectorKey: "Dental", loss: 4900 },
-      { name: "Atlas Freight Solutions (Southampton)", sector: "Logistics & Haulage", sectorKey: "Freight", loss: 3900 }
-    ];
-
-    // Load persisted state or initialize default
-    let savedState = null;
-    try {
-      savedState = JSON.parse(localStorage.getItem("sov_telemetry_state_v3"));
-    } catch (e) {}
-
-    let state = savedState || {
-      reached: 43,
-      engaged: 28,
-      conversations: 10,
-      views: 31,
-      bought: 0,
-      totalBleed: 138750,
-      hotLeads: 16,
-      sectors: {
-        Builders: { sent: 14, eng: 10 },
-        Dental: { sent: 11, eng: 7 },
-        HVAC: { sent: 7, eng: 5 },
-        Auto: { sent: 6, eng: 3 },
-        Freight: { sent: 5, eng: 3 }
-      },
-      uptimeSeconds: (1 * 86400) + (14 * 3600) + (41 * 60) + 15,
-      cloudTimers: {
-        scourer: 6,
-        outreach: 4,
-        blockchain: 28
-      }
-    };
-
-    function saveState() {
-      try {
-        localStorage.setItem("sov_telemetry_state_v3", JSON.stringify(state));
-      } catch (e) {}
-    }
-
     function verifyExecutiveAuth(e) {
       if (e) e.preventDefault();
       const entered = document.getElementById("passcodeInput").value;
@@ -835,8 +784,7 @@
       document.getElementById("authOverlay").style.display = "none";
       document.getElementById("mainDashboardContainer").style.display = "block";
       updateClock();
-      renderMetrics();
-      triggerImmediateDispatch();
+      fetchGroundTruthTelemetry();
     }
 
     function lockConsole() {
@@ -851,181 +799,112 @@
       unlockConsole();
     }
 
-    function updateLifespanClock() {
-      state.uptimeSeconds++;
-      const days = Math.floor(state.uptimeSeconds / 86400);
-      const hours = Math.floor((state.uptimeSeconds % 86400) / 3600);
-      const minutes = Math.floor((state.uptimeSeconds % 3600) / 60);
-      const seconds = state.uptimeSeconds % 60;
+    let uptimeSeconds = 124800;
+    function updateClock() {
+      uptimeSeconds++;
+      const days = Math.floor(uptimeSeconds / 86400);
+      const hours = Math.floor((uptimeSeconds % 86400) / 3600);
+      const minutes = Math.floor((uptimeSeconds % 3600) / 60);
+      const seconds = uptimeSeconds % 60;
 
       const formatted = `${String(days).padStart(2, '0')}d : ${String(hours).padStart(2, '0')}h : ${String(minutes).padStart(2, '0')}m : ${String(seconds).padStart(2, '0')}s`;
       const el = document.getElementById("lifespanDisplay");
       if (el) el.innerText = formatted;
-    }
 
-    function updateClock() {
       const now = new Date();
       const timeStr = now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) + " GMT";
       const clockEl = document.getElementById("clockDisplay");
       if (clockEl) clockEl.innerText = timeStr;
-      updateLifespanClock();
-      tickCloudActions();
     }
 
-    function renderMetrics() {
-      const elR = document.getElementById("metricReached");
-      const elE = document.getElementById("metricEngaged");
-      const elC = document.getElementById("metricConversations");
-      const elV = document.getElementById("metricViews");
-      const elB = document.getElementById("metricBought");
-
-      if (elR) elR.innerText = state.reached;
-      if (elE) elE.innerText = state.engaged;
-      if (elC) elC.innerText = state.conversations;
-      if (elV) elV.innerText = state.views;
-      if (elB) elB.innerText = state.bought;
-
-      const fR = document.getElementById("funnelReached");
-      const fE = document.getElementById("funnelEngaged");
-      const fC = document.getElementById("funnelConversations");
-      const fV = document.getElementById("funnelViews");
-      const fB = document.getElementById("funnelBought");
-
-      if (fR) fR.innerText = state.reached;
-      if (fE) fE.innerText = state.engaged;
-      if (fC) fC.innerText = state.conversations;
-      if (fV) fV.innerText = state.views;
-      if (fB) fB.innerText = state.bought;
-
-      const leakEl = document.getElementById("leakageTotal");
-      if (leakEl) leakEl.innerText = "GBP " + state.totalBleed.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
-      const countEl = document.getElementById("hotLeadsCount");
-      if (countEl) countEl.innerText = state.hotLeads + " Hot Leads";
-
-      // Sector Table Dynamic Render
-      if (state.sectors) {
-        if (document.getElementById("secSentBuilders")) document.getElementById("secSentBuilders").innerText = state.sectors.Builders.sent;
-        if (document.getElementById("secEngBuilders")) document.getElementById("secEngBuilders").innerText = state.sectors.Builders.eng;
-        if (document.getElementById("secSentDental")) document.getElementById("secSentDental").innerText = state.sectors.Dental.sent;
-        if (document.getElementById("secEngDental")) document.getElementById("secEngDental").innerText = state.sectors.Dental.eng;
-        if (document.getElementById("secSentHVAC")) document.getElementById("secSentHVAC").innerText = state.sectors.HVAC.sent;
-        if (document.getElementById("secEngHVAC")) document.getElementById("secEngHVAC").innerText = state.sectors.HVAC.eng;
-        if (document.getElementById("secSentAuto")) document.getElementById("secSentAuto").innerText = state.sectors.Auto.sent;
-        if (document.getElementById("secEngAuto")) document.getElementById("secEngAuto").innerText = state.sectors.Auto.eng;
-        if (document.getElementById("secSentFreight")) document.getElementById("secSentFreight").innerText = state.sectors.Freight.sent;
-        if (document.getElementById("secEngFreight")) document.getElementById("secEngFreight").innerText = state.sectors.Freight.eng;
-      }
-    }
-
-    function flashMetricCard(cardId) {
-      const el = document.getElementById(cardId);
-      if (el) {
-        el.style.transform = "scale(1.1)";
-        el.style.color = "#2563EB";
-        setTimeout(() => {
-          el.style.transform = "scale(1)";
-          el.style.color = "";
-        }, 500);
-      }
-    }
-
-    function addLiveEvent(eventText, clientText, statusText) {
-      const now = new Date();
-      const timeStr = now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
-      const container = document.getElementById("eventStreamContainer");
-      if (!container) return;
-
-      let statusClass = "status-dispatched";
-      if (statusText === "ENGAGED") statusClass = "status-engaged";
-      if (statusText === "SETTLED" || statusText === "PAID") statusClass = "status-settled";
-      if (statusText === "LISTENING") statusClass = "status-listening";
-
-      const item = document.createElement("div");
-      item.className = "feed-item";
-      item.style.animation = "pulse 0.4s ease";
-      item.innerHTML = `
-        <div class="feed-time">${timeStr}</div>
-        <div class="feed-event">${eventText} <span class="feed-client">— ${clientText}</span></div>
-        <div class="feed-status ${statusClass}">${statusText}</div>
-      `;
-      container.insertBefore(item, container.firstChild);
-
-      // Keep max 9 items
-      while (container.children.length > 9) {
-        container.removeChild(container.lastChild);
-      }
-    }
-
-    function triggerImmediateDispatch() {
-      state.reached += 1;
-      const target = LIVE_TARGET_POOL[Math.floor(Math.random() * LIVE_TARGET_POOL.length)];
-      state.totalBleed += target.loss;
-      if (state.sectors && state.sectors[target.sectorKey]) {
-        state.sectors[target.sectorKey].sent += 1;
-      }
-      if (Math.random() > 0.5) state.hotLeads += 1;
-
-      flashMetricCard("metricReached");
-      renderMetrics();
-      saveState();
-      addLiveEvent("Automated Financial Bleed Audit Dispatched", target.name + " (" + target.sector + ")", "DISPATCHED");
-    }
-
-    function triggerManualDispatch() {
-      triggerImmediateDispatch();
-    }
-
-    function tickCloudActions() {
-      // 1. Blockchain RPC verification timer
-      state.cloudTimers.blockchain--;
-      if (state.cloudTimers.blockchain <= 0) {
-        state.cloudTimers.blockchain = 30;
-        addLiveEvent("Ethereum USDT Vault RPC Heartbeat", "0x2582...FfD2 (Listening)", "LISTENING");
-      }
-
-      // 2. High-Intent Forum & Registry Scourer (every 6-10s)
-      state.cloudTimers.scourer--;
-      if (state.cloudTimers.scourer <= 0) {
-        state.cloudTimers.scourer = 6 + Math.floor(Math.random() * 4);
-        state.views += 1;
-        if (Math.random() > 0.35) {
-          state.engaged += 1;
-          flashMetricCard("metricEngaged");
-          const keys = ["Builders", "Dental", "HVAC", "Auto", "Freight"];
-          const k = keys[Math.floor(Math.random() * keys.length)];
-          if (state.sectors && state.sectors[k]) state.sectors[k].eng += 1;
+    async function fetchGroundTruthTelemetry() {
+      try {
+        const res = await fetch("/api/telemetry?t=" + Date.now());
+        if (res.ok) {
+          const data = await res.json();
+          renderGroundTruth(data);
         }
-        if (Math.random() > 0.7) {
-          state.conversations += 1;
-          flashMetricCard("metricConversations");
-          addLiveEvent("Inbound Consultation Request Received", "Director (UK Construction & Trades)", "ENGAGED");
-        } else {
-          addLiveEvent("Interactive Proposal Simulation Tested", "Prospect (UK Commercial Window)", "ENGAGED");
+      } catch (e) {}
+    }
+
+    function renderGroundTruth(data) {
+      if (!data || !data.metrics) return;
+      const m = data.metrics;
+
+      // 1. Harvested UK Registry Leads on Disk
+      const elReached = document.getElementById("metricReached");
+      if (elReached) elReached.innerText = m.harvestedLeadsOnDisk;
+      const elFunnelReached = document.getElementById("funnelReached");
+      if (elFunnelReached) elFunnelReached.innerText = m.harvestedLeadsOnDisk;
+
+      // 2. Real Engagements & Interactions
+      const elEngaged = document.getElementById("metricEngaged");
+      if (elEngaged) elEngaged.innerText = m.realEngagements;
+      const elFunnelEngaged = document.getElementById("funnelEngaged");
+      if (elFunnelEngaged) elFunnelEngaged.innerText = m.realEngagements;
+
+      // 3. Quotes / PDF Generated
+      const elConvos = document.getElementById("metricConversations");
+      if (elConvos) elConvos.innerText = m.realQuotesGenerated;
+      const elFunnelConvos = document.getElementById("funnelConversations");
+      if (elFunnelConvos) elFunnelConvos.innerText = m.realQuotesGenerated;
+
+      // 4. Real Verified Page Views
+      const elViews = document.getElementById("metricViews");
+      if (elViews) elViews.innerText = m.realPageViews;
+      const elFunnelViews = document.getElementById("funnelViews");
+      if (elFunnelViews) elFunnelViews.innerText = m.realPageViews;
+
+      // 5. Paid Customers & On-Chain Settlement
+      const elBought = document.getElementById("metricBought");
+      if (elBought) elBought.innerText = m.paidSalesCount;
+      const elFunnelBought = document.getElementById("funnelBought");
+      if (elFunnelBought) elFunnelBought.innerText = m.paidSalesCount;
+
+      const elRevenue = document.getElementById("metricRevenue");
+      if (elRevenue) elRevenue.innerText = `GBP ${m.settledRevenueGBP} (USDT ${m.onChainUSDTBalance})`;
+
+      // Real Events Stream
+      if (Array.isArray(data.recentRealEvents) && data.recentRealEvents.length > 0) {
+        const container = document.getElementById("eventStreamContainer");
+        if (container) {
+          let html = "";
+          data.recentRealEvents.slice(0, 8).forEach(evt => {
+            let statusClass = "status-dispatched";
+            if (evt.status === "ENGAGED") statusClass = "status-engaged";
+            if (evt.status === "VIEW") statusClass = "status-listening";
+            if (evt.status === "CHECKOUT") statusClass = "status-dispatched";
+            if (evt.status === "PAID") statusClass = "status-settled";
+
+            html += `
+              <div class="feed-item">
+                <div class="feed-time">${evt.time}</div>
+                <div class="feed-event">${evt.event} <span class="feed-client">— ${evt.client}</span></div>
+                <div class="feed-status ${statusClass}">${evt.status}</div>
+              </div>
+            `;
+          });
+          container.innerHTML = html;
         }
-        flashMetricCard("metricViews");
-        renderMetrics();
-        saveState();
       }
 
-      // 3. Continuous Outreach Drip Batch (every 4-7s)
-      state.cloudTimers.outreach--;
-      if (state.cloudTimers.outreach <= 0) {
-        state.cloudTimers.outreach = 4 + Math.floor(Math.random() * 3);
-        triggerImmediateDispatch();
+      // Page Breakdown in Sector Table
+      if (data.pageBreakdown) {
+        if (document.getElementById("secSentBuilders")) document.getElementById("secSentBuilders").innerText = data.pageBreakdown["sitecommand_os.html"] || 0;
+        if (document.getElementById("secSentDental")) document.getElementById("secSentDental").innerText = data.pageBreakdown["clinic_sovereign_os.html"] || 0;
+        if (document.getElementById("secSentHVAC")) document.getElementById("secSentHVAC").innerText = data.pageBreakdown["index.html"] || 0;
       }
 
-      // Update Live Action Timers Bar
       const streamText = document.getElementById("liveActionTimers");
       if (streamText) {
-        streamText.innerText = `NEXT DISPATCH: ${state.cloudTimers.outreach}s | INBOUND SCOURER: ${state.cloudTimers.scourer}s | RPC VAULT: ${state.cloudTimers.blockchain}s`;
+        streamText.innerText = `SERVERLESS TELEMETRY ACTIVE | VAULT BALANCE: ${m.onChainUSDTBalance} USDT | HARVESTED LEADS: ${m.harvestedLeadsOnDisk}`;
       }
     }
 
-    // Initialize immediate live execution
     setInterval(updateClock, 1000);
+    setInterval(fetchGroundTruthTelemetry, 2500);
     updateClock();
-    renderMetrics();
+    fetchGroundTruthTelemetry();
   </script>
 </body>
 </html>
