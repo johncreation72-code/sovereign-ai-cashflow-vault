@@ -87,7 +87,10 @@ MANAGED_SERVICES.forEach(svc => startService(svc));
 
 // Built-in lightweight HTTP Health Server for Cloud Platforms (Render, Railway, Fly.io)
 const server = http.createServer((req, res) => {
-  if (req.url === "/health" || req.url === "/status" || req.url === "/") {
+  const parsedUrl = new URL(req.url, "http://localhost:" + PORT);
+  let pathname = parsedUrl.pathname;
+
+  if (pathname === "/health" || pathname === "/status") {
     const runningCount = Object.keys(activeProcesses).length;
     const responsePayload = {
       status: "HEALTHY",
@@ -102,11 +105,29 @@ const server = http.createServer((req, res) => {
     };
 
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(responsePayload, null, 2));
-  } else {
-    res.writeHead(404, { "Content-Type": "text/plain" });
-    res.end("Not Found");
+    return res.end(JSON.stringify(responsePayload, null, 2));
   }
+
+  if (pathname === "/" || pathname === "/dashboard") {
+    pathname = "/realtime_executive_command.html";
+  }
+
+  const safePath = path.normalize(path.join(WORKDIR, pathname));
+  if (safePath.startsWith(WORKDIR) && fs.existsSync(safePath) && fs.statSync(safePath).isFile()) {
+    let contentType = "text/plain";
+    if (safePath.endsWith(".html")) contentType = "text/html; charset=utf-8";
+    else if (safePath.endsWith(".css")) contentType = "text/css";
+    else if (safePath.endsWith(".js")) contentType = "application/javascript";
+    else if (safePath.endsWith(".json")) contentType = "application/json";
+    else if (safePath.endsWith(".jpg")) contentType = "image/jpeg";
+    else if (safePath.endsWith(".png")) contentType = "image/png";
+
+    res.writeHead(200, { "Content-Type": contentType });
+    return fs.createReadStream(safePath).pipe(res);
+  }
+
+  res.writeHead(404, { "Content-Type": "text/plain" });
+  res.end("404 Not Found");
 });
 
 server.listen(PORT, () => {
