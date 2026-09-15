@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sovereign OS - Verified Real-Time Telemetry Command</title>
+  <title>Sovereign OS - Restricted Executive Telemetry Command</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@
       --green-accent: #34D399;
       --purple-accent: #818CF8;
       --yellow-accent: #FBBF24;
+      --red-accent: #EF4444;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,9 +31,110 @@
       min-height: 100vh;
     }
 
+    /* Password Protection Screen Overlay */
+    #authOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0B1120;
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .auth-box {
+      background: #0F172A;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      max-width: 440px;
+      width: 100%;
+      padding: 36px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      text-align: center;
+    }
+
+    .auth-badge {
+      display: inline-block;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: var(--red-accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .auth-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .auth-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: #FFFFFF;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      margin-bottom: 14px;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .auth-input:focus {
+      border-color: var(--blue-accent);
+    }
+
+    .auth-btn {
+      width: 100%;
+      padding: 14px;
+      background: #2563EB;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+      transition: all 0.2s;
+    }
+
+    .auth-btn:hover {
+      background: #1D4ED8;
+    }
+
+    .auth-error {
+      display: none;
+      color: var(--red-accent);
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 14px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
+      display: none; /* Hidden until unlocked */
     }
 
     .header-bar {
@@ -58,6 +160,12 @@
       font-size: 13px;
       color: var(--text-muted);
       margin-top: 4px;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .live-badge {
@@ -87,6 +195,22 @@
       0% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.4; transform: scale(0.85); }
       100% { opacity: 1; transform: scale(1); }
+    }
+
+    .lock-btn {
+      background: #1E293B;
+      border: 1px solid #334155;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lock-btn:hover {
+      color: #FFFFFF;
+      border-color: #64748B;
     }
 
     .metrics-grid {
@@ -216,10 +340,7 @@
       text-transform: uppercase;
     }
 
-    .status-settled { background: rgba(52, 211, 153, 0.15); color: var(--green-accent); }
     .status-intent { background: rgba(56, 189, 248, 0.15); color: var(--blue-accent); }
-    .status-chat { background: rgba(251, 191, 36, 0.15); color: var(--yellow-accent); }
-    .status-sent { background: rgba(129, 140, 248, 0.15); color: var(--purple-accent); }
 
     .refresh-note {
       text-align: center;
@@ -232,15 +353,35 @@
 </head>
 <body>
 
-  <div class="container">
+  <!-- RESTRICTED ACCESS PASSWORD GATE -->
+  <div id="authOverlay">
+    <div class="auth-box">
+      <div class="auth-badge">RESTRICTED EXECUTIVE CLEARANCE</div>
+      <div class="auth-title">SOVEREIGN TELEMETRY COMMAND</div>
+      <div class="auth-sub">Enter your executive authorization passcode to unlock live pipeline metrics, dispatches, and settlement ledgers.</div>
+      
+      <form onsubmit="verifyExecutiveAuth(event)">
+        <input type="password" id="passcodeInput" class="auth-input" placeholder="Enter Executive Passcode" required autofocus>
+        <button type="submit" class="auth-btn">Authorize &amp; Unlock Console</button>
+      </form>
+
+      <div id="authErrorMsg" class="auth-error">ACCESS DENIED: Invalid Passcode</div>
+    </div>
+  </div>
+
+  <!-- UNLOCKED MAIN DASHBOARD -->
+  <div class="container" id="mainDashboardContainer">
     <div class="header-bar">
       <div class="logo-area">
         <h1>SOVEREIGN <span>EXECUTIVE TELEMETRY</span></h1>
         <div class="logo-sub">Direct Ground-Truth Performance &amp; Settlement Ledger</div>
       </div>
-      <div class="live-badge">
-        <div class="pulse-dot"></div>
-        <span id="liveStatusText">100% GROUND TRUTH</span> | <span id="clockDisplay">--:--:-- GMT</span>
+      <div class="header-controls">
+        <div class="live-badge">
+          <div class="pulse-dot"></div>
+          <span id="liveStatusText">GROUND TRUTH ACTIVE</span> | <span id="clockDisplay">--:--:-- GMT</span>
+        </div>
+        <button onclick="lockConsole()" class="lock-btn">Lock Console</button>
       </div>
     </div>
 
@@ -295,11 +436,45 @@
     </div>
 
     <div class="refresh-note">
-      Sovereign Ground-Truth Ledger // Zero Fabrication Standard // Auto-Synchronized with Cloud Repository
+      Sovereign Ground-Truth Ledger // Authorized Clearance: London4422! // Auto-Synchronized with Cloud Repository
     </div>
   </div>
 
   <script>
+    const REQUIRED_KEY = "London4422!";
+
+    function verifyExecutiveAuth(e) {
+      if (e) e.preventDefault();
+      const entered = document.getElementById("passcodeInput").value;
+      if (entered === REQUIRED_KEY) {
+        sessionStorage.setItem("sov_auth_token", "AUTHENTICATED_EXECUTIVE");
+        unlockConsole();
+      } else {
+        document.getElementById("authErrorMsg").style.display = "block";
+        document.getElementById("passcodeInput").value = "";
+      }
+    }
+
+    function unlockConsole() {
+      document.getElementById("authOverlay").style.display = "none";
+      document.getElementById("mainDashboardContainer").style.display = "block";
+      updateClock();
+      fetchLatestMetrics();
+    }
+
+    function lockConsole() {
+      sessionStorage.removeItem("sov_auth_token");
+      document.getElementById("authOverlay").style.display = "flex";
+      document.getElementById("mainDashboardContainer").style.display = "none";
+      document.getElementById("passcodeInput").value = "";
+      document.getElementById("authErrorMsg").style.display = "none";
+    }
+
+    // Auto-login if session active
+    if (sessionStorage.getItem("sov_auth_token") === "AUTHENTICATED_EXECUTIVE") {
+      unlockConsole();
+    }
+
     function updateClock() {
       const now = new Date();
       document.getElementById("clockDisplay").innerText = now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) + " GMT";
@@ -344,8 +519,6 @@
 
     setInterval(updateClock, 1000);
     setInterval(fetchLatestMetrics, 2000);
-    updateClock();
-    fetchLatestMetrics();
   </script>
 </body>
 </html>
