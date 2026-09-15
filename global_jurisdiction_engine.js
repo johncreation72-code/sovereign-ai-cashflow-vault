@@ -188,15 +188,15 @@ class SovereignJurisdictionManager {
   renderSelector() {
     const jur = this.currentJurisdiction;
     return `
-      <div class="sovereign-jurisdiction-bar" style="display:flex; align-items:center; gap:8px; background:#F8FAFC; border:1px solid #CBD5E1; padding:6px 12px; border-radius:8px; font-size:13px; font-family:\x27Plus Jakarta Sans\x27, sans-serif;">
-        <span style="font-weight:700; color:#475569; text-transform:uppercase; font-size:11px; letter-spacing:0.5px;">JURISDICTION:</span>
-        <select id="sovereign-jurisdiction-select" onchange="window.sovereignJurisdiction.setJurisdiction(this.value)" style="border:none; background:transparent; font-weight:700; color:#0F172A; cursor:pointer; font-size:13px; outline:none;">
-          <option value="UK" ${jur.id === "UK" ? "selected" : ""}>United Kingdom (GBP £ · HMRC)</option>
-          <option value="US" ${jur.id === "US" ? "selected" : ""}>United States (USD $ · SEC/IRS)</option>
-          <option value="EU" ${jur.id === "EU" ? "selected" : ""}>European Union (EUR € · Handelsregister)</option>
-          <option value="CA" ${jur.id === "CA" ? "selected" : ""}>Canada (CAD $ · CRA T5018)</option>
-          <option value="AU" ${jur.id === "AU" ? "selected" : ""}>Australia (AUD A$ · ASIC/TPARS)</option>
-          <option value="GCC" ${jur.id === "GCC" ? "selected" : ""}>UAE &amp; GCC (AED · DED/Freezone)</option>
+      <div class="sovereign-jurisdiction-bar" style="display:inline-flex; align-items:center; gap:6px; background:#FFFFFF; border:1px solid #E2E8F0; padding:5px 12px; border-radius:9999px; font-size:12px; font-family:\x27Plus Jakarta Sans\x27, sans-serif; box-shadow:0 1px 2px rgba(15,23,42,0.03);">
+        <span style="font-weight:700; color:#64748B; font-size:10px; font-family:\x27JetBrains Mono\x27,monospace; letter-spacing:0.5px;">MARKET:</span>
+        <select id="sovereign-jurisdiction-select" onchange="window.sovereignJurisdiction.setJurisdiction(this.value)" style="border:none; background:transparent; font-weight:700; color:#0F172A; cursor:pointer; font-size:12px; outline:none; font-family:inherit;">
+          <option value="UK" ${jur.id === "UK" ? "selected" : ""}>UK (£ GBP · HMRC CIS)</option>
+          <option value="US" ${jur.id === "US" ? "selected" : ""}>US ($ USD · 1099/IRS)</option>
+          <option value="EU" ${jur.id === "EU" ? "selected" : ""}>EU (€ EUR · Handelsregister)</option>
+          <option value="CA" ${jur.id === "CA" ? "selected" : ""}>CA ($ CAD · T5018)</option>
+          <option value="AU" ${jur.id === "AU" ? "selected" : ""}>AU ($ AUD · TPARS)</option>
+          <option value="GCC" ${jur.id === "GCC" ? "selected" : ""}>GCC (AED · Freezone)</option>
         </select>
       </div>
     `;

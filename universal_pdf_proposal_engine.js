@@ -2,6 +2,7 @@
  * ==============================================================================
  * SOVEREIGN // UNIVERSAL CLIENT-SIDE PDF PROPOSAL & QUOTE EXPORTER
  * Zero-Dependency, Bank-Grade Document Generation for All 16 Industry Portals
+ * Includes Quantified Financial Loss & Recovery ROI Audit Model
  * ==============================================================================
  */
 
@@ -13,6 +14,8 @@ function generateUniversalPdfProposal(portalType, data) {
   const totalAmount = data.totalAmount || "GBP 2,850.00";
   const breakdownHtml = data.breakdownHtml || "Standard Operational Retainer";
   const termsText = data.termsText || "Payment due within 14 days of invoice issue. Governed by standard commercial terms.";
+  const recoverableAmount = data.recoverableAmount || "GBP 3,250.00 / month";
+  const hoursSaved = data.hoursSaved || "16.5 Hours / Week";
 
   const printWindow = window.open("", "_blank");
   if (!printWindow) {
@@ -70,18 +73,35 @@ function generateUniversalPdfProposal(portalType, data) {
       font-weight: 700;
       color: #0F172A;
     }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
     .summary-box {
       background: #F8FAFC;
       border: 1px solid #CBD5E1;
       border-radius: 6px;
       padding: 20px;
-      margin-bottom: 30px;
+    }
+    .audit-box {
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 6px;
+      padding: 20px;
     }
     .total-amount {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 800;
       color: #2563EB;
-      margin: 8px 0;
+      margin: 6px 0;
+    }
+    .recover-amount {
+      font-size: 28px;
+      font-weight: 800;
+      color: #047857;
+      margin: 6px 0;
     }
     .table-spec {
       width: 100%;
@@ -101,6 +121,15 @@ function generateUniversalPdfProposal(portalType, data) {
       border-bottom: 1px solid #E2E8F0;
       font-size: 14px;
       color: #334155;
+    }
+    .roi-highlight {
+      background: #ECFDF5;
+      border-left: 4px solid #047857;
+      padding: 14px;
+      font-size: 13px;
+      color: #065F46;
+      margin: 20px 0;
+      border-radius: 4px;
     }
     .footer-note {
       font-size: 11px;
@@ -126,7 +155,7 @@ function generateUniversalPdfProposal(portalType, data) {
     <div class="header-row">
       <div>
         <div class="brand-title">SOVEREIGN ENTERPRISE OS</div>
-        <div class="brand-sub">Commercial Proposal & Operational Specification</div>
+        <div class="brand-sub">Commercial Specification &amp; Revenue Leakage Recovery Audit</div>
       </div>
       <div class="meta-col">
         <div><span class="meta-bold">Reference:</span> ${quoteRef}</div>
@@ -135,17 +164,26 @@ function generateUniversalPdfProposal(portalType, data) {
       </div>
     </div>
 
-    <div class="summary-box">
-      <div style="font-size: 12px; font-weight: 700; color: #64748B; text-transform: uppercase;">Prepared Specifically For:</div>
-      <div style="font-size: 20px; font-weight: 800; color: #0F172A; margin: 4px 0 12px 0;">${companyName}</div>
-      <div style="font-size: 12px; font-weight: 700; color: #64748B; text-transform: uppercase;">Total Project / Contract Valuation:</div>
-      <div class="total-amount">${totalAmount}</div>
+    <div class="summary-grid">
+      <div class="summary-box">
+        <div style="font-size: 11px; font-weight: 700; color: #64748B; text-transform: uppercase;">Prepared Specifically For:</div>
+        <div style="font-size: 18px; font-weight: 800; color: #0F172A; margin: 4px 0 8px 0;">${companyName}</div>
+        <div style="font-size: 11px; font-weight: 700; color: #64748B; text-transform: uppercase;">Software Subscription Valuation:</div>
+        <div class="total-amount">${totalAmount}</div>
+      </div>
+
+      <div class="audit-box">
+        <div style="font-size: 11px; font-weight: 700; color: #1E40AF; text-transform: uppercase;">Recovered Financial Leakage:</div>
+        <div class="recover-amount">${recoverableAmount}</div>
+        <div style="font-size: 12px; color: #1E3A8A; font-weight: 600;">Time Recovered: ${hoursSaved}</div>
+        <div style="font-size: 11px; color: #3B82F6; margin-top: 4px;">Payback Timeline: Immediate Day 1 Deployment</div>
+      </div>
     </div>
 
     <table class="table-spec">
       <thead>
         <tr>
-          <th>Specification Item & Deliverables</th>
+          <th>Operational Deliverables &amp; System Integration</th>
           <th style="text-align: right;">Status</th>
         </tr>
       </thead>
@@ -160,8 +198,12 @@ function generateUniversalPdfProposal(portalType, data) {
       </tbody>
     </table>
 
+    <div class="roi-highlight">
+      <strong>Guaranteed Payback Model:</strong> By capturing after-hours inquiries, eliminating manual paperwork, and mitigating regulatory penalty exposure, this software is engineered to generate a net positive ROI within the first 48 hours of live production.
+    </div>
+
     <div style="background: #F1F5F9; border-left: 4px solid #2563EB; padding: 14px; font-size: 13px; color: #334155; margin: 20px 0;">
-      <strong>Commercial Terms & Governance:</strong><br>
+      <strong>Commercial Terms &amp; Governance:</strong><br>
       ${termsText}
     </div>
 
@@ -172,7 +214,6 @@ function generateUniversalPdfProposal(portalType, data) {
 
   <script>
     window.onload = function() {
-      // Auto-trigger print dialog after brief render delay
       setTimeout(function() { window.print(); }, 500);
     };
   </script>

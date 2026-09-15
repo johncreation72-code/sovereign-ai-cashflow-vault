@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sovereign OS - 45-Second Operational Video Walkthrough</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #0B0F19;
+      --bg-card: #111827;
+      --border-color: #1F2937;
+      --blue-primary: #2563EB;
+      --blue-accent: #38BDF8;
+      --text-white: #F9FAFB;
+      --text-muted: #9CA3AF;
+      --green-verified: #10B981;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-white);
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+    }
+
+    .video-container {
+      max-width: 900px;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+    }
+
+    .video-header {
+      background: #090D16;
+      border-bottom: 1px solid var(--border-color);
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .video-title {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .video-badge {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--green-verified);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .video-viewport {
+      background: radial-gradient(circle at 50% 30%, #1E293B 0%, #0B0F19 80%);
+      min-height: 440px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 30px;
+    }
+
+    .mock-screen {
+      max-width: 720px;
+      width: 100%;
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    .mock-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1F2937;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #4B5563;
+    }
+
+    .dot.green { background: #10B981; }
+
+    .step-indicator {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--blue-accent);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .screen-stage-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .screen-stage-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .live-data-box {
+      background: #090D16;
+      border: 1px solid #1F2937;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 18px 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .data-item-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #6B7280;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .data-item-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--blue-accent);
+      margin-top: 4px;
+    }
+
+    .captions-bar {
+      margin-top: 24px;
+      width: 100%;
+      max-width: 720px;
+      background: rgba(17, 24, 39, 0.95);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #E5E7EB;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .video-controls {
+      background: #090D16;
+      border-top: 1px solid var(--border-color);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .control-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ctrl-btn {
+      background: var(--bg-card);
+      border: 1px solid #374151;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .ctrl-btn:hover { background: #1F2937; }
+
+    .timeline-display {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue-accent);
+    }
+
+    .action-cta {
+      background: var(--blue-primary);
+      color: #FFFFFF;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .action-cta:hover { background: #1D4ED8; }
+
+    .progress-track {
+      width: 100%;
+      height: 4px;
+      background: #1F2937;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--blue-primary);
+      transition: width 0.2s linear;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="video-container">
+    <div class="video-header">
+      <div class="video-title">Sovereign Enterprise OS // Operational Video Walkthrough</div>
+      <div class="video-badge">AUTOMATED DEMO (45s)</div>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="video-viewport">
+      <div class="mock-screen">
+        <div class="mock-header">
+          <div class="window-dots">
+            <div class="dot green"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+          <div class="step-indicator" id="stepIndicator">STEP 1 OF 4: DATA INGESTION</div>
+        </div>
+
+        <div class="screen-stage-title" id="stageTitle">Autonomous Registry &amp; Margin Analysis</div>
+        <div class="screen-stage-desc" id="stageDesc">Ingesting company metrics, verifying HMRC CIS 20% compliance, and scanning unbilled hours...</div>
+
+        <div class="live-data-box">
+          <div>
+            <div class="data-item-label">Hours Recovered</div>
+            <div class="data-item-val" id="valHours">14.5 Hrs/Wk</div>
+          </div>
+          <div>
+            <div class="data-item-label">Monthly Bleed Saved</div>
+            <div class="data-item-val" id="valBleed">+GBP 3,250.00</div>
+          </div>
+          <div>
+            <div class="data-item-label">Proposal Speed</div>
+            <div class="data-item-val" id="valSpeed">14 Seconds</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="captions-bar" id="captionText">
+        Click "Play Walkthrough with Audio Narration" below to start the 45-second demo.
+      </div>
+    </div>
+
+    <div class="video-controls">
+      <div class="control-group">
+        <button class="ctrl-btn" id="playBtn" onclick="togglePlay()">Play Walkthrough</button>
+        <button class="ctrl-btn" onclick="restartVideo()">Restart</button>
+        <span class="timeline-display" id="timelineText">0:00 / 0:45</span>
+      </div>
+      <div>
+        <a href="https://sovereign-empire-os-ub2.vercel.app/sitecommand_os.html" target="_blank" class="action-cta">Test Live Portal Simulator</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const NARRATION_TEXT = "In the next 45 seconds, see how Sovereign Enterprise OS eliminates 14 hours of weekly administrative overhead and recovers £3,250 in monthly revenue leakage automatically. Watch as customer inquiries are screened, compliance is verified, and authorized commercial proposals are generated in under 15 seconds.";
+
+    const TIMELINE_STEPS = [
+      {
+        time: 0,
+        indicator: "STEP 1 OF 4: INGESTION & REGULATORY CHECK",
+        title: "Autonomous Ingestion & Compliance Verification",
+        desc: "Ingesting active client requests and verifying HMRC CIS 20% tax deduction eligibility...",
+        hours: "14.5 Hrs/Wk",
+        bleed: "+GBP 3,250.00",
+        speed: "14 Seconds",
+        caption: "Step 1: The system scans incoming customer inquiries and validates compliance in under 5 seconds."
+      },
+      {
+        time: 11,
+        indicator: "STEP 2 OF 4: QUANTIFIED LEAKAGE CALCULATION",
+        title: "Dynamic Financial Loss & Margin Engine",
+        desc: "Calculating exact subcontractor timecard rates, material indexers, and unrecovered lead bleed...",
+        hours: "18.0 Hrs/Wk",
+        bleed: "+GBP 4,800.00",
+        speed: "8 Seconds",
+        caption: "Step 2: Identifies financial leakage from slow response times and uncontacted after-hours leads."
+      },
+      {
+        time: 23,
+        indicator: "STEP 3 OF 4: 1-CLICK PROPOSAL EXPORTER",
+        title: "Bank-Grade PDF Commercial Generation",
+        desc: "Exporting formal digital proposal with legal terms and guaranteed 48-hour ROI model...",
+        hours: "22.5 Hrs/Wk",
+        bleed: "+GBP 6,500.00",
+        speed: "2 Seconds",
+        caption: "Step 3: Instantly compiles an official PDF commercial proposal ready for partner execution."
+      },
+      {
+        time: 35,
+        indicator: "STEP 4 OF 4: SETTLEMENT & RECOVERY DISPATCH",
+        title: "Autonomous Client Onboarding & Ledger Sync",
+        desc: "Syncing verified customer to CRM ledger and provisioning instant 7-day operational access...",
+        hours: "Day 1 ROI",
+        bleed: "+GBP 8,200.00",
+        speed: "Instant",
+        caption: "Step 4: Provisions immediate 7-day operational access with zero upfront credit card requirement."
+      }
+    ];
+
+    let isPlaying = false;
+    let currentSec = 0;
+    let timer = null;
+    const TOTAL_SEC = 45;
+
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      const btn = document.getElementById("playBtn");
+      if (isPlaying) {
+        btn.innerText = "Pause";
+        startLoop();
+        speak();
+      } else {
+        btn.innerText = "Resume";
+        if (timer) clearInterval(timer);
+        if (window.speechSynthesis) window.speechSynthesis.pause();
+      }
+    }
+
+    function restartVideo() {
+      currentSec = 0;
+      isPlaying = true;
+      document.getElementById("playBtn").innerText = "Pause";
+      if (timer) clearInterval(timer);
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      speak();
+      startLoop();
+    }
+
+    function speak() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(NARRATION_TEXT);
+        utter.rate = 0.98;
+        utter.pitch = 0.95;
+        const voices = window.speechSynthesis.getVoices();
+        const ukVoice = voices.find(v => v.lang === "en-GB") || voices.find(v => v.lang.startsWith("en"));
+        if (ukVoice) utter.voice = ukVoice;
+        window.speechSynthesis.speak(utter);
+      }
+    }
+
+    function startLoop() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(function() {
+        if (!isPlaying) return;
+        currentSec++;
+        if (currentSec > TOTAL_SEC) {
+          currentSec = TOTAL_SEC;
+          isPlaying = false;
+          document.getElementById("playBtn").innerText = "Replay";
+          clearInterval(timer);
+          return;
+        }
+
+        const pct = (currentSec / TOTAL_SEC) * 100;
+        document.getElementById("progressFill").style.width = pct + "%";
+        document.getElementById("timelineText").innerText = `0:${String(currentSec).padStart(2, '0')} / 0:45`;
+
+        for (let i = TIMELINE_STEPS.length - 1; i >= 0; i--) {
+          if (currentSec >= TIMELINE_STEPS[i].time) {
+            document.getElementById("stepIndicator").innerText = TIMELINE_STEPS[i].indicator;
+            document.getElementById("stageTitle").innerText = TIMELINE_STEPS[i].title;
+            document.getElementById("stageDesc").innerText = TIMELINE_STEPS[i].desc;
+            document.getElementById("valHours").innerText = TIMELINE_STEPS[i].hours;
+            document.getElementById("valBleed").innerText = TIMELINE_STEPS[i].bleed;
+            document.getElementById("valSpeed").innerText = TIMELINE_STEPS[i].speed;
+            document.getElementById("captionText").innerText = TIMELINE_STEPS[i].caption;
+            break;
+          }
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

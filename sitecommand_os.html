@@ -140,20 +140,31 @@
 
   <!-- Enterprise Header -->
   <header class="header">
-    <div class="logo">
-      <span class="logo-text">SITECOMMAND<span>OS</span></span>
+    <div class="header-left">
+      <a href="index.html" class="logo">
+        <span class="logo-text">SITECOMMAND<span>OS</span></span>
+      </a>
+      <div class="header-divider"></div>
+      <span class="header-sub-tag">CONTRACTOR SUITE</span>
     </div>
-    <div class="nav-pills">
-      <a href="index.html" class="nav-pill">Home</a>
-      <a href="#roi-breakdown" class="nav-pill">Financial ROI</a>
-      <a href="#proposals" class="nav-pill">Proposals</a>
-      <a href="#attendance" class="nav-pill">Crew Tracking</a>
-      <a href="#reports" class="nav-pill">Client Shield</a>
-      <a href="#reactivation" class="nav-pill">Lead Recovery</a>
+
+    <div class="header-center">
+      <nav class="nav-pills">
+        <a href="index.html" class="nav-pill">Home</a>
+        <a href="#roi-breakdown" class="nav-pill">Financial ROI</a>
+        <a href="#proposals" class="nav-pill">Proposals</a>
+        <a href="#attendance" class="nav-pill">Crew Tracking</a>
+        <a href="#reports" class="nav-pill">Client Shield</a>
+        <a href="#reactivation" class="nav-pill">Lead Recovery</a>
+      </nav>
     </div>
-    <div id="jurisdiction-picker-container"></div>
-    <div class="header-badge">
-      OPERATIONAL STATUS: ACTIVE
+
+    <div class="header-right">
+      <div class="header-status-pill">
+        <span class="header-status-dot"></span>
+        <span>PRODUCTION ACTIVE</span>
+      </div>
+      <button onclick="openSandboxActivationModal('SiteCommand OS')" class="header-action-link" style="border:none; cursor:pointer;">Claim Access</button>
     </div>
   </header>
 
@@ -169,6 +180,62 @@
       <div class="trust-item">Instant Digital E-Signatures</div>
       <div class="trust-item">Automated 24h/48h Deposit Chasing</div>
       <div class="trust-item">Dedicated WhatsApp Business API</div>
+    </div>
+    <!-- PROMINENT HERO EMBEDDED VIDEO SHOWCASE -->
+    <div class="hero-video-embed" style="margin: 28px auto 0 auto; max-width: 820px;">
+      <div class="hero-video-topbar">
+        <div class="hero-video-label">
+          <div class="hero-video-label-dot"></div>
+          <span>SITECOMMAND OS // 45-SECOND OPERATIONAL DEMO</span>
+        </div>
+        <div style="font-size:11px; font-family:var(--font-mono); color:#94A3B8;">AUDIO NARRATION ACTIVE</div>
+      </div>
+
+      <div class="hero-video-stage">
+        <div class="hero-video-screen">
+          <div class="hero-video-screen-header">
+            <div style="display:flex; gap:6px;">
+              <div style="width:8px; height:8px; border-radius:50%; background:#22C55E;"></div>
+              <div style="width:8px; height:8px; border-radius:50%; background:#475569;"></div>
+              <div style="width:8px; height:8px; border-radius:50%; background:#475569;"></div>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:11px; color:#38BDF8; font-weight:700;" id="heroVidStep">STEP 1: 60-SECOND CIS QUOTE &amp; AUDIT</div>
+          </div>
+
+          <div style="font-size:16px; font-weight:800; color:#FFFFFF;" id="heroVidTitle">Autonomous Ingestion &amp; 20% CIS Deduction Shield</div>
+          <div style="font-size:12px; color:#94A3B8; margin-top:4px;" id="heroVidDesc">Calculating multi-room renovation scope, verifying subcontractor attendance, and exporting formal PDF quote...</div>
+
+          <div class="hero-video-stats-grid">
+            <div>
+              <div style="font-size:10px; color:#64748B; font-family:var(--font-mono); font-weight:700;">HOURS RECOVERED</div>
+              <div style="font-size:16px; font-weight:800; color:#38BDF8; font-family:var(--font-mono); margin-top:2px;" id="heroVidHours">14.5 Hrs/Wk</div>
+            </div>
+            <div>
+              <div style="font-size:10px; color:#64748B; font-family:var(--font-mono); font-weight:700;">RECOVERABLE MARGIN</div>
+              <div style="font-size:16px; font-weight:800; color:#10B981; font-family:var(--font-mono); margin-top:2px;" id="heroVidBleed">+GBP 2,850.00</div>
+            </div>
+            <div>
+              <div style="font-size:10px; color:#64748B; font-family:var(--font-mono); font-weight:700;">QUOTE TURNAROUND</div>
+              <div style="font-size:16px; font-weight:800; color:#F59E0B; font-family:var(--font-mono); margin-top:2px;" id="heroVidSpeed">14 Seconds</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-video-caption-bar" id="heroVidCaption">
+          Click "Play 45s Operational Walkthrough" to hear the contractor voiceover walkthrough.
+        </div>
+      </div>
+
+      <div class="hero-video-bottom-bar">
+        <div style="display:flex; gap:10px; align-items:center;">
+          <button onclick="toggleHeroVideoPlay()" id="heroVidPlayBtn" style="background:#2563EB; color:white; border:none; padding:8px 18px; border-radius:6px; font-size:12px; font-weight:800; cursor:pointer;">Play 45s Walkthrough</button>
+          <button onclick="restartHeroVideo()" style="background:#1E293B; color:#CBD5E1; border:1px solid #334155; padding:8px 14px; border-radius:6px; font-size:12px; font-weight:700; cursor:pointer;">Restart</button>
+          <span style="font-family:var(--font-mono); font-size:11px; color:#38BDF8; font-weight:700;" id="heroVidTimeline">0:00 / 0:45</span>
+        </div>
+        <div>
+          <button onclick="openSandboxActivationModal('SiteCommand OS')" class="header-action-link" style="border:none; cursor:pointer;">Claim Free 7-Day Access</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -416,7 +483,10 @@ Outcome: 18% to 26% direct response rate within 4 hours.
   </div>
 
   <!-- Enterprise Footer -->
-  <footer class="footer">
+  <footer class="footer" style="padding: 36px 20px; text-align: center;">
+    <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+      <div id="jurisdiction-picker-container"></div>
+    </div>
     <p>&copy; 2026 SiteCommand OS &amp; Sovereign Systems. All rights reserved. Support: <a href="https://t.me/sovereign_ai_hub_bot">AI Concierge</a></p>
   </footer>
 
@@ -432,5 +502,8 @@ Outcome: 18% to 26% direct response rate within 4 hours.
   </script>
 
   <script src="bespoke_portal_engine.js"></script>
+  <script src="universal_pdf_proposal_engine.js"></script>
+  <script src="sandbox_activation_modal.js"></script>
+  <script src="portal_video_walkthrough_engine.js"></script>
 </body>
 </html>

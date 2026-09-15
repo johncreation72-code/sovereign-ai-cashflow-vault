@@ -19,15 +19,12 @@ function getAllDeployableFiles(dir, baseDir = '') {
         results = results.concat(getAllDeployableFiles(fullPath, relPath));
       }
     } else {
-      if (entry.name.endsWith('.html') || entry.name.endsWith('.css') || entry.name.endsWith('.js') || entry.name.endsWith('.json') || entry.name.endsWith('.jpg') || entry.name.endsWith('.png')) {
-        // Skip backend-only daemons from public frontend deployment if very large
-        if (!entry.name.includes('daemon') && !entry.name.includes('bot') && !entry.name.includes('package')) {
-          results.push({
-            file: relPath,
-            data: fs.readFileSync(fullPath).toString('base64'),
-            encoding: 'base64'
-          });
-        } else if (entry.name.endsWith('.html') || entry.name.endsWith('.js')) {
+      const stats = fs.statSync(fullPath);
+      if (stats.size > 5 * 1024 * 1024 || entry.name.includes('global_dynamic_lead_vault')) {
+        continue;
+      }
+      if (entry.name.endsWith('.html') || entry.name.endsWith('.css') || entry.name.endsWith('.js') || entry.name.endsWith('.json') || entry.name.endsWith('.jpg') || entry.name.endsWith('.png') || entry.name.endsWith('.mp3')) {
+        if (!entry.name.includes('daemon') && !entry.name.includes('bot') && !entry.name.includes('package-lock')) {
           results.push({
             file: relPath,
             data: fs.readFileSync(fullPath).toString('base64'),
