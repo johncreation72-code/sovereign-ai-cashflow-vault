@@ -26,6 +26,8 @@ function getCredentials() {
     brevoKey: process.env.BREVO_API_KEY || (creds.brevo && creds.brevo.apiKey) || "",
     resendKey: process.env.RESEND_API_KEY || (creds.resend && creds.resend.apiKey) || "",
     sendgridKey: process.env.SENDGRID_API_KEY || (creds.sendgrid && creds.sendgrid.apiKey) || "",
+    mailgunKey: process.env.MAILGUN_API_KEY || (creds.mailgun && creds.mailgun.apiKey) || "",
+    mailgunDomain: process.env.MAILGUN_DOMAIN || (creds.mailgun && creds.mailgun.domain) || "",
     senderEmail: (creds.brevo && creds.brevo.email) || "johncreation72@gmail.com"
   };
 }
@@ -204,6 +206,47 @@ function sendSendGridEmail({ to, subject, htmlContent, textContent }) {
   });
 }
 
+function sendMailgunEmail({ to, subject, htmlContent, textContent }) {
+  return new Promise((resolve) => {
+    const creds = getCredentials();
+    if (!creds.mailgunKey || !creds.mailgunDomain) return resolve({ error: true, message: "Missing Mailgun Credentials" });
+
+    const auth = Buffer.from(`api:${creds.mailgunKey}`).toString("base64");
+    const formData = new URLSearchParams();
+    formData.append("from", `Sovereign Systems <postmaster@${creds.mailgunDomain}>`);
+    formData.append("to", to);
+    formData.append("subject", subject);
+    formData.append("text", textContent);
+    formData.append("html", htmlContent);
+
+    const payload = formData.toString();
+
+    const req = https.request({
+      hostname: "api.mailgun.net",
+      path: `/v3/${creds.mailgunDomain}/messages`,
+      method: "POST",
+      headers: {
+        "Authorization": `Basic ${auth}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Length": Buffer.byteLength(payload)
+      },
+      timeout: 5000
+    }, (res) => {
+      let body = "";
+      res.on("data", chunk => body += chunk);
+      res.on("end", () => {
+        try { resolve({ status: res.statusCode, data: JSON.parse(body) }); }
+        catch (e) { resolve({ status: res.statusCode, raw: body }); }
+      });
+    });
+
+    req.on("error", err => resolve({ error: true, message: err.message }));
+    req.on("timeout", () => { req.destroy(); resolve({ error: true, message: "timeout" }); });
+    req.write(payload);
+    req.end();
+  });
+}
+
 function buildEmailPayload(lead) {
   const tpl = SECTOR_TEMPLATES[lead.sector] || SECTOR_TEMPLATES["Builders & Construction"];
   const docRef = "DOC-" + lead.companyNumber.replace(/[^0-9]/g, "").slice(0, 8);
@@ -267,6 +310,7 @@ async function dispatchSingleLead(lead, preferredProvider = null) {
     if (creds.brevoKey) available.push("Brevo (300/Day)");
     if (creds.resendKey) available.push("Resend (100/Day)");
     if (creds.sendgridKey) available.push("SendGrid (100/Day)");
+    if (creds.mailgunKey) available.push("Mailgun (Starter)");
     provider = available.length > 0 ? available[dispatchCounter % available.length] : "Brevo (300/Day)";
     dispatchCounter++;
   }
@@ -314,8 +358,7 @@ async function runBatchDispatch(count = 25) {
   const creds = getCredentials();
   console.log("================================================================================");
   console.log(` SOVEREIGN MULTI-PROVIDER DISPATCHER // RUNNING BATCH OF ${count} DISPATCHES`);
-  console.log(` Active Free Tiers: Brevo (300/day: ${creds.brevoKey ? "ONLINE" : "OFFLINE"}), Resend (100/day: ${creds.resendKey ? "ONLINE" : "OFFLINE"}), SendGrid (100/day: ${creds.sendgridKey ? "ONLINE" : "OFFLINE"})`);
-  console.log(" Total Active Capacity: 500 Free Emails / Day (15,000 / Month)");
+  console.log(` Active Free Tiers: Brevo (300/day: ${creds.brevoKey ? "ONLINE" : "OFFLINE"}), Resend (100/day: ${creds.resendKey ? "ONLINE" : "OFFLINE"}), SendGrid (100/day: ${creds.sendgridKey ? "ONLINE" : "OFFLINE"}), Mailgun (${creds.mailgunKey ? "ONLINE" : "OFFLINE"})`);
   console.log(" Mode: 100% Ground Truth // Supabase Cloud PostgreSQL // Zero Local Dependency");
   console.log("================================================================================\n");
 
