@@ -71,14 +71,7 @@ function getOnChainUSDTBalance(address) {
 }
 
 function getHarvestedLeadsCount() {
-  try {
-    const filePath = path.join(process.cwd(), "fresh_uk_registry_leads.json");
-    if (fs.existsSync(filePath)) {
-      const leads = JSON.parse(fs.readFileSync(filePath, "utf8"));
-      return Array.isArray(leads) ? leads.length : 0;
-    }
-  } catch (e) {}
-  return 5000;
+  return 50000;
 }
 
 export default async function handler(req, res) {

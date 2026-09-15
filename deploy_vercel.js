@@ -21,7 +21,7 @@ function getAllDeployableFiles(dir, baseDir = '') {
       }
     } else {
       const stats = fs.statSync(fullPath);
-      if (stats.size > 20 * 1024 * 1024 || entry.name === 'global_dynamic_lead_vault.json') {
+      if (stats.size > 35 * 1024 * 1024 || entry.name === 'global_dynamic_lead_vault.json') {
         continue;
       }
       const allowedExts = ['.html', '.css', '.js', '.json', '.jpg', '.jpeg', '.png', '.mp3', '.svg', '.webp'];
