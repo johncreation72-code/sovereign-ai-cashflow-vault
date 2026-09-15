@@ -1,9 +1,8 @@
 /**
- * Sovereign Live In-Browser Conversational Diagnostic Widget
- * Real-time inbound lead capture and instant proposal dispatch.
+ * Sovereign Live In-Browser Executive AI Concierge Widget
+ * Direct multi-turn advisory chat powered by Sovereign Intelligence Core.
  */
 (function() {
-  // Inject widget styling
   const style = document.createElement('style');
   style.innerHTML = `
     .sov-chat-trigger {
@@ -41,8 +40,10 @@
       position: fixed;
       bottom: 80px;
       right: 24px;
-      width: 360px;
+      width: 380px;
+      height: 500px;
       max-width: calc(100vw - 48px);
+      max-height: calc(100vh - 120px);
       background: #FFFFFF;
       border: 1px solid #E2E8F0;
       border-radius: 16px;
@@ -56,150 +57,119 @@
     .sov-chat-header {
       background: #0F172A;
       color: #FFFFFF;
-      padding: 16px 20px;
+      padding: 14px 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 2px solid #2563EB;
     }
     .sov-chat-header h4 {
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 700;
       margin: 0;
-      letter-spacing: -0.3px;
     }
     .sov-chat-header p {
       font-size: 11px;
-      color: #94A3B8;
+      color: #38BDF8;
       margin: 2px 0 0 0;
     }
     .sov-chat-close {
       background: none;
       border: none;
       color: #94A3B8;
-      font-size: 18px;
+      font-size: 20px;
       cursor: pointer;
+      line-height: 1;
     }
-    .sov-chat-body {
-      padding: 20px;
-      background: #F8FAFC;
-      max-height: 420px;
+    .sov-chat-messages {
+      flex: 1;
+      padding: 16px;
       overflow-y: auto;
-    }
-    .sov-chat-msg {
-      background: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      border-radius: 10px;
-      padding: 12px 14px;
+      background: #F8FAFC;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       font-size: 13px;
-      color: #334155;
+    }
+    .sov-msg-ai {
+      background: #FFFFFF;
+      color: #1E293B;
+      padding: 12px 14px;
+      border-radius: 12px 12px 12px 2px;
+      border: 1px solid #E2E8F0;
+      max-width: 85%;
       line-height: 1.5;
-      margin-bottom: 14px;
+      align-self: flex-start;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
-    .sov-chat-input-group {
-      margin-bottom: 12px;
+    .sov-msg-user {
+      background: #2563EB;
+      color: #FFFFFF;
+      padding: 12px 14px;
+      border-radius: 12px 12px 2px 12px;
+      max-width: 85%;
+      line-height: 1.5;
+      align-self: flex-end;
     }
-    .sov-chat-input-group label {
-      display: block;
-      font-size: 11px;
-      font-weight: 700;
-      color: #475569;
-      margin-bottom: 4px;
-      text-transform: uppercase;
+    .sov-chat-input-area {
+      padding: 12px 14px;
+      background: #FFFFFF;
+      border-top: 1px solid #E2E8F0;
+      display: flex;
+      gap: 8px;
     }
-    .sov-chat-input {
-      width: 100%;
-      padding: 10px 12px;
+    .sov-chat-input-field {
+      flex: 1;
+      padding: 10px 14px;
       border: 1px solid #CBD5E1;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 13px;
       outline: none;
-      box-sizing: border-box;
-      background: #FFFFFF;
+      font-family: inherit;
     }
-    .sov-chat-input:focus {
+    .sov-chat-input-field:focus {
       border-color: #2563EB;
     }
-    .sov-chat-submit {
-      width: 100%;
-      padding: 12px;
+    .sov-chat-send-btn {
       background: #2563EB;
       color: #FFFFFF;
       border: none;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .sov-chat-submit:hover {
-      background: #1D4ED8;
-    }
-    .sov-success-msg {
-      display: none;
-      background: #ECFDF5;
-      border: 1px solid #A7F3D0;
-      color: #065F46;
-      padding: 14px;
+      padding: 0 16px;
       border-radius: 8px;
-      font-size: 12px;
-      text-align: center;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .sov-chat-send-btn:hover {
+      background: #1D4ED8;
     }
   `;
   document.head.appendChild(style);
 
-  // Inject widget HTML
   const container = document.createElement('div');
   container.innerHTML = `
-    <button class="sov-chat-trigger" onclick="toggleSovereignChat()">
-      <span class="sov-trigger-dot"></span>
-      <span>Direct Concierge &amp; Live Quote</span>
-    </button>
+    <div class="sov-chat-trigger" onclick="toggleSovereignChat()">
+      <div class="sov-trigger-dot"></div>
+      <span>Executive Concierge</span>
+    </div>
 
     <div class="sov-chat-box" id="sovereignChatBox">
       <div class="sov-chat-header">
         <div>
-          <h4>Sovereign Live Concierge</h4>
-          <p>Instant Commercial Proposal &amp; Triage</p>
+          <h4>Sovereign Systems Concierge</h4>
+          <p>UK Commercial Operations Advisory</p>
         </div>
         <button class="sov-chat-close" onclick="toggleSovereignChat()">&times;</button>
       </div>
-      <div class="sov-chat-body">
-        <div class="sov-chat-msg">
-          <strong>Operational Intake:</strong> Enter your details below to receive an instant, bank-grade proposal tailored to your business operations.
-        </div>
-
-        <form id="sovInboundForm" onsubmit="submitSovereignInbound(event)">
-          <div class="sov-chat-input-group">
-            <label>Business / Director Name</label>
-            <input type="text" id="sovInboundName" class="sov-chat-input" placeholder="e.g. Kensington Roofing Ltd" required>
-          </div>
-          <div class="sov-chat-input-group">
-            <label>Phone / WhatsApp Number</label>
-            <input type="tel" id="sovInboundPhone" class="sov-chat-input" placeholder="e.g. +44 7700 900123" required>
-          </div>
-          <div class="sov-chat-input-group">
-            <label>Email Address</label>
-            <input type="email" id="sovInboundEmail" class="sov-chat-input" placeholder="e.g. director@company.com" required>
-          </div>
-          <div class="sov-chat-input-group">
-            <label>Trade / Industry Sector</label>
-            <select id="sovInboundSector" class="sov-chat-input">
-              <option value="Builders & Construction">Builders &amp; Construction (CIS 20%)</option>
-              <option value="Dental & Medical">Dental &amp; Cosmetic Practices</option>
-              <option value="HVAC & Plumbing">HVAC &amp; Gas Safety</option>
-              <option value="Auto Garages & MOT">Auto Garages &amp; MOT Centers</option>
-              <option value="Logistics & Haulage">Logistics &amp; Freight Fleets</option>
-              <option value="Other Commercial">Other Commercial Business</option>
-            </select>
-          </div>
-          <button type="submit" class="sov-chat-submit">Generate Live Commercial Proposal</button>
-        </form>
-
-        <div class="sov-success-msg" id="sovSuccessMsg">
-          Proposal generated and logged. An operations specialist has been notified and will dispatch the formal PDF contract directly to your WhatsApp / Email within 60 seconds.
+      <div class="sov-chat-messages" id="sovChatMessages">
+        <div class="sov-msg-ai">
+          Hello. I am the Sovereign Operations Concierge. How can I assist your business today with our trade operating portals, CIS automation, or complimentary 7-day trials?
         </div>
       </div>
+      <form class="sov-chat-input-area" onsubmit="sendSovereignChatMessage(event)">
+        <input type="text" id="sovChatInput" class="sov-chat-input-field" placeholder="Ask a question..." autocomplete="off" required>
+        <button type="submit" class="sov-chat-send-btn">Send</button>
+      </form>
     </div>
   `;
   document.body.appendChild(container);
@@ -208,32 +178,60 @@
     const box = document.getElementById('sovereignChatBox');
     if (box) {
       box.style.display = (box.style.display === 'flex') ? 'none' : 'flex';
-      if (box.style.display === 'flex' && window.reportTelemetryEvent) {
-        window.reportTelemetryEvent('modal_opened', 'Opened Live Concierge Widget');
+      if (box.style.display === 'flex') {
+        const inp = document.getElementById('sovChatInput');
+        if (inp) inp.focus();
       }
     }
   };
 
-  window.submitSovereignInbound = function(e) {
+  window.sendSovereignChatMessage = async function(e) {
     e.preventDefault();
-    const name = document.getElementById('sovInboundName').value;
-    const phone = document.getElementById('sovInboundPhone').value;
-    const email = document.getElementById('sovInboundEmail').value;
-    const sector = document.getElementById('sovInboundSector').value;
+    const input = document.getElementById('sovChatInput');
+    const msg = input.value.trim();
+    if (!msg) return;
 
-    const payload = {
-      event: 'inbound_lead',
-      page: window.location.pathname.split('/').pop() || 'index.html',
-      detail: `${name} | ${phone} | ${sector} | ${email}`
-    };
+    const chatContainer = document.getElementById('sovChatMessages');
 
-    fetch('/api/telemetry', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    }).catch(() => {});
+    // Add user message
+    const userDiv = document.createElement('div');
+    userDiv.className = 'sov-msg-user';
+    userDiv.innerText = msg;
+    chatContainer.appendChild(userDiv);
+    input.value = '';
+    chatContainer.scrollTop = chatContainer.scrollHeight;
 
-    document.getElementById('sovInboundForm').style.display = 'none';
-    document.getElementById('sovSuccessMsg').style.display = 'block';
+    // Loading indicator
+    const aiDiv = document.createElement('div');
+    aiDiv.className = 'sov-msg-ai';
+    aiDiv.innerText = 'Analyzing operational query...';
+    chatContainer.appendChild(aiDiv);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const biz = urlParams.get('biz') || '';
+    const ref = urlParams.get('ref') || '';
+    const pageName = window.location.pathname.split('/').pop() || 'index.html';
+
+    try {
+      const res = await fetch('/api/ai_concierge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: msg,
+          context: { biz, ref, page: pageName }
+        })
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        aiDiv.innerText = data.reply || 'Thank you for reaching out. An operations specialist will follow up directly.';
+      } else {
+        aiDiv.innerText = 'Thank you for your message. You can activate your complimentary 7-day trial at https://whop.com/checkout/plan_UL1yNCSJUr2Ka or ask any operational questions here.';
+      }
+    } catch (err) {
+      aiDiv.innerText = 'Thank you for your inquiry. Sovereign OS includes a 7-day zero-risk trial. You can reach our engineering team or activate your access at https://whop.com/checkout/plan_UL1yNCSJUr2Ka.';
+    }
+    chatContainer.scrollTop = chatContainer.scrollHeight;
   };
 })();
