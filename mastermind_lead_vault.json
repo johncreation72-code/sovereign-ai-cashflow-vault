@@ -8,7 +8,7 @@
     "industry": "Real Estate & Brokerage",
     "confidence": 98,
     "tier": 1,
-    "tierLabel": "👑 Tier 1: C-Suite / Owner",
+    "tierLabel": " Tier 1: C-Suite / Owner",
     "priorityScore": 96,
     "pitch": {
       "subject": "Quick question regarding realtor.com automation efficiency, Mickey",
@@ -24,7 +24,7 @@
     "industry": "Real Estate & Brokerage",
     "confidence": 98,
     "tier": 1,
-    "tierLabel": "👑 Tier 1: C-Suite / Owner",
+    "tierLabel": " Tier 1: C-Suite / Owner",
     "priorityScore": 96,
     "pitch": {
       "subject": "Quick question regarding realtor.com automation efficiency, Damian",
@@ -40,7 +40,7 @@
     "industry": "Real Estate & Brokerage",
     "confidence": 98,
     "tier": 3,
-    "tierLabel": "📌 Tier 3: Management",
+    "tierLabel": " Tier 3: Management",
     "priorityScore": 65,
     "pitch": {
       "subject": "Quick question regarding realtor.com automation efficiency, Danielle",
@@ -56,7 +56,7 @@
     "industry": "Real Estate & Brokerage",
     "confidence": 99,
     "tier": 3,
-    "tierLabel": "📌 Tier 3: Management",
+    "tierLabel": " Tier 3: Management",
     "priorityScore": 65,
     "pitch": {
       "subject": "Quick question regarding realtor.com automation efficiency, Daniel",
@@ -72,7 +72,7 @@
     "industry": "B2B SaaS & Growth",
     "confidence": 99,
     "tier": 1,
-    "tierLabel": "👑 Tier 1: C-Suite / Owner",
+    "tierLabel": " Tier 1: C-Suite / Owner",
     "priorityScore": 96,
     "pitch": {
       "subject": "Quick question regarding hubspot.com automation efficiency, Angel",
@@ -88,7 +88,7 @@
     "industry": "B2B SaaS & Growth",
     "confidence": 99,
     "tier": 1,
-    "tierLabel": "👑 Tier 1: C-Suite / Owner",
+    "tierLabel": " Tier 1: C-Suite / Owner",
     "priorityScore": 96,
     "pitch": {
       "subject": "Quick question regarding hubspot.com automation efficiency, Paulo",
@@ -120,7 +120,7 @@
     "industry": "B2B SaaS & Growth",
     "confidence": 99,
     "tier": 3,
-    "tierLabel": "📌 Tier 3: Management",
+    "tierLabel": " Tier 3: Management",
     "priorityScore": 65,
     "pitch": {
       "subject": "Quick question regarding hubspot.com automation efficiency, Dharmesh",

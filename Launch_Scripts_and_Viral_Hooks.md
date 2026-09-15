@@ -7,9 +7,9 @@
 
 **TikTok / Instagram / YouTube Bio:**
 ```
-⚡ Master 2026 AI Workflows to Print $100–$300/Day
-🤖 50 Copy-Paste Prompts & Direct Blueprints
-👇 Grab the 2026 AI Cashflow Blueprint (Instant Access)
+ Master 2026 AI Workflows to Print $100–$300/Day
+ 50 Copy-Paste Prompts & Direct Blueprints
+ Grab the 2026 AI Cashflow Blueprint (Instant Access)
 [YOUR SELLIX / WHOP LINK HERE]
 ```
 

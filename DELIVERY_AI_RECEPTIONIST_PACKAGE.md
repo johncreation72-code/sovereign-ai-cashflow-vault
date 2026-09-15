@@ -127,7 +127,7 @@ node receptionist_webhook.js
 
 ### Step 3: Connect Twilio Phone Number
 1. Log in to [Twilio Console](https://console.twilio.com/).
-2. Navigate to **Phone Numbers** ➔ **Active Numbers**.
+2. Navigate to **Phone Numbers**  **Active Numbers**.
 3. Under **Voice & Fax**, set "A CALL COMES IN" webhook to: `https://your-domain.com/voice/incoming`.
 4. Under **Messaging**, set "A MESSAGE COMES IN" webhook to: `https://your-domain.com/sms/incoming`.
 

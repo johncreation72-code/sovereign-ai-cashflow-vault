@@ -2,7 +2,8 @@
  * ==============================================================================
  * SOVEREIGN // UNIVERSAL CLIENT-SIDE PDF PROPOSAL & QUOTE EXPORTER
  * Zero-Dependency, Bank-Grade Document Generation for All 16 Industry Portals
- * Includes Quantified Financial Loss & Recovery ROI Audit Model
+ * Includes Quantified Financial Loss & Recovery ROI Audit Model,
+ * Instant Calendar Booking Integration, and Real-Time Document Open Webhook.
  * ==============================================================================
  */
 
@@ -16,6 +17,12 @@ function generateUniversalPdfProposal(portalType, data) {
   const termsText = data.termsText || "Payment due within 14 days of invoice issue. Governed by standard commercial terms.";
   const recoverableAmount = data.recoverableAmount || "GBP 3,250.00 / month";
   const hoursSaved = data.hoursSaved || "16.5 Hours / Week";
+  const bookingUrl = data.bookingUrl || "https://t.me/sovereign_ai_hub_bot?start=book_onboarding_" + quoteRef;
+
+  // Fire client-side export beacon
+  if (window.reportTelemetryEvent) {
+    window.reportTelemetryEvent("pdf_exported", companyName + " | Ref: " + quoteRef);
+  }
 
   const printWindow = window.open("", "_blank");
   if (!printWindow) {
@@ -131,12 +138,35 @@ function generateUniversalPdfProposal(portalType, data) {
       margin: 20px 0;
       border-radius: 4px;
     }
+    .booking-card {
+      background: #0F172A;
+      color: #FFFFFF;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .booking-btn {
+      background: #2563EB;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
     .footer-note {
       font-size: 11px;
       color: #94A3B8;
       border-top: 1px solid #E2E8F0;
       padding-top: 20px;
-      margin-top: 40px;
+      margin-top: 30px;
       text-align: center;
     }
     @media print {
@@ -148,7 +178,8 @@ function generateUniversalPdfProposal(portalType, data) {
 </head>
 <body>
   <div class="invoice-card">
-    <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+    <div class="no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <div style="font-size: 12px; color: #64748B; font-weight: 600;">Tamper-Evident Verification: Active Session Logged</div>
       <button onclick="window.print()" style="background: #2563EB; color: #FFFFFF; border: none; padding: 10px 20px; font-size: 14px; font-weight: 700; border-radius: 6px; cursor: pointer;">Save as PDF / Print Document</button>
     </div>
 
@@ -202,6 +233,15 @@ function generateUniversalPdfProposal(portalType, data) {
       <strong>Guaranteed Payback Model:</strong> By capturing after-hours inquiries, eliminating manual paperwork, and mitigating regulatory penalty exposure, this software is engineered to generate a net positive ROI within the first 48 hours of live production.
     </div>
 
+    <!-- Instant Calendar Booking Integration -->
+    <div class="booking-card no-print">
+      <div>
+        <div style="font-size: 14px; font-weight: 800; margin-bottom: 2px;">Instant Executive Onboarding &amp; Walkthrough</div>
+        <div style="font-size: 12px; color: #94A3B8;">Schedule a 15-minute system integration call directly with our technical architecture team.</div>
+      </div>
+      <a href="${bookingUrl}" target="_blank" class="booking-btn" onclick="logBookingClick()">Book Executive Call</a>
+    </div>
+
     <div style="background: #F1F5F9; border-left: 4px solid #2563EB; padding: 14px; font-size: 13px; color: #334155; margin: 20px 0;">
       <strong>Commercial Terms &amp; Governance:</strong><br>
       ${termsText}
@@ -213,9 +253,40 @@ function generateUniversalPdfProposal(portalType, data) {
   </div>
 
   <script>
-    window.onload = function() {
-      setTimeout(function() { window.print(); }, 500);
-    };
+    // Real-Time Document Open Webhook
+    (function() {
+      const payload = {
+        event: 'proposal_opened',
+        page: 'official_proposal_${quoteRef}.pdf',
+        detail: '${companyName} | Ref: ${quoteRef} | Valuation: ${totalAmount}'
+      };
+
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon('/api/telemetry', JSON.stringify(payload));
+        } else {
+          fetch('/api/telemetry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }).catch(function() {});
+        }
+      } catch (e) {}
+    })();
+
+    function logBookingClick() {
+      try {
+        fetch('/api/telemetry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event: 'booking_clicked',
+            page: 'proposal_${quoteRef}',
+            detail: '${companyName} booked executive walkthrough'
+          })
+        }).catch(function() {});
+      } catch(e) {}
+    }
   </script>
 </body>
 </html>

@@ -50,5 +50,27 @@
 
     <a href="https://sovereign-empire-os-ub2.vercel.app/sitecommand_os.html?biz=Kronen+Bau" target="_blank" class="cta-btn">Access Pre-Configured Suite for Kronen Bau & Projektentwicklung GmbH &rarr;</a>
   </div>
+
+  <!-- Real-Time Document Open Webhook & Instant Booking -->
+  <script>
+    (function() {
+      var payload = {
+        event: 'document_opened',
+        page: 'audit_kronen_bau___projektentwicklung_gmbh.html',
+        detail: 'Executive Audit Reviewed: ' + document.title
+      };
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon('/api/telemetry', JSON.stringify(payload));
+        } else {
+          fetch('/api/telemetry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }).catch(function() {});
+        }
+      } catch (e) {}
+    })();
+  </script>
 </body>
 </html>
