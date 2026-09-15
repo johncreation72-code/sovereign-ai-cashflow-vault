@@ -22,7 +22,8 @@ const MANAGED_SERVICES = [
   { name: "Wallet Settlement Sentinel", script: "wallet_payment_sentinel.js" },
   { name: "Neural Optimization Sentinel", script: "autonomous_neural_learning_sentinel.js" },
   { name: "Content Broadcast Scheduler", script: "autonomous_scheduler_daemon.js" },
-  { name: "WhatsApp AI Bridge", script: "whatsapp_bridge_daemon.js" }
+  { name: "WhatsApp AI Bridge", script: "whatsapp_bridge_daemon.js" },
+  { name: "Omni-Channel Outreach Accelerator", script: "cloud_omni_outreach_accelerator.js" }
 ];
 
 const activeProcesses = {};
