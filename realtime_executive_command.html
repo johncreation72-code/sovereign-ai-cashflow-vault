@@ -910,11 +910,23 @@
         }
       }
 
-      // Page Breakdown in Sector Table
-      if (data.pageBreakdown) {
-        if (document.getElementById("secSentBuilders")) document.getElementById("secSentBuilders").innerText = data.pageBreakdown["sitecommand_os.html"] || 0;
-        if (document.getElementById("secSentDental")) document.getElementById("secSentDental").innerText = data.pageBreakdown["clinic_sovereign_os.html"] || 0;
-        if (document.getElementById("secSentHVAC")) document.getElementById("secSentHVAC").innerText = data.pageBreakdown["index.html"] || 0;
+      // Sector Breakdown Table
+      if (data.sectorBreakdown) {
+        const sb = data.sectorBreakdown;
+        if (document.getElementById("secSentBuilders")) document.getElementById("secSentBuilders").innerText = sb.builders.sent || 0;
+        if (document.getElementById("secEngBuilders")) document.getElementById("secEngBuilders").innerText = sb.builders.engaged || 0;
+
+        if (document.getElementById("secSentDental")) document.getElementById("secSentDental").innerText = sb.dental.sent || 0;
+        if (document.getElementById("secEngDental")) document.getElementById("secEngDental").innerText = sb.dental.engaged || 0;
+
+        if (document.getElementById("secSentHVAC")) document.getElementById("secSentHVAC").innerText = sb.hvac.sent || 0;
+        if (document.getElementById("secEngHVAC")) document.getElementById("secEngHVAC").innerText = sb.hvac.engaged || 0;
+
+        if (document.getElementById("secSentAuto")) document.getElementById("secSentAuto").innerText = sb.auto.sent || 0;
+        if (document.getElementById("secEngAuto")) document.getElementById("secEngAuto").innerText = sb.auto.engaged || 0;
+
+        if (document.getElementById("secSentFreight")) document.getElementById("secSentFreight").innerText = sb.dining.sent || 0;
+        if (document.getElementById("secEngFreight")) document.getElementById("secEngFreight").innerText = sb.dining.engaged || 0;
       }
 
       const streamText = document.getElementById("liveActionTimers");

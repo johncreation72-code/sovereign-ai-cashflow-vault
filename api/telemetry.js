@@ -168,7 +168,7 @@ export default async function handler(req, res) {
   let supabaseLeads = [];
   try {
     const queryRes = await supabaseRequest(
-      `leads?campaign_id=eq.${CAMPAIGN_ID}&select=id,first_name,last_name,email,status,sent_at,opened_at,clicked_at,booked_at,error_message,created_at&order=created_at.desc&limit=50`
+      `leads?campaign_id=eq.${CAMPAIGN_ID}&select=id,first_name,last_name,email,status,sent_at,opened_at,clicked_at,booked_at,error_message,created_at&order=created_at.desc&limit=250`
     );
     if (Array.isArray(queryRes.data)) {
       supabaseLeads = queryRes.data;
@@ -182,18 +182,48 @@ export default async function handler(req, res) {
   let clicksCount = 0;
   let paidCount = 0;
 
+  const sectorBreakdown = {
+    builders: { sent: 0, engaged: 0 },
+    dental: { sent: 0, engaged: 0 },
+    hvac: { sent: 0, engaged: 0 },
+    auto: { sent: 0, engaged: 0 },
+    dining: { sent: 0, engaged: 0 }
+  };
+
   const realEventsList = [];
 
   supabaseLeads.forEach(item => {
     sentCount++;
-    if (item.opened_at || item.status === "opened") opensCount++;
-    if (item.clicked_at || item.status === "clicked") clicksCount++;
+    const isOpened = item.opened_at || item.status === "opened";
+    const isClicked = item.clicked_at || item.status === "clicked";
+    if (isOpened) opensCount++;
+    if (isClicked) clicksCount++;
     if (item.booked_at || item.status === "captured") leadsCount++;
     if (item.status === "paid") paidCount++;
 
+    // Sector attribution
+    const secName = (item.last_name || "").toLowerCase();
+    const errMsg = (item.error_message || "").toLowerCase();
+
+    if (secName.includes("builder") || errMsg.includes("builder") || errMsg.includes("construction") || errMsg.includes("cis")) {
+      sectorBreakdown.builders.sent++;
+      if (isOpened || isClicked) sectorBreakdown.builders.engaged++;
+    } else if (secName.includes("dental") || errMsg.includes("dental") || errMsg.includes("clinic") || errMsg.includes("implant")) {
+      sectorBreakdown.dental.sent++;
+      if (isOpened || isClicked) sectorBreakdown.dental.engaged++;
+    } else if (secName.includes("hvac") || errMsg.includes("hvac") || errMsg.includes("boiler") || errMsg.includes("gas")) {
+      sectorBreakdown.hvac.sent++;
+      if (isOpened || isClicked) sectorBreakdown.hvac.engaged++;
+    } else if (secName.includes("auto") || errMsg.includes("auto") || errMsg.includes("garage") || errMsg.includes("mot") || errMsg.includes("mechanic")) {
+      sectorBreakdown.auto.sent++;
+      if (isOpened || isClicked) sectorBreakdown.auto.engaged++;
+    } else if (secName.includes("dining") || errMsg.includes("dining") || errMsg.includes("bistro") || errMsg.includes("restaurant") || errMsg.includes("culinary")) {
+      sectorBreakdown.dining.sent++;
+      if (isOpened || isClicked) sectorBreakdown.dining.engaged++;
+    }
+
     const itemTime = item.created_at ? new Date(item.created_at).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) : timeStr;
     
-    let eventName = `${item.first_name} (${item.last_name})`;
     let statusTag = "VIEW";
     if (item.status === "opened") statusTag = "OPENED";
     if (item.status === "captured") statusTag = "LEAD";
@@ -226,11 +256,12 @@ export default async function handler(req, res) {
       settledRevenueGBP: (paidCount * 97.0).toFixed(2),
       onChainUSDTBalance: usdtBalance
     },
+    sectorBreakdown: sectorBreakdown,
     pageBreakdown: {
-      "index.html": 0,
-      "sitecommand_os.html": 0,
-      "clinic_sovereign_os.html": 0,
-      "other": 0
+      "index.html": sectorBreakdown.hvac.sent,
+      "sitecommand_os.html": sectorBreakdown.builders.sent,
+      "clinic_sovereign_os.html": sectorBreakdown.dental.sent,
+      "other": sectorBreakdown.auto.sent + sectorBreakdown.dining.sent
     },
     recentRealEvents: realEventsList.slice(0, 15),
     settlementWallet: walletAddr
